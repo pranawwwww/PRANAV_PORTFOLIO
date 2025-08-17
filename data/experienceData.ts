@@ -1,0 +1,26 @@
+import { ExperienceItem } from '../types';
+
+export const experienceData: ExperienceItem[] = [
+  {
+    company: 'Tech Solutions Inc.',
+    role: 'Senior Frontend Engineer',
+    start: '2020',
+    end: 'Present',
+    bullets: [
+      'Led the development of a design system in React and TypeScript, increasing development velocity by 30%.',
+      'Mentored junior engineers, conducted code reviews, and established front-end best practices.',
+      'Improved core web vitals and application performance, resulting in a 15% increase in user engagement.',
+    ],
+  },
+  {
+    company: 'Innovate Digital',
+    role: 'Frontend Developer',
+    start: '2018',
+    end: '2020',
+    bullets: [
+      'Developed and maintained client-facing web applications using Vue.js and Nuxt.',
+      'Collaborated with UI/UX designers to translate wireframes into pixel-perfect, responsive user interfaces.',
+      'Implemented unit and integration tests, improving code coverage from 60% to over 90%.',
+    ],
+  },
+];

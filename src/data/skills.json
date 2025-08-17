@@ -1,0 +1,8 @@
+{
+  "languages": ["TypeScript", "JavaScript (ESNext)", "HTML5", "CSS3", "Go", "SQL"],
+  "web_backend": ["React", "Next.js", "Node.js", "Express", "SvelteKit", "D3.js", "Tailwind CSS"],
+  "devops_infra": ["Git & GitHub", "Docker", "Vite", "Webpack", "Vercel"],
+  "databases": ["PostgreSQL"],
+  "testing": ["Jest", "React Testing Library", "Playwright"],
+  "design": ["Figma", "Design Systems", "Accessibility (WCAG)"]
+}

@@ -1,0 +1,16 @@
+import { SiteData } from '../types';
+
+export const siteData: SiteData = {
+  name: "Alex Doe",
+  tagline: "A frontend engineer focused on building accessible, performant, and delightful user experiences for the web.",
+  location: "San Francisco, CA",
+  links: {
+    email: "mailto:hello@alexdoe.com",
+    emailDisplay: "hello@alexdoe.com",
+    github: "https://github.com/alexdoe",
+    githubDisplay: "github.com/alexdoe",
+    linkedin: "https://linkedin.com/in/alexdoe",
+    linkedinDisplay: "linkedin.com/in/alexdoe",
+    resume: "/alex-doe-resume.pdf"
+  }
+};
