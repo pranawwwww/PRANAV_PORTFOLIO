@@ -5,9 +5,10 @@ import { useFocusTrap } from '../../hooks/useFocusTrap';
 import Message from './Message';
 
 const suggestionChips = [
-    "Tell me about your projects",
-    "What's your experience with React?",
-    "How can I contact you?",
+    "Tell me about Pranav's projects",
+    "What are his technical skills?",
+    "How can I get in touch with him?",
+    "What's his experience like?",
 ];
 
 const ChatModal: React.FC = () => {
@@ -50,7 +51,8 @@ const ChatModal: React.FC = () => {
       aria-hidden={!isOpen}
     >
       <div
-        className="absolute inset-0 bg-black/50"
+        className="absolute inset-0"
+        style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
         onClick={() => toggleChat(false)}
       ></div>
 
@@ -59,18 +61,30 @@ const ChatModal: React.FC = () => {
         role="dialog"
         aria-modal="true"
         aria-labelledby="chat-modal-title"
-        className={`relative flex flex-col w-full max-w-xl h-[70vh] max-h-[600px] bg-[#1a1a1a]/90 backdrop-blur-sm border border-white/10 shadow-2xl transition-all duration-300 ease-out ${
+        className={`chat-modal relative flex flex-col w-full max-w-xl h-[70vh] max-h-[600px] shadow-2xl transition-all duration-300 ease-out ${
           isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
         }`}
+        style={{
+          backgroundColor: 'var(--bg-primary)',
+          border: '1px solid var(--chat-border)',
+          color: 'var(--text-primary)'
+        }}
       >
-        <header className="flex items-center justify-between p-4 border-b border-white/10">
-          <h2 id="chat-modal-title" className="font-bold text-neutral-100 font-mono">
-            TERMINAL
+        <header className="flex items-center justify-between p-4" style={{ borderBottom: '1px solid var(--chat-border)' }}>
+          <h2 id="chat-modal-title" className="font-bold font-mono" style={{ color: 'var(--text-primary)' }}>
+            GROGU - AI ASSISTANT
           </h2>
           <button
             onClick={() => toggleChat(false)}
             aria-label="Close chat"
-            className="p-1 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white"
+            className="p-1 focus:outline-none focus:ring-2 transition-colors"
+            style={{ 
+              color: 'var(--text-primary)',
+              backgroundColor: 'transparent',
+              border: 'none'
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--nav-hover-bg)'}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
           </button>
@@ -88,10 +102,21 @@ const ChatModal: React.FC = () => {
         
         {messages.length <= 1 && !isLoading && (
              <div className="p-4 pt-0">
-                <p className="text-sm text-neutral-400 mb-2 font-mono">Suggestions:</p>
+                <p className="text-sm mb-2 font-mono" style={{ color: 'var(--text-muted)' }}>Suggestions:</p>
                 <div className="flex flex-wrap gap-2">
                     {suggestionChips.map(chip => (
-                        <button key={chip} onClick={() => handleSuggestionClick(chip)} className="px-3 py-1 text-sm bg-white/5 border border-white/20 hover:bg-white/20 transition-colors font-mono">
+                        <button 
+                          key={chip} 
+                          onClick={() => handleSuggestionClick(chip)} 
+                          className="px-3 py-1 text-sm transition-colors font-mono"
+                          style={{
+                            backgroundColor: 'var(--bg-primary)',
+                            border: '1px solid var(--chat-border)',
+                            color: 'var(--text-primary)'
+                          }}
+                          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--nav-hover-bg)'}
+                          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'var(--bg-primary)'}
+                        >
                             {chip}
                         </button>
                     ))}
@@ -99,21 +124,33 @@ const ChatModal: React.FC = () => {
             </div>
         )}
 
-        <form onSubmit={handleSubmit} className="p-4 border-t border-white/10">
+        <form onSubmit={handleSubmit} className="p-4" style={{ borderTop: '1px solid var(--chat-border)' }}>
           <div className="flex items-center space-x-2">
             <input
               type="text"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              placeholder="Enter command..."
+              placeholder="Ask Grogu anything..."
               aria-label="Chat message"
-              className="flex-grow w-full bg-black/20 border border-white/20 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-shadow font-mono"
+              className="flex-grow w-full px-3 py-2 focus:outline-none focus:ring-2 transition-shadow font-mono"
+              style={{
+                backgroundColor: 'var(--bg-primary)',
+                border: '1px solid var(--chat-border)',
+                color: 'var(--text-primary)'
+              }}
             />
             <button
               type="submit"
               disabled={isLoading || !inputValue.trim()}
               aria-label="Send message"
-              className="px-4 py-2 bg-white/20 border border-white/20 hover:bg-white/30 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-white"
+              className="px-4 py-2 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 transition-colors"
+              style={{
+                backgroundColor: 'var(--bg-primary)',
+                border: '1px solid var(--chat-border)',
+                color: 'var(--text-primary)'
+              }}
+              onMouseEnter={(e) => !e.currentTarget.disabled && (e.currentTarget.style.backgroundColor = 'var(--nav-hover-bg)')}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'var(--bg-primary)'}
             >
               Send
             </button>

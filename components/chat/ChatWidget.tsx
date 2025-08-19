@@ -8,15 +8,24 @@ const ChatWidget: React.FC = () => {
 
   return (
     <>
-      <div className="fixed top-1/2 -translate-y-1/2 right-0 z-20">
+      <div className="chat-widget">
         <button
           onClick={() => toggleChat()}
-          aria-label={isOpen ? 'Close chat' : 'Open chat to ask a question'}
-          className={`bg-[#1a1a1a] border-l border-t border-b border-white/20 rounded-r-none px-2 py-4 text-sm font-medium hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-1 focus:ring-offset-[#1a1a1a] transition-all duration-300 [writing-mode:vertical-rl] transform rotate-180 ${
+          aria-label={isOpen ? 'Close chat' : 'Chat with Grogu, the AI assistant'}
+          className={`border border-[var(--border-color)] text-[var(--text-primary)] px-4 py-2 flex items-center justify-center text-sm font-medium hover:bg-[var(--nav-hover-bg)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)] transition-all duration-300 font-mono uppercase tracking-wide ${
             isOpen ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'
           }`}
+          style={{
+            position: 'fixed',
+            bottom: '20px',
+            right: '20px',
+            zIndex: 9999,
+            borderRadius: '6px',
+            minWidth: '140px',
+            backgroundColor: 'var(--bg-primary)'
+          }}
         >
-          Ask Me Anything
+          Chat with Grogu
         </button>
       </div>
       <ChatModal />

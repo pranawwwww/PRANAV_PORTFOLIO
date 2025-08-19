@@ -1,16 +1,16 @@
 import { SiteData } from '../types';
 
 export const siteData: SiteData = {
-  name: "Alex Doe",
-  tagline: "A frontend engineer focused on building accessible, performant, and delightful user experiences for the web.",
-  location: "San Francisco, CA",
+  name: "Pranav Kutralingam",
+  tagline: "Software Developer & CS Graduate | Full-stack development with React, Python, and cloud technologies",
+  location: "New Jersey, NJ",
   links: {
-    email: "mailto:hello@alexdoe.com",
-    emailDisplay: "hello@alexdoe.com",
-    github: "https://github.com/alexdoe",
-    githubDisplay: "github.com/alexdoe",
-    linkedin: "https://linkedin.com/in/alexdoe",
-    linkedinDisplay: "linkedin.com/in/alexdoe",
-    resume: "/alex-doe-resume.pdf"
+    email: "mailto:thiru.pranav@gmail.com",
+    emailDisplay: "thiru.pranav@gmail.com",
+    github: "https://github.com/pranawwwww",
+    githubDisplay: "github.com/pranawwwww",
+    linkedin: "https://linkedin.com/in/pranav-kutralingam",
+    linkedinDisplay: "linkedin.com/in/pranav-kutralingam",
+    resume: "/T_PRANAV_RESUME_SDEV.pdf"
   }
 };

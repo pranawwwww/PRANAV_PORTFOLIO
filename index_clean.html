@@ -50,12 +50,12 @@
             --nav-active-bg: rgba(0, 0, 0, 0.1);
             --nav-active-border: rgba(0, 0, 0, 0.4);
             --accent-color: #000000;
-            --card-bg: #fefcf7;
+            --card-bg: #f8f4ec;
             --input-bg: #ffffff;
-            --chat-bg: #fefcf7;
+            --chat-bg: #f8f4ec;
             --chat-user-bg: rgba(0, 0, 0, 0.08);
             --chat-bot-bg: rgba(0, 0, 0, 0.03);
-            --chat-border: rgba(0, 0, 0, 0.3);
+            --chat-border: rgba(0, 0, 0, 0.15);
         }
         
         /* Global body styling */
@@ -86,22 +86,8 @@
             border: 1px solid var(--border-color) !important;
         }
 
-        /* Default placeholder styling */
         input::placeholder, textarea::placeholder {
             color: var(--text-muted) !important;
-            opacity: 1 !important;
-        }
-
-        /* Chat input placeholder - neon green in dark mode */
-        :root .chat-modal input::placeholder {
-            color: var(--accent-color) !important;
-            opacity: 0.8 !important;
-        }
-
-        /* Chat input placeholder - muted in light mode */
-        [data-theme="light"] .chat-modal input::placeholder {
-            color: var(--text-muted) !important;
-            opacity: 0.8 !important;
         }
 
         /* Cards and containers */
@@ -115,7 +101,7 @@
             bottom: 20px !important;
             right: 20px !important;
             z-index: 9999 !important;
-            background-color: var(--bg-primary) !important;
+            background-color: var(--chat-bg) !important;
             border: 1px solid var(--chat-border) !important;
             border-radius: 12px !important;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
@@ -266,6 +252,6 @@
 </head>
 <body>
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
+    <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>

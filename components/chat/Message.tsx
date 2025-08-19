@@ -31,9 +31,9 @@ const Typewriter: React.FC<{ text: string }> = ({ text }) => {
     }, [text]);
 
     return (
-        <p className="whitespace-pre-wrap">
+        <p className="whitespace-pre-wrap" style={{ color: 'var(--text-primary)' }}>
             {displayedText}
-            {!isComplete && <span className="inline-block w-2 h-4 bg-neutral-200 animate-pulse ml-1" aria-hidden="true"></span>}
+            {!isComplete && <span className="inline-block w-2 h-4 animate-pulse ml-1" style={{ backgroundColor: 'var(--accent-color)' }} aria-hidden="true"></span>}
         </p>
     );
 };
@@ -42,20 +42,20 @@ const Typewriter: React.FC<{ text: string }> = ({ text }) => {
 const MessageComponent: React.FC<MessageProps> = ({ message }) => {
   const isBot = message.author === 'bot';
   const isTyping = message.text === '...';
-  const prefix = isBot ? '[BOT]:' : '[USER]:';
+  const prefix = isBot ? '[GROGU]:' : '[USER]:';
 
   return (
     <div className="font-mono text-sm sm:text-base">
-        <span className="text-neutral-400 select-none">{prefix}</span>
-        <div className="mt-1 text-neutral-200">
+        <span className="select-none" style={{ color: 'var(--text-muted)' }}>{prefix}</span>
+        <div className="mt-1" style={{ color: 'var(--text-primary)' }}>
           {isTyping ? (
               <div className="flex items-center">
-                  <span className="inline-block w-2 h-4 bg-neutral-400 animate-pulse" aria-hidden="true"></span>
+                  <span className="inline-block w-2 h-4 animate-pulse" style={{ backgroundColor: 'var(--text-muted)' }} aria-hidden="true"></span>
               </div>
           ) : isBot ? (
               <Typewriter text={message.text} />
           ) : (
-               <p className="whitespace-pre-wrap">{message.text}</p>
+               <p className="whitespace-pre-wrap" style={{ color: 'var(--text-primary)' }}>{message.text}</p>
           )}
         </div>
     </div>
