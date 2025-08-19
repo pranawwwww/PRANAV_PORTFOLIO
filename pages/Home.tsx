@@ -71,24 +71,6 @@ const Home: React.FC = () => {
             Scholar
           </a>
 
-          {/* Email */}
-          <a
-            href="mailto:pranav@example.com"
-            className="inline-flex items-center gap-3 border px-6 py-3 text-base font-medium transition-all duration-300 font-mono uppercase tracking-wide"
-            style={{
-              borderColor: 'var(--border-color)',
-              color: 'var(--text-primary)',
-              backgroundColor: 'transparent'
-            }}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--nav-hover-bg)'}
-            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-            Email
-          </a>
-
           {/* Download Resume */}
           <a
             href="/resume.pdf"

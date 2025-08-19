@@ -25,16 +25,17 @@ const Typewriter: React.FC<{ text: string }> = ({ text }) => {
                 clearInterval(intervalId);
                 setIsComplete(true);
             }
-        }, 20); // Typing speed in milliseconds
+        }, 15); // Faster typing for shorter messages
 
         return () => clearInterval(intervalId);
     }, [text]);
 
     return (
-        <p className="whitespace-pre-wrap" style={{ color: 'var(--text-primary)' }}>
-            {displayedText}
-            {!isComplete && <span className="inline-block w-2 h-4 animate-pulse ml-1" style={{ backgroundColor: 'var(--accent-color)' }} aria-hidden="true"></span>}
-        </p>
+        <div 
+            className="whitespace-pre-wrap prose prose-sm max-w-none" 
+            style={{ color: 'var(--text-primary)' }}
+            dangerouslySetInnerHTML={{ __html: displayedText }}
+        />
     );
 };
 

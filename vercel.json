@@ -2,6 +2,9 @@
   "functions": {
     "api/chat.ts": {
       "runtime": "nodejs18.x"
+    },
+    "api/contact.ts": {
+      "runtime": "nodejs18.x"
     }
   },
   "env": {

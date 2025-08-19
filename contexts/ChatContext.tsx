@@ -15,6 +15,13 @@ interface ChatContextType {
   messages: Message[];
   sendMessage: (messageText: string) => Promise<void>;
   isLoading: boolean;
+  quickActions: Array<{
+    type: string;
+    label: string;
+    page?: string;
+    description?: string;
+  }>;
+  executeAction: (action: any) => void;
 }
 
 const ChatContext = createContext<ChatContextType | undefined>(undefined);
@@ -72,6 +79,29 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [quickActions, setQuickActions] = useState<any[]>([]);
+
+  const executeAction = (action: any) => {
+    switch (action.type) {
+      case 'NAVIGATE':
+        // Navigate to the specified page
+        window.location.hash = `#/${action.page}`;
+        break;
+      case 'OPEN_URL':
+        window.open(action.url, '_blank', 'noopener,noreferrer');
+        break;
+      case 'COPY':
+        navigator.clipboard.writeText(action.text);
+        // Show a quick feedback message
+        const feedbackMessage: Message = {
+          id: Date.now().toString() + 'feedback',
+          author: 'bot',
+          text: action.message || 'Copied to clipboard!'
+        };
+        setMessages(prev => [...prev, feedbackMessage]);
+        break;
+    }
+  };
 
   // Load messages from localStorage (more persistent than sessionStorage)
   useEffect(() => {
@@ -176,7 +206,14 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
                 body: JSON.stringify({
                     message: messageText,
                     history: history,
-                    systemInstruction: portfolioContext
+                    systemInstruction: portfolioContext,
+                    context: {
+                        site: siteData,
+                        projects: projectsData,
+                        experience: experienceData,
+                        skills: skillsData,
+                        faq: faqData
+                    }
                 })
             });
 
@@ -185,6 +222,40 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             }
 
             const data = await response.json();
+            
+            // Handle different response types
+            if (data.type === 'NAVIGATE') {
+                executeAction(data);
+                const botMessage: Message = {
+                    id: Date.now().toString() + 'b',
+                    author: 'bot',
+                    text: data.text || `Navigating to ${data.page}...`,
+                };
+                setMessages(prev => [...prev, botMessage]);
+                return;
+            }
+
+            if (data.type === 'OPEN_URL') {
+                executeAction(data);
+                const botMessage: Message = {
+                    id: Date.now().toString() + 'b',
+                    author: 'bot',
+                    text: data.text || 'Opening link...',
+                };
+                setMessages(prev => [...prev, botMessage]);
+                return;
+            }
+
+            if (data.type === 'COPY') {
+                executeAction(data);
+                const botMessage: Message = {
+                    id: Date.now().toString() + 'b',
+                    author: 'bot',
+                    text: data.message || 'Copied to clipboard!',
+                };
+                setMessages(prev => [...prev, botMessage]);
+                return;
+            }
             
             if (!data.success) {
                 throw new Error(data.error || 'API request failed');
@@ -195,6 +266,11 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
                 author: 'bot',
                 text: data.text,
             };
+            
+            // Update quick actions if provided
+            if (data.actions && data.actions.length > 0) {
+                setQuickActions(data.actions);
+            }
             
             setMessages(prev => [...prev, botMessage]);
         }
@@ -212,7 +288,7 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   return (
-    <ChatContext.Provider value={{ isOpen, toggleChat, messages, sendMessage, isLoading }}>
+    <ChatContext.Provider value={{ isOpen, toggleChat, messages, sendMessage, isLoading, quickActions, executeAction }}>
       {children}
     </ChatContext.Provider>
   );

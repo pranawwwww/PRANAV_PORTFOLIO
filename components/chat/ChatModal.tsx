@@ -12,7 +12,7 @@ const suggestionChips = [
 ];
 
 const ChatModal: React.FC = () => {
-  const { isOpen, toggleChat, messages, sendMessage, isLoading } = useChat();
+  const { isOpen, toggleChat, messages, sendMessage, isLoading, quickActions, executeAction } = useChat();
   const [inputValue, setInputValue] = useState('');
   const modalRef = useRef<HTMLDivElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -96,6 +96,31 @@ const ChatModal: React.FC = () => {
               <Message key={msg.id} message={msg} />
             ))}
             {isLoading && <Message message={{ id: 'loading', author: 'bot', text: '...' }} />}
+            
+            {/* Quick Action Buttons */}
+            {quickActions.length > 0 && !isLoading && (
+              <div className="mt-4 p-3 rounded border" style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--chat-border)' }}>
+                <p className="text-xs mb-2 font-mono" style={{ color: 'var(--text-muted)' }}>Quick Actions:</p>
+                <div className="flex flex-wrap gap-2">
+                  {quickActions.map((action, index) => (
+                    <button
+                      key={index}
+                      onClick={() => executeAction(action)}
+                      className="px-3 py-1 text-xs transition-colors font-mono rounded"
+                      style={{
+                        backgroundColor: 'var(--accent-color)',
+                        color: 'var(--bg-primary)',
+                        border: 'none'
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.opacity = '0.8'}
+                      onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
+                    >
+                      {action.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
           <div ref={messagesEndRef} />
         </div>

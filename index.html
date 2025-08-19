@@ -131,6 +131,28 @@
             background-color: var(--chat-user-bg) !important;
         }
 
+        /* Chat links styling */
+        .chat-message a {
+            color: var(--accent-color) !important;
+            text-decoration: underline !important;
+            font-weight: 500 !important;
+            transition: opacity 0.2s ease !important;
+        }
+
+        .chat-message a:hover {
+            opacity: 0.8 !important;
+        }
+
+        /* Dark theme chat links */
+        :root .chat-message a {
+            color: var(--text-secondary) !important;
+        }
+
+        /* Light theme chat links */
+        [data-theme="light"] .chat-message a {
+            color: #0066cc !important;
+        }
+
         /* Navigation styling */
         .nav-button {
             background: transparent;

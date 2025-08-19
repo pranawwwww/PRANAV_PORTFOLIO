@@ -1,14 +1,22 @@
-# AI Assistant Setup Guide
+# AI Assistant & Contact Form Setup Guide
 
 ## Overview
-Your portfolio includes Grogu, an AI assistant powered by Google's Gemini 2.5 Flash model. The AI can answer questions about your projects, experience, and skills based on the data in your `/data` folder.
+Your portfolio includes two main interactive features:
+1. **Grogu AI Assistant** - Powered by Google's Gemini 2.5 Flash model
+2. **Contact Form** - Allows visitors to send you messages directly
 
-## Features Implemented
+## AI Assistant Features
 ✅ **Data-driven responses**: AI uses your actual portfolio data as source of truth  
 ✅ **Persistent chat history**: Conversations persist across page navigation  
 ✅ **Serverless architecture**: Secure API proxy prevents API key exposure  
 ✅ **Project linking**: AI provides direct links to your projects when relevant  
 ✅ **Cross-referencing**: AI connects skills with projects and experience  
+
+## Contact Form Features
+✅ **Direct messaging**: Visitors can send you messages with their email  
+✅ **Form validation**: Email format and required field validation  
+✅ **Responsive design**: Works on all devices  
+✅ **Theme integration**: Matches your portfolio's dark/light theme  
 
 ## Setup Instructions
 
@@ -35,7 +43,24 @@ vercel
 vercel env add GEMINI_API_KEY
 ```
 
-### 4. Local Development
+### 4. Email Integration (Optional)
+To receive actual emails from the contact form, integrate with an email service:
+
+**Option 1: SendGrid**
+```bash
+npm install @sendgrid/mail
+```
+Add to `.env`:
+```
+SENDGRID_API_KEY=your_sendgrid_api_key
+```
+
+**Option 2: Mailgun, AWS SES, or similar**
+Follow their respective documentation for API integration.
+
+Uncomment and modify the email sending code in `/api/contact.ts`.
+
+### 5. Local Development
 For local development, the API will show a fallback message. The full AI functionality requires deployment to Vercel.
 
 ## How It Works

@@ -1,0 +1,68 @@
+{
+  "projects": {
+    "project-alpha": {
+      "extra": [
+        "Won 'Best Architecture' award at demo day - judges praised the real-time collaboration features.",
+        "Implemented custom WebSocket pooling that reduced connection overhead by 40%.",
+        "Used React Query for smart caching - cut API calls by 60% on repeat visits."
+      ],
+      "talking_points": [
+        "Problem: Teams struggled with async project updates → Real-time collaborative workspace",
+        "My role: Full-stack lead (React frontend + Node.js backend + PostgreSQL)",
+        "Result: 40% faster team coordination, 95% user satisfaction"
+      ]
+    },
+    "dataviz-dashboard": {
+      "extra": [
+        "Custom D3.js charts handle 100k+ data points without frame drops.",
+        "Implemented virtual scrolling for massive datasets - renders only visible rows.",
+        "SvelteKit SSR made initial page loads 3x faster than React equivalent."
+      ],
+      "talking_points": [
+        "Problem: Existing tools couldn't handle large datasets smoothly",
+        "Approach: D3.js + virtual rendering + smart data chunking",
+        "Impact: Analysts process 5x more data per session"
+      ]
+    },
+    "static-site-generator": {
+      "extra": [
+        "Go concurrent processing builds 1000+ pages in under 2 seconds.",
+        "Custom markdown parser supports syntax highlighting and math equations.",
+        "Zero-dependency binary - just drop and run on any server."
+      ],
+      "talking_points": [
+        "Problem: Jekyll/Hugo were too slow for large documentation sites",
+        "Solution: Go-based generator with parallel processing and smart caching",
+        "Result: 10x faster builds, zero runtime dependencies"
+      ]
+    }
+  },
+  "experience": {
+    "tech-solutions-inc": {
+      "extra": [
+        "Led design system adoption across 12 product teams - reduced UI inconsistencies by 80%.",
+        "Migrated legacy jQuery codebase to React - improved Lighthouse scores from 60 to 95.",
+        "Established code review culture - caught 90% of bugs before production.",
+        "Mentored 3 junior devs who all got promoted within 18 months."
+      ],
+      "talking_points": [
+        "Leadership: Built and evangelized design system across entire engineering org",
+        "Technical: React/TypeScript migration improved performance and developer experience",
+        "Impact: 30% faster development, 15% higher user engagement"
+      ]
+    },
+    "innovate-digital": {
+      "extra": [
+        "Built CI/CD pipeline with GitHub Actions - reduced deployment time from 45min to 8min.",
+        "Implemented comprehensive testing strategy - increased code coverage from 60% to 92%.",
+        "Vue.js SPA with Nuxt.js SSR - achieved 98+ Lighthouse performance scores.",
+        "Collaborated directly with design team using Figma dev mode."
+      ],
+      "talking_points": [
+        "DevOps: Streamlined deployment pipeline and testing infrastructure",
+        "Frontend: Vue.js/Nuxt.js development with pixel-perfect UI implementation", 
+        "Quality: Established testing best practices that became company standard"
+      ]
+    }
+  }
+}
