@@ -1,29 +1,31 @@
 [
   {
-    "title": "Project Alpha",
-    "year": 2023,
-    "stack": ["React", "TypeScript", "Node.js", "PostgreSQL"],
-    "summary": "A full-stack web application for collaborative project management with real-time updates.",
+    "title": "AdaptED AI — Personalized Digital Tutor",
+    "year": 2025,
+    "stack": ["React", "TypeScript", "Gemini API"],
+    "summary": "Generative AI study assistant with adaptive UI and context-aware feedback; won 'Best Use of AI' at ASU DevHacks.",
     "links": {
       "demo": "#",
       "repo": "#"
     }
   },
   {
-    "title": "DataViz Dashboard",
-    "year": 2022,
-    "stack": ["D3.js", "SvelteKit", "Tailwind CSS"],
-    "summary": "An interactive data visualization dashboard for analyzing complex datasets with custom charts.",
+    "title": "Tokenized Simulator",
+    "year": 2025,
+    "stack": ["Python", "LLM Integrations", "GPU/CPU Simulation", "GitHub Actions", "Render"],
+    "summary": "Full-stack Python execution platform with LLM-assisted tutoring and real-time GPU/CPU simulation; integrated CI and automated deployments.",
     "links": {
+      "demo": "#",
       "repo": "#"
     }
   },
   {
-    "title": "Static Site Generator",
-    "year": 2021,
-    "stack": ["Go", "Markdown"],
-    "summary": "A lightweight and performant static site generator built from scratch in Go.",
+    "title": "A Survey of Sim-to-Real Methods in Reinforcement Learning",
+    "year": 2025,
+    "stack": ["Research", "RL", "Sim2Real", "Taxonomy"],
+    "summary": "Curated 100+ sources and 48+ RL benchmarks; proposes a taxonomy mapping adaptation methods to MDP components for clearer comparisons.",
     "links": {
+      "demo": "#",
       "repo": "#"
     }
   }

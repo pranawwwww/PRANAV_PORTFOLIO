@@ -2,25 +2,26 @@ import { ExperienceItem } from '../types';
 
 export const experienceData: ExperienceItem[] = [
   {
-    company: 'Tech Solutions Inc.',
-    role: 'Senior Frontend Engineer',
-    start: '2020',
-    end: 'Present',
+    company: 'Data Mining & Reinforcement Learning Lab, Arizona State University',
+    role: 'Graduate Research Assistant',
+    start: 'Aug 2024',
+    end: 'Dec 2025',
     bullets: [
-      'Led the development of a design system in React and TypeScript, increasing development velocity by 30%.',
-      'Mentored junior engineers, conducted code reviews, and established front-end best practices.',
-      'Improved core web vitals and application performance, resulting in a 15% increase in user engagement.',
+      'Engineered scalable Sim2Real RL benchmarks with Python/PyTorch, improving reproducibility and cutting setup time by ~50% on ASU’s supercomputer.',
+      'Led prompt-tuned domain adaptation experiments on foundation policies, validating real-world transfer across multiple RL environments.',
+      'Automated benchmark execution pipelines, boosting throughput by ~70% and reducing evaluation cycles from days to hours.',
     ],
   },
   {
-    company: 'Innovate Digital',
-    role: 'Frontend Developer',
-    start: '2018',
-    end: '2020',
+    company: 'Amadeus Labs',
+    role: 'Software Engineer (including Internship)',
+    start: 'Jan 2021',
+    end: 'Dec 2023',
     bullets: [
-      'Developed and maintained client-facing web applications using Vue.js and Nuxt.',
-      'Collaborated with UI/UX designers to translate wireframes into pixel-perfect, responsive user interfaces.',
-      'Implemented unit and integration tests, improving code coverage from 60% to over 90%.',
+      'Optimized CI/CD test execution with Docker, Kubernetes, and Jenkins—reducing build time from 72 to 12 hours via pipeline parallelization and script restructuring.',
+      'Migrated and secured a legacy Java backend to Spring Boot microservices, increasing deployment scalability and cutting rollback incidents by ~40%.',
+      'Built an NLP-powered root-cause analysis system (Python/SQL) to auto-classify 15K+ monthly test failures.',
+      'Streamlined job scheduling and backend parsers with regex-based automation, improving runtime by ~30% and reducing operational overhead.',
     ],
   },
 ];

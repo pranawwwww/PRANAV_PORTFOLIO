@@ -1,8 +1,8 @@
 {
-  "languages": ["TypeScript", "JavaScript (ESNext)", "HTML5", "CSS3", "Go", "SQL"],
-  "web_backend": ["React", "Next.js", "Node.js", "Express", "SvelteKit", "D3.js", "Tailwind CSS"],
-  "devops_infra": ["Git & GitHub", "Docker", "Vite", "Webpack", "Vercel"],
-  "databases": ["PostgreSQL"],
-  "testing": ["Jest", "React Testing Library", "Playwright"],
-  "design": ["Figma", "Design Systems", "Accessibility (WCAG)"]
+  "languages": ["Python", "Java", "C++", "JavaScript", "TypeScript", "SQL"],
+  "web_backend": ["React", "Node.js", "REST APIs", "Spring Boot", "Playwright", "Flask"],
+  "devops_infra": ["Git", "Docker", "GitHub Actions", "Jenkins", "Kubernetes", "AWS", "Azure"],
+  "databases": ["PostgreSQL", "MySQL", "MongoDB", "Hibernate"],
+  "testing": ["JUnit", "Playwright", "Google Lighthouse", "CI/CD (testing pipelines)"],
+  "ai_tools": ["TensorFlow", "Scikit-learn", "Hugging Face Transformers", "OpenAI API", "Copilot"]
 }

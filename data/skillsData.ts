@@ -1,21 +1,37 @@
-
 import { SkillCategory } from '../types';
 
 export const skillsData: SkillCategory[] = [
   {
     category: 'Languages',
-    skills: ['TypeScript', 'JavaScript (ESNext)', 'HTML5', 'CSS3', 'Go', 'SQL'],
+    skills: ['Python', 'Java', 'C++', 'JavaScript', 'TypeScript', 'SQL'],
   },
   {
     category: 'Frameworks & Libraries',
-    skills: ['React', 'Next.js', 'Node.js', 'Express', 'SvelteKit', 'D3.js', 'Tailwind CSS'],
+    skills: [
+      'React',
+      'Node.js',
+      'Spring Boot',
+      'Flask',
+      'TensorFlow',
+      'PyTorch',
+      'Scikit-learn',
+      'Hugging Face Transformers',
+    ],
   },
   {
     category: 'Tools & Platforms',
-    skills: ['Git & GitHub', 'Docker', 'PostgreSQL', 'Vite', 'Webpack', 'Figma', 'Vercel'],
+    skills: ['Git', 'Docker', 'GitHub Actions', 'Jenkins', 'Kubernetes', 'AWS', 'Azure'],
+  },
+  {
+    category: 'Databases',
+    skills: ['PostgreSQL', 'MySQL', 'MongoDB', 'Hibernate'],
+  },
+  {
+    category: 'Testing',
+    skills: ['JUnit', 'Playwright', 'Google Lighthouse', 'CI/CD testing pipelines'],
   },
   {
     category: 'Concepts',
-    skills: ['Accessibility (WCAG)', 'Responsive Design', 'Design Systems', 'State Management', 'REST APIs'],
+    skills: ['REST APIs', 'Microservices', 'MLOps', 'Sim2Real RL', 'Reinforcement Learning'],
   },
 ];
