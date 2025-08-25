@@ -1,8 +1,0 @@
-{
-  "languages": ["Python", "Java", "C++", "JavaScript", "TypeScript", "SQL"],
-  "web_backend": ["React", "Node.js", "REST APIs", "Spring Boot", "Playwright", "Flask"],
-  "devops_infra": ["Git", "Docker", "GitHub Actions", "Jenkins", "Kubernetes", "AWS", "Azure"],
-  "databases": ["PostgreSQL", "MySQL", "MongoDB", "Hibernate"],
-  "testing": ["JUnit", "Playwright", "Google Lighthouse", "CI/CD (testing pipelines)"],
-  "ai_tools": ["TensorFlow", "Scikit-learn", "Hugging Face Transformers", "OpenAI API", "Copilot"]
-}
