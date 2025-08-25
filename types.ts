@@ -10,6 +10,8 @@ export interface SiteData {
     githubDisplay: string;
     linkedin: string;
     linkedinDisplay: string;
+    googleScholar?: string;
+    googleScholarDisplay?: string;
     resume: string;
   };
 }
@@ -23,6 +25,7 @@ export interface Project {
   links: {
     demo?: string;
     repo?: string;
+    arXiv?: string;
   };
 }
 

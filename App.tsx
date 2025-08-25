@@ -2,7 +2,6 @@ import React from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import SkipToContent from './components/SkipToContent';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Experience from './pages/Experience';
@@ -15,8 +14,11 @@ const AppContent: React.FC = () => {
   const location = useLocation();
   return (
     <>
-      <SkipToContent />
-      <div className="flex flex-col min-h-screen font-mono leading-relaxed selection:bg-white/20">
+      <div className="flex flex-col min-h-screen" style={{
+        background: "var(--bg)",
+        color: "var(--text)",
+        transition: "background-color 0.3s, color 0.3s"
+      }}>
         <Header />
         <main id="main-content" className="flex-grow w-full">
           <Routes>

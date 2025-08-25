@@ -32,8 +32,8 @@ const Typewriter: React.FC<{ text: string }> = ({ text }) => {
 
     return (
         <div 
-            className="whitespace-pre-wrap prose prose-sm max-w-none" 
-            style={{ color: 'var(--text-primary)' }}
+            className="whitespace-pre-wrap leading-relaxed max-w-none w-full" 
+            style={{ color: 'var(--text)' }}
             dangerouslySetInnerHTML={{ __html: displayedText }}
         />
     );
@@ -46,17 +46,17 @@ const MessageComponent: React.FC<MessageProps> = ({ message }) => {
   const prefix = isBot ? '[GROGU]:' : '[USER]:';
 
   return (
-    <div className="font-mono text-sm sm:text-base">
-        <span className="select-none" style={{ color: 'var(--text-muted)' }}>{prefix}</span>
-        <div className="mt-1" style={{ color: 'var(--text-primary)' }}>
+    <div className="mono text-sm sm:text-base w-full">
+        <span className="select-none font-medium" style={{ color: 'var(--text-muted)' }}>{prefix}</span>
+        <div className="mt-2 leading-relaxed w-full" style={{ color: 'var(--text)' }}>
           {isTyping ? (
               <div className="flex items-center">
-                  <span className="inline-block w-2 h-4 animate-pulse" style={{ backgroundColor: 'var(--text-muted)' }} aria-hidden="true"></span>
+                  <span className="inline-block w-2 h-4 animate-pulse" style={{ backgroundColor: 'var(--accent)' }} aria-hidden="true"></span>
               </div>
           ) : isBot ? (
               <Typewriter text={message.text} />
           ) : (
-               <p className="whitespace-pre-wrap" style={{ color: 'var(--text-primary)' }}>{message.text}</p>
+               <p className="whitespace-pre-wrap w-full" style={{ color: 'var(--text)' }}>{message.text}</p>
           )}
         </div>
     </div>

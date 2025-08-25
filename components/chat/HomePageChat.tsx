@@ -30,21 +30,27 @@ const HomePageChat: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col h-[70vh] max-h-[600px] w-full font-mono">
-        <header className="p-4 border-b border-white/10 text-center">
+    <div className="flex flex-col h-[75vh] max-h-[700px] w-full mono">
+        <header className="p-6 text-center" style={{
+          borderBottom: "1px solid var(--border)",
+          background: "var(--surface)"
+        }}>
             <img
               src="./data/profile-pixel.png"
               alt="A pixelated black and white portrait"
-              className="w-24 h-24 mx-auto mb-4 border border-white/20"
+              className="w-24 h-24 mx-auto mb-4 rounded-lg"
+              style={{ border: "1px solid var(--border)" }}
             />
-            <h1 id="chat-title" className="font-bold text-neutral-100 text-xl">
+            <h1 id="chat-title" className="font-bold text-xl" style={{ color: "var(--text)" }}>
             Hi, I'm {siteData.name}.
             </h1>
-            <p className="text-sm text-neutral-300 mt-2 max-w-md mx-auto">{siteData.tagline}</p>
+            <p className="text-sm mt-2 max-w-md mx-auto" style={{ color: "var(--text-muted)" }}>{siteData.tagline}</p>
         </header>
 
-        <div className="flex-grow p-4 overflow-y-auto" aria-live="polite">
-          <div className="space-y-6">
+        <div className="flex-grow p-6 overflow-y-auto" aria-live="polite" style={{
+          background: "var(--bg)"
+        }}>
+          <div className="space-y-6 max-w-none">
             {messages.map((msg) => (
               <Message key={msg.id} message={msg} />
             ))}
@@ -54,11 +60,23 @@ const HomePageChat: React.FC = () => {
         </div>
         
         {messages.length <= 1 && !isLoading && (
-             <div className="p-4 pt-0">
-                <p className="text-sm text-neutral-400 mb-2">Suggestions:</p>
+             <div className="p-4 pt-0" style={{
+               background: "var(--surface)",
+               borderTop: "1px solid var(--border)"
+             }}>
+                <p className="text-sm mb-3 mono" style={{ color: "var(--text-muted)" }}>Try asking about:</p>
                 <div className="flex flex-wrap gap-2">
                     {suggestionChips.map(chip => (
-                        <button key={chip} onClick={() => handleSuggestionClick(chip)} className="px-3 py-1 text-sm bg-white/5 border border-white/20 hover:bg-white/20 transition-colors">
+                        <button 
+                          key={chip} 
+                          onClick={() => handleSuggestionClick(chip)} 
+                          className="card px-4 py-2 text-sm transition-colors mono"
+                          style={{
+                            background: "var(--surface-2)",
+                            color: "var(--text)",
+                            border: "1px solid var(--border)"
+                          }}
+                        >
                             {chip}
                         </button>
                     ))}
@@ -66,22 +84,30 @@ const HomePageChat: React.FC = () => {
             </div>
         )}
 
-        <form onSubmit={handleSubmit} className="p-4 border-t border-white/10">
-          <div className="flex items-center space-x-2">
-             <span className="text-neutral-400 select-none pr-2">[USER]:</span>
+        <form onSubmit={handleSubmit} className="p-4" style={{
+          borderTop: "1px solid var(--border)",
+          background: "var(--surface)"
+        }}>
+          <div className="flex items-center space-x-3">
+             <span className="mono text-sm select-none" style={{ color: "var(--text-muted)" }}>[USER]:</span>
             <input
               type="text"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="Enter command..."
               aria-label="Chat message"
-              className="flex-grow w-full bg-black/20 border border-white/20 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-shadow"
+              className="flex-grow px-4 py-2 mono rounded-lg transition-all"
+              style={{
+                background: "var(--bg)",
+                border: "1px solid var(--border)",
+                color: "var(--text)"
+              }}
             />
             <button
               type="submit"
               disabled={isLoading || !inputValue.trim()}
               aria-label="Send message"
-              className="px-4 py-2 bg-white/20 border border-white/20 hover:bg-white/30 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-white"
+              className="primary px-6 py-2 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Send
             </button>

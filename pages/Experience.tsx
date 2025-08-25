@@ -6,13 +6,13 @@ import { experienceData } from '../data/experienceData.ts';
 const ExperienceCard: React.FC<{ item: ExperienceItem }> = ({ item }) => (
   <section>
     <header className="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
-      <h2 className="text-xl font-bold text-neutral-100">{item.company}</h2>
-      <span className="text-sm text-neutral-400 mt-1 sm:mt-0">{item.start} – {item.end}</span>
+      <h2 className="text-xl font-bold" style={{ color: "var(--text)" }}>{item.company}</h2>
+      <span className="text-sm mt-1 sm:mt-0" style={{ color: "var(--text-muted)" }}>{item.start} – {item.end}</span>
     </header>
-    <h3 className="text-base text-neutral-300 font-medium mb-3">{item.role}</h3>
-    <ul className="list-disc list-inside space-y-2 text-neutral-300 marker:text-neutral-500">
+    <h3 className="text-base font-medium mb-3" style={{ color: "var(--text)" }}>{item.role}</h3>
+    <ul className="list-disc list-inside space-y-2" style={{ color: "var(--text)" }}>
       {item.bullets.map((point, index) => (
-        <li key={index}>{point}</li>
+        <li key={index} className="marker:text-[var(--text-muted)]">{point}</li>
       ))}
     </ul>
   </section>

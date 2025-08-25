@@ -11,10 +11,18 @@ const formatCategoryTitle = (category: string) => {
 
 const SkillGroup: React.FC<{ category: string; skills: string[] }> = ({ category, skills }) => (
   <section>
-    <h2 className="text-xl font-bold mb-4 text-neutral-100">{formatCategoryTitle(category)}</h2>
+    <h2 className="text-xl font-bold mb-4" style={{ color: "var(--text)" }}>{formatCategoryTitle(category)}</h2>
     <div className="flex flex-wrap gap-2">
       {skills.map((skill) => (
-        <span key={skill} className="bg-white/5 border border-white/10 px-3 py-1.5 text-sm text-neutral-300">
+        <span 
+          key={skill} 
+          className="px-3 py-1.5 text-sm"
+          style={{
+            background: "var(--surface-2)",
+            border: "1px solid var(--border)",
+            color: "var(--text)"
+          }}
+        >
           {skill}
         </span>
       ))}
