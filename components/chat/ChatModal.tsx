@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useChat } from '../../contexts/ChatContext';
 import { useFocusTrap } from '../../hooks/useFocusTrap';
 import Message from './Message';
+import groguIcon from '../../data/icons8-baby-yoda-48 (1).png';
 
 const ChatModal: React.FC = () => {
   const { isOpen, toggleChat, messages, sendMessage, isLoading, quickActions, executeAction } = useChat();
@@ -61,7 +62,7 @@ const ChatModal: React.FC = () => {
         <header className="flex items-center justify-between p-4" style={{ borderBottom: '1px solid var(--chat-border)' }}>
           <div className="flex items-center gap-2">
             <img
-              src="/data/icons8-baby-yoda-48 (1).png"
+              src={groguIcon}
               alt=""
               aria-hidden="true"
               className="w-5 h-5"

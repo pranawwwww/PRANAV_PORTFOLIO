@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useChat } from '../../contexts/ChatContext';
 import Message from './Message';
 import { siteData } from '../../data/siteData';
+import profilePixel from '../../data/profile-pixel.png';
 
 const suggestionChips = [
   "What roles are you targeting?",
@@ -37,7 +38,7 @@ const HomePageChat: React.FC = () => {
           background: "var(--surface)"
         }}>
             <img
-              src="./data/profile-pixel.png"
+              src={profilePixel}
               alt="A pixelated black and white portrait"
               className="w-24 h-24 mx-auto mb-4 rounded-lg"
               style={{ border: "1px solid var(--border)" }}

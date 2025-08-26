@@ -1,6 +1,7 @@
 import React from 'react';
 import { useChat } from '../../contexts/ChatContext';
 import ChatModal from './ChatModal';
+import groguIcon from '../../data/icons8-baby-yoda-48 (1).png';
 
 const ChatWidget: React.FC = () => {
   const { isOpen, toggleChat } = useChat();
@@ -25,7 +26,7 @@ const ChatWidget: React.FC = () => {
           }}
         >
           <img
-            src="/data/icons8-baby-yoda-48 (1).png"
+            src={groguIcon}
             alt=""
             aria-hidden="true"
             className="w-5 h-5"
