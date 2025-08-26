@@ -8,6 +8,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+      // Set theme ASAP to match user preference or system to prevent FOUC
+      (function() {
+        try {
+          var stored = localStorage.getItem('theme');
+          var theme = stored || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {}
+      })();
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
 <script type="importmap">
 {
@@ -21,7 +31,7 @@
 }
 </script>
 </head>
-<body class="bg-[#111111] text-neutral-200 antialiased">
+<body class="antialiased">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
 </body>

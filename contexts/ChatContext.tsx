@@ -8,6 +8,59 @@ import { experienceData } from '../data/experienceData.ts';
 import { skillsData } from '../data/skillsData.ts';
 import { faqData } from '../data/faqData.ts';
 
+// Request limits
+const SESSION_LIMIT = 30; // per browser session
+const DAILY_LIMIT = 1000; // per device/day (frontend guard; enforce on backend too when deployed)
+
+type DailyCounter = { date: string; count: number };
+
+function todayKey(): string {
+  // YYYY-MM-DD (UTC) is sufficient for a simple daily rollover
+  return new Date().toISOString().slice(0, 10);
+}
+
+function getSessionCount(): number {
+  try { return parseInt(sessionStorage.getItem('chatSessionCount') || '0', 10) || 0; } catch { return 0; }
+}
+function incrementSessionCount(): number {
+  const next = getSessionCount() + 1;
+  try { sessionStorage.setItem('chatSessionCount', String(next)); } catch {}
+  return next;
+}
+
+function getDailyCounter(): DailyCounter {
+  const key = 'chatDailyCounter';
+  const today = todayKey();
+  try {
+    const raw = localStorage.getItem(key);
+    if (!raw) { const dc = { date: today, count: 0 }; localStorage.setItem(key, JSON.stringify(dc)); return dc; }
+    const parsed = JSON.parse(raw) as DailyCounter;
+    if (!parsed.date || parsed.date !== today) {
+      const dc = { date: today, count: 0 };
+      localStorage.setItem(key, JSON.stringify(dc));
+      return dc;
+    }
+    return parsed;
+  } catch {
+    const dc = { date: today, count: 0 };
+    try { localStorage.setItem(key, JSON.stringify(dc)); } catch {}
+    return dc;
+  }
+}
+function incrementDailyCounter(): DailyCounter {
+  const key = 'chatDailyCounter';
+  const current = getDailyCounter();
+  const next = { date: current.date, count: current.count + 1 };
+  try { localStorage.setItem(key, JSON.stringify(next)); } catch {}
+  return next;
+}
+
+function limitMessage(kind: 'session' | 'daily'): Message {
+  const text = kind === 'session'
+    ? `You've reached the session limit of ${SESSION_LIMIT} messages. Please refresh the page or come back later.`
+    : `Daily usage limit reached (${DAILY_LIMIT} messages). Please try again tomorrow.`;
+  return { id: Date.now().toString() + '-limit', author: 'bot', text };
+}
 
 interface QuickAction { label: string; command?: string }
 
@@ -139,6 +192,21 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const sendMessage = async (messageText: string) => {
     if (!messageText.trim() || isLoading) return;
 
+    const sessionCount = getSessionCount();
+    const dailyCount = getDailyCounter().count;
+
+    if (sessionCount >= SESSION_LIMIT) {
+      const limitMsg = limitMessage('session');
+      setMessages(prev => [...prev, limitMsg]);
+      return;
+    }
+
+    if (dailyCount >= DAILY_LIMIT) {
+      const limitMsg = limitMessage('daily');
+      setMessages(prev => [...prev, limitMsg]);
+      return;
+    }
+
     const userMessage: Message = {
       id: Date.now().toString(),
       author: 'user',
@@ -152,6 +220,8 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         return [...prev, userMessage]
     });
     setIsLoading(true);
+    incrementSessionCount();
+    incrementDailyCounter();
 
     try {
         if (!chatInstance) {

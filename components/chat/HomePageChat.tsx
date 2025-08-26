@@ -1,13 +1,14 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { useChat } from '../../contexts/ChatContext';
 import Message from './Message';
 import { siteData } from '../../data/siteData';
 
 const suggestionChips = [
-    "Tell me about your projects",
-    "What's your experience with React?",
-    "How can I contact you?",
+  "What roles are you targeting?",
+  "When are you available?",
+  "Any performance or scale wins?",
+  "What languages and stacks do you use most?",
+  "What do you do for fun?",
 ];
 
 const HomePageChat: React.FC = () => {
@@ -30,7 +31,7 @@ const HomePageChat: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col h-[75vh] max-h-[700px] w-full mono">
+    <div className="flex flex-col h-[75vh] max-h-[700px] min-h-0 w-full mono">
         <header className="p-6 text-center" style={{
           borderBottom: "1px solid var(--border)",
           background: "var(--surface)"
@@ -47,7 +48,7 @@ const HomePageChat: React.FC = () => {
             <p className="text-sm mt-2 max-w-md mx-auto" style={{ color: "var(--text-muted)" }}>{siteData.tagline}</p>
         </header>
 
-        <div className="flex-grow p-6 overflow-y-auto" aria-live="polite" style={{
+        <div className="flex-grow p-6 overflow-y-auto min-h-0" aria-live="polite" style={{
           background: "var(--bg)"
         }}>
           <div className="space-y-6 max-w-none">
@@ -59,32 +60,31 @@ const HomePageChat: React.FC = () => {
           <div ref={messagesEndRef} />
         </div>
         
-        {messages.length <= 1 && !isLoading && (
-             <div className="p-4 pt-0" style={{
-               background: "var(--surface)",
-               borderTop: "1px solid var(--border)"
-             }}>
-                <p className="text-sm mb-3 mono" style={{ color: "var(--text-muted)" }}>Try asking about:</p>
-                <div className="flex flex-wrap gap-2">
-                    {suggestionChips.map(chip => (
-                        <button 
-                          key={chip} 
-                          onClick={() => handleSuggestionClick(chip)} 
-                          className="card px-4 py-2 text-sm transition-colors mono"
-                          style={{
-                            background: "var(--surface-2)",
-                            color: "var(--text)",
-                            border: "1px solid var(--border)"
-                          }}
-                        >
-                            {chip}
-                        </button>
-                    ))}
-                </div>
-            </div>
-        )}
+        {/* Suggestions persistently visible */}
+        <div className="p-4 pt-0 shrink-0" style={{
+          background: "var(--surface)",
+          borderTop: "1px solid var(--border)"
+        }}>
+          <p className="text-sm mb-3 mono" style={{ color: "var(--text-muted)" }}>Try asking about:</p>
+          <div className="flex flex-wrap gap-2">
+              {suggestionChips.map(chip => (
+                  <button 
+                    key={chip} 
+                    onClick={() => handleSuggestionClick(chip)} 
+                    className="card px-4 py-2 text-sm transition-colors mono"
+                    style={{
+                      background: "var(--surface-2)",
+                      color: "var(--text)",
+                      border: "1px solid var(--border)"
+                    }}
+                  >
+                      {chip}
+                  </button>
+              ))}
+          </div>
+        </div>
 
-        <form onSubmit={handleSubmit} className="p-4" style={{
+        <form onSubmit={handleSubmit} className="p-4 shrink-0" style={{
           borderTop: "1px solid var(--border)",
           background: "var(--surface)"
         }}>

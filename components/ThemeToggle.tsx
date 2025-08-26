@@ -1,29 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-function getSystemPref(): "light"|"dark" {
+function getSystemPref(): "light" | "dark" {
   return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<"light"|"dark">(() => {
+  // Determine if a stored preference exists (do this synchronously)
+  const hasStoredPref = typeof window !== "undefined" && localStorage.getItem("theme") !== null;
+  const initialTheme: "light" | "dark" = (() => {
     if (typeof window !== "undefined") {
-      return (localStorage.getItem("theme") as "light"|"dark") || getSystemPref();
+      return (localStorage.getItem("theme") as "light" | "dark") || getSystemPref();
     }
     return "light";
-  });
+  })();
 
+  const [theme, setTheme] = useState<"light" | "dark">(initialTheme);
+  const userPref = useRef<boolean>(hasStoredPref);
+
+  // Apply theme to document and persist only if user explicitly chose one
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-    console.log("Theme set to:", theme); // Debug log
+    if (userPref.current) {
+      localStorage.setItem("theme", theme);
+    } else {
+      localStorage.removeItem("theme");
+    }
   }, [theme]);
 
+  // Sync with OS changes only when there's no explicit user preference
   useEffect(() => {
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
-    const handler = () => { 
-      if (!localStorage.getItem("theme")) {
-        const newTheme = getSystemPref();
-        setTheme(newTheme);
+    const handler = () => {
+      if (!userPref.current) {
+        setTheme(getSystemPref());
       }
     };
     mq.addEventListener?.("change", handler);
@@ -31,8 +40,8 @@ export default function ThemeToggle() {
   }, []);
 
   const handleToggle = () => {
+    userPref.current = true; // user has explicitly chosen now
     const newTheme = theme === "dark" ? "light" : "dark";
-    console.log("Toggling from", theme, "to", newTheme); // Debug log
     setTheme(newTheme);
   };
 
@@ -46,7 +55,7 @@ export default function ThemeToggle() {
         color: "var(--text)",
         border: "1px solid var(--border)",
         borderRadius: 12,
-        padding: "0.5rem .75rem"
+        padding: "0.5rem .75rem",
       }}
     >
       {theme === "dark" ? "☀️ Light" : "🌙 Dark"}

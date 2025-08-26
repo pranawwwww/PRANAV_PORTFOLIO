@@ -3,13 +3,6 @@ import { useChat } from '../../contexts/ChatContext';
 import { useFocusTrap } from '../../hooks/useFocusTrap';
 import Message from './Message';
 
-const suggestionChips = [
-    "Tell me about Pranav's projects",
-    "What are his technical skills?",
-    "How can I get in touch with him?",
-    "What's his experience like?",
-];
-
 const ChatModal: React.FC = () => {
   const { isOpen, toggleChat, messages, sendMessage, isLoading, quickActions, executeAction } = useChat();
   const [inputValue, setInputValue] = useState('');
@@ -38,10 +31,6 @@ const ChatModal: React.FC = () => {
     setInputValue('');
   };
   
-  const handleSuggestionClick = (suggestion: string) => {
-    sendMessage(suggestion);
-  }
-
   return (
     <div
       className={`fixed inset-0 z-30 flex items-end justify-center p-4 sm:items-center sm:justify-end transition-opacity duration-300 ease-out ${
@@ -132,30 +121,6 @@ const ChatModal: React.FC = () => {
           </div>
           <div ref={messagesEndRef} />
         </div>
-        
-        {messages.length <= 1 && !isLoading && (
-             <div className="p-4 pt-0">
-                <p className="text-sm mb-2 font-mono" style={{ color: 'var(--text-muted)' }}>Suggestions:</p>
-                <div className="flex flex-wrap gap-2">
-                    {suggestionChips.map(chip => (
-                        <button 
-                          key={chip} 
-                          onClick={() => handleSuggestionClick(chip)} 
-                          className="px-3 py-1 text-sm transition-colors font-mono"
-                          style={{
-                            backgroundColor: 'var(--bg-primary)',
-                            border: '1px solid var(--chat-border)',
-                            color: 'var(--text-primary)'
-                          }}
-                          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--nav-hover-bg)'}
-                          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'var(--bg-primary)'}
-                        >
-                            {chip}
-                        </button>
-                    ))}
-                </div>
-            </div>
-        )}
 
         <form onSubmit={handleSubmit} className="p-4" style={{ borderTop: '1px solid var(--chat-border)' }}>
           <div className="flex items-center space-x-2">

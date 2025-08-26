@@ -1,12 +1,12 @@
 /* Light (default) */
 :root,
 [data-theme="light"] {
-  --bg: #FDFEFE;
-  --surface: #FDFDFD;
-  --surface-2: #F8F9FA;
-  --text: #111111;
-  --text-muted: #404040;
-  --border: #E5E7EB;
+  --bg: #FAFAF7;
+  --surface: #FBFAF8;
+  --surface-2: #F5F4F1;
+  --text: #1A1A1A;
+  --text-muted: #4A4A4A;
+  --border: #E6E3DA;
   --accent: #4F46E5;        /* Indigo */
   --accent-hover: #6366F1;
   --focus: #818CF8;
