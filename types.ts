@@ -35,6 +35,8 @@ export interface ExperienceItem {
   role: string;
   start: string;
   end: string;
+  // optional location for nicer formatting
+  location?: string;
   bullets: string[];
 }
 

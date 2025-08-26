@@ -2,7 +2,7 @@ import { SiteData } from '../types';
 
 export const siteData: SiteData = {
   name: "Pranav Kutralingam",
-  tagline: "Software Developer & CS Graduate | Full-stack development with React, Python, and cloud technologies",
+  tagline: "Grad CS @ ASU (Go Devils!) | SWE who speaks ML |Building scalable software with zero hallucinations| My models lift & backends don’t skip leg day.",
   location: "Tempe, AZ",
   links: {
     email: "mailto:thirupranav99@gmail.com",

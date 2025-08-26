@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { useChat } from '../../contexts/ChatContext';
 import { useFocusTrap } from '../../hooks/useFocusTrap';
@@ -71,9 +70,18 @@ const ChatModal: React.FC = () => {
         }}
       >
         <header className="flex items-center justify-between p-4" style={{ borderBottom: '1px solid var(--chat-border)' }}>
-          <h2 id="chat-modal-title" className="font-bold font-mono" style={{ color: 'var(--text-primary)' }}>
-            GROGU - AI ASSISTANT
-          </h2>
+          <div className="flex items-center gap-2">
+            <img
+              src="/data/icons8-baby-yoda-48 (1).png"
+              alt=""
+              aria-hidden="true"
+              className="w-5 h-5"
+              style={{ borderRadius: '4px' }}
+            />
+            <h2 id="chat-modal-title" className="font-bold font-mono" style={{ color: 'var(--text-primary)' }}>
+              GROGU - AI ASSISTANT
+            </h2>
+          </div>
           <button
             onClick={() => toggleChat(false)}
             aria-label="Close chat"
