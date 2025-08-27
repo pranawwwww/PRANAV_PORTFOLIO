@@ -22,7 +22,7 @@ const Contact: React.FC = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error' | 'missingKeys'>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -36,14 +36,25 @@ const Contact: React.FC = () => {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
+    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+
+    if (!PUBLIC_KEY || !SERVICE_ID || !TEMPLATE_ID) {
+      console.warn('Email send skipped: missing EmailJS env vars');
+      setSubmitStatus('missingKeys');
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
       // Initialize EmailJS with your public key
-      emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+      emailjs.init(PUBLIC_KEY);
 
       // Send email using EmailJS
       await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        SERVICE_ID,
+        TEMPLATE_ID,
         {
           from_name: formData.name,
           from_email: formData.email,
@@ -159,6 +170,15 @@ const Contact: React.FC = () => {
                 border: "1px solid #ef4444"
               }}>
                 <p className="text-base" style={{ color: "#ef4444" }}>❌ Failed to send message. Please try again or use the email link below.</p>
+              </div>
+            )}
+
+            {submitStatus === 'missingKeys' && (
+              <div className="p-5 rounded-xl" style={{
+                background: "var(--surface-2)",
+                border: "1px solid #f59e0b"
+              }}>
+                <p className="text-base" style={{ color: "#f59e0b" }}>⚠️ Email service is not configured. Please try again later or use one of the links on the right.</p>
               </div>
             )}
           </form>
