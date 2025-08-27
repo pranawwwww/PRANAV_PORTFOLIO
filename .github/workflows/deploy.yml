@@ -25,17 +25,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          # cache disabled to ensure clean optional deps install
 
       - name: Clean install (workaround npm optional deps bug)
         shell: bash
         run: |
           rm -f package-lock.json
           rm -rf node_modules
-          npm config set optional true
-          npm config set fund false
-          npm config set audit false
-          npm install
+          npm install --no-fund --no-audit
           # Explicitly ensure rollup native binary for linux is present
           npm i --no-save @rollup/rollup-linux-x64-gnu || true
           ls -la node_modules/@rollup || true
