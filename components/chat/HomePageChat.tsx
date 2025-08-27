@@ -10,7 +10,6 @@ const suggestionChips = [
   "Any performance or scale wins?",
   "What languages and stacks do you use most?",
   "What do you do for fun?",
-  "How skilled are you in Python?",
   "What work experience do you have?"
 ];
 
