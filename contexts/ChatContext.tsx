@@ -161,7 +161,10 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   useEffect(() => {
     try {
-      const apiKey = (import.meta as any)?.env?.VITE_GEMINI_API_KEY || (process as any)?.env?.API_KEY;
+      const apiKey = (import.meta as any)?.env?.VITE_GEMINI_API_KEY as string | undefined;
+      if (!apiKey) {
+        throw new Error('Missing VITE_GEMINI_API_KEY at build time');
+      }
       const ai = new GoogleGenAI({ apiKey });
       const history = messages
           .filter(msg => msg.id !== 'init-message')
