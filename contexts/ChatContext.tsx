@@ -160,11 +160,12 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   }, [messages]);
 
   useEffect(() => {
+    const apiKey = (import.meta as any)?.env?.VITE_GEMINI_API_KEY as string | undefined;
+    if (!apiKey) {
+      console.warn('AI chat initialization skipped: Missing VITE_GEMINI_API_KEY');
+      return;
+    }
     try {
-      const apiKey = (import.meta as any)?.env?.VITE_GEMINI_API_KEY as string | undefined;
-      if (!apiKey) {
-        throw new Error('Missing VITE_GEMINI_API_KEY at build time');
-      }
       const ai = new GoogleGenAI({ apiKey });
       const history = messages
           .filter(msg => msg.id !== 'init-message')
