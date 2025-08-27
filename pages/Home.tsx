@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import HomePageChat from '../components/chat/HomePageChat';
@@ -6,16 +5,16 @@ import { siteData } from '../data/siteData.ts';
 
 const Home: React.FC = () => {
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center min-h-[calc(100vh-140px)] py-12">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center min-h-[calc(100vh-120px)] py-6 sm:py-10">
       <div className="w-full max-w-5xl card shadow-lg">
          <HomePageChat />
       </div>
-      <div className="mt-8 flex flex-wrap gap-4 justify-center">
+      <div className="mt-6 sm:mt-8 flex flex-wrap gap-3 sm:gap-4 justify-center">
         <a
           href={siteData.links.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 card px-6 py-3 text-base font-medium transition-all duration-200 hover:text-[var(--accent-hover)]"
+          className="inline-flex items-center gap-2 card px-4 sm:px-6 py-3 text-sm sm:text-base font-medium transition-all duration-200 hover:text-[var(--accent-hover)]"
           style={{
             color: "var(--text)",
             background: "var(--surface)",
@@ -31,7 +30,7 @@ const Home: React.FC = () => {
           href={siteData.links.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 card px-6 py-3 text-base font-medium transition-all duration-200 hover:text-[var(--accent-hover)]"
+          className="inline-flex items-center gap-2 card px-4 sm:px-6 py-3 text-sm sm:text-base font-medium transition-all duration-200 hover:text-[var(--accent-hover)]"
           style={{
             color: "var(--text)",
             background: "var(--surface)",
@@ -47,7 +46,7 @@ const Home: React.FC = () => {
           href={siteData.links.googleScholar}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 card px-6 py-3 text-base font-medium transition-all duration-200 hover:text-[var(--accent-hover)]"
+          className="inline-flex items-center gap-2 card px-4 sm:px-6 py-3 text-sm sm:text-base font-medium transition-all duration-200 hover:text-[var(--accent-hover)]"
           style={{
             color: "var(--text)",
             background: "var(--surface)",
@@ -63,7 +62,7 @@ const Home: React.FC = () => {
           href={siteData.links.resume}
           target="_blank"
           rel="noopener noreferrer"
-          className="primary inline-flex items-center gap-2 px-6 py-3 text-base font-medium transition-all duration-200"
+          className="primary inline-flex items-center gap-2 px-5 sm:px-6 py-3 text-sm sm:text-base font-medium transition-all duration-200"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>

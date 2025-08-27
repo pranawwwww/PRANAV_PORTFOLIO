@@ -46,7 +46,7 @@ const MessageComponent: React.FC<MessageProps> = ({ message }) => {
   const prefix = isBot ? '[GROGU]:' : '[USER]:';
 
   return (
-    <div className="mono text-sm sm:text-base w-full">
+    <div className="mono text-base sm:text-lg w-full">
         <span className="select-none font-medium" style={{ color: 'var(--text-muted)' }}>{prefix}</span>
         <div className="mt-2 leading-relaxed w-full" style={{ color: 'var(--text)' }}>
           {isTyping ? (
