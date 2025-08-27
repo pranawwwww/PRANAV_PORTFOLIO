@@ -160,7 +160,7 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   }, [messages]);
 
   useEffect(() => {
-    const apiKey = (import.meta as any)?.env?.VITE_GEMINI_API_KEY as string | undefined;
+    const apiKey = import.meta.env.VITE_GEMINI_API_KEY as string | undefined;
     if (!apiKey) {
       console.warn('AI chat initialization skipped: Missing VITE_GEMINI_API_KEY');
       return;
