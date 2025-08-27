@@ -58,7 +58,7 @@ export default function ThemeToggle() {
         padding: "0.5rem .75rem",
       }}
     >
-      {theme === "dark" ? "☀️ Light" : "🌙 Dark"}
+      {theme === "dark" ? "☀️" : "🌙"}
     </button>
   );
 }

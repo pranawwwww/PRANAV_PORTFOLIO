@@ -28,6 +28,7 @@ const ChatModal: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!inputValue.trim()) return;
     sendMessage(inputValue);
     setInputValue('');
   };
@@ -54,12 +55,12 @@ const ChatModal: React.FC = () => {
           isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
         }`}
         style={{
-          backgroundColor: 'var(--bg-primary)',
-          border: '1px solid var(--chat-border)',
-          color: 'var(--text-primary)'
+          background: 'var(--surface)',
+          border: '1px solid var(--border)',
+          color: 'var(--text)'
         }}
       >
-        <header className="flex items-center justify-between p-4" style={{ borderBottom: '1px solid var(--chat-border)' }}>
+        <header className="flex items-center justify-between p-4" style={{ borderBottom: '1px solid var(--border)' }}>
           <div className="flex items-center gap-2">
             <img
               src={groguIcon}
@@ -68,27 +69,27 @@ const ChatModal: React.FC = () => {
               className="w-5 h-5"
               style={{ borderRadius: '4px' }}
             />
-            <h2 id="chat-modal-title" className="font-bold font-mono" style={{ color: 'var(--text-primary)' }}>
+            <h2 id="chat-modal-title" className="font-bold font-mono" style={{ color: 'var(--text)' }}>
               GROGU - AI ASSISTANT
             </h2>
           </div>
           <button
             onClick={() => toggleChat(false)}
             aria-label="Close chat"
-            className="p-1 focus:outline-none focus:ring-2 transition-colors"
+            className="p-1 rounded focus:outline-none focus:ring-2 transition-colors"
             style={{ 
-              color: 'var(--text-primary)',
-              backgroundColor: 'transparent',
+              color: 'var(--text)',
+              background: 'transparent',
               border: 'none'
             }}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--nav-hover-bg)'}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--surface-2)'}
             onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
           </button>
         </header>
 
-        <div className="flex-grow p-4 overflow-y-auto" aria-live="polite">
+        <div className="flex-grow p-4 overflow-y-auto" aria-live="polite" style={{ background: 'var(--surface)' }}>
           <div className="space-y-6">
             {messages.map((msg) => (
               <Message key={msg.id} message={msg} />
@@ -97,20 +98,20 @@ const ChatModal: React.FC = () => {
             
             {/* Quick Action Buttons */}
             {quickActions.length > 0 && !isLoading && (
-              <div className="mt-4 p-3 rounded border" style={{ backgroundColor: 'var(--bg-primary)', borderColor: 'var(--chat-border)' }}>
+              <div className="mt-4 p-3 rounded border" style={{ background: 'var(--surface-2)', borderColor: 'var(--border)' }}>
                 <p className="text-xs mb-2 font-mono" style={{ color: 'var(--text-muted)' }}>Quick Actions:</p>
                 <div className="flex flex-wrap gap-2">
                   {quickActions.map((action, index) => (
                     <button
                       key={index}
                       onClick={() => executeAction(action)}
-                      className="px-3 py-1 text-xs transition-colors font-mono rounded"
+                      className="px-3 py-1 text-xs transition-opacity font-mono rounded"
                       style={{
-                        backgroundColor: 'var(--accent-color)',
-                        color: 'var(--bg-primary)',
+                        background: 'var(--accent)',
+                        color: '#ffffff',
                         border: 'none'
                       }}
-                      onMouseEnter={(e) => e.currentTarget.style.opacity = '0.8'}
+                      onMouseEnter={(e) => e.currentTarget.style.opacity = '0.9'}
                       onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
                     >
                       {action.label}
@@ -123,7 +124,7 @@ const ChatModal: React.FC = () => {
           <div ref={messagesEndRef} />
         </div>
 
-        <form onSubmit={handleSubmit} className="p-4" style={{ borderTop: '1px solid var(--chat-border)' }}>
+        <form onSubmit={handleSubmit} className="p-4" style={{ borderTop: '1px solid var(--border)', background: 'var(--surface)' }}>
           <div className="flex items-center space-x-2">
             <input
               type="text"
@@ -131,25 +132,25 @@ const ChatModal: React.FC = () => {
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="Ask Grogu anything..."
               aria-label="Chat message"
-              className="flex-grow w-full px-3 py-2 focus:outline-none focus:ring-2 transition-shadow font-mono"
+              className="flex-grow w-full px-3 py-2 focus:outline-none focus:ring-2 transition-shadow font-mono rounded"
               style={{
-                backgroundColor: 'var(--bg-primary)',
-                border: '1px solid var(--chat-border)',
-                color: 'var(--text-primary)'
+                background: 'var(--surface-2)',
+                border: '1px solid var(--border)',
+                color: 'var(--text)'
               }}
             />
             <button
               type="submit"
               disabled={isLoading || !inputValue.trim()}
               aria-label="Send message"
-              className="px-4 py-2 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 transition-colors"
+              className="px-4 py-2 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 transition-colors rounded"
               style={{
-                backgroundColor: 'var(--bg-primary)',
-                border: '1px solid var(--chat-border)',
-                color: 'var(--text-primary)'
+                background: 'var(--accent)',
+                border: '1px solid var(--accent)',
+                color: '#ffffff'
               }}
-              onMouseEnter={(e) => !e.currentTarget.disabled && (e.currentTarget.style.backgroundColor = 'var(--nav-hover-bg)')}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'var(--bg-primary)'}
+              onMouseEnter={(e) => !e.currentTarget.disabled && (e.currentTarget.style.opacity = '0.95')}
+              onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
             >
               Send
             </button>

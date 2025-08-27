@@ -15,15 +15,13 @@ export default function ThemeToggle() {
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
-    console.log("Theme set to:", theme); // Debug log
   }, [theme]);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
     const handler = () => { 
       if (!localStorage.getItem("theme")) {
-        const newTheme = getSystemPref();
-        setTheme(newTheme);
+        setTheme(getSystemPref());
       }
     };
     mq.addEventListener?.("change", handler);
@@ -32,7 +30,6 @@ export default function ThemeToggle() {
 
   const handleToggle = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
-    console.log("Toggling from", theme, "to", newTheme); // Debug log
     setTheme(newTheme);
   };
 
@@ -40,6 +37,7 @@ export default function ThemeToggle() {
     <button
       className="mono"
       aria-label="Toggle theme"
+      title={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
       onClick={handleToggle}
       style={{
         background: "var(--surface-2)",
@@ -49,7 +47,7 @@ export default function ThemeToggle() {
         padding: "0.5rem .75rem"
       }}
     >
-      {theme === "dark" ? "☀️ Light" : "🌙 Dark"}
+      {theme === "dark" ? "☀️" : "🌙"}
     </button>
   );
 }
