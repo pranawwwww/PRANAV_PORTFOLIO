@@ -24,18 +24,25 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: 'npm'
+          node-version: 22
+          # cache disabled to ensure clean optional deps install
 
-      - name: Install dependencies (with Rollup optional-deps workaround)
+      - name: Clean install (workaround npm optional deps bug)
         shell: bash
         run: |
-          npm ci || (rm -f package-lock.json && rm -rf node_modules && npm install)
+          rm -f package-lock.json
+          rm -rf node_modules
+          npm config set optional true
+          npm config set fund false
+          npm config set audit false
+          npm install
+          # Explicitly ensure rollup native binary for linux is present
+          npm i --no-save @rollup/rollup-linux-x64-gnu || true
+          ls -la node_modules/@rollup || true
 
       - name: Build
         run: npm run build
         env:
-          # Optional: inject API key for build-time usage (be aware this ends up client-side)
           VITE_GEMINI_API_KEY: ${{ secrets.VITE_GEMINI_API_KEY }}
           ROLLUP_SKIP_NODEJS_NATIVE: 'true'
 
