@@ -15,9 +15,10 @@ const AppContent: React.FC = () => {
   return (
     <>
       <div className="flex flex-col min-h-screen" style={{
-        background: "var(--bg)",
-        color: "var(--text)",
-        transition: "background-color 0.3s, color 0.3s"
+        // Let the body's patterned background show through
+        background: 'transparent',
+        color: 'var(--text)',
+        transition: 'background-color 0.3s, color 0.3s'
       }}>
         <Header />
         <main id="main-content" className="flex-grow w-full">
