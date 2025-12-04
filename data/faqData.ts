@@ -12,7 +12,7 @@ export const faqData: FAQItem[] = [
   },
   {
     q: "What languages and stacks do you use most?",
-    a: "Python, Java, JavaScript/TypeScript; backends with Spring Boot and Flask; REST/gRPC; CI/CD with GitHub Actions/Jenkins; Docker/Kubernetes on AWS; Postgres/MySQL/MongoDB."
+    a: "Languages: Python, C++, Java, JavaScript/TypeScript, Go. Backends: Spring Boot, FastAPI, Flask. ML/Data: PyTorch, TensorFlow, feature stores, RAG systems. DevOps: Docker, Kubernetes, GitHub Actions, Jenkins, AWS, Azure. Databases: PostgreSQL, MongoDB, SQLite. APIs: REST, gRPC."
   },
   {
     q: "Give me one project you're proud of.",
@@ -20,11 +20,11 @@ export const faqData: FAQItem[] = [
   },
   {
     q: "How have you applied ML beyond coursework?",
-    a: "Sim2Real RL research at ASU: domain-adaptation studies, scalable benchmarks, and a survey that maps methods to MDP components to compare approaches clearly. I am currently working on a new Sim2Real project focusing on improving Foundational Policies wioth Hilbert Representations."
+    a: "Sim2Real RL research at ASU: engineered scalable benchmarks in PyTorch with Hydra, built distributed training workflows for domain-adaptation on foundation policies, and published a survey mapping 48+ RL benchmarks to MDP components. Currently working on improving Foundational Policies with Hilbert Representations."
   },
   {
     q: "Any performance or scale wins?",
-    a: "At Amadeus I cut CI/CD from ~72→12 hours (Docker/K8s/Jenkins), migrated legacy Java to Spring Boot microservices (~40% fewer rollbacks), and built an NLP RCA that auto-labels 15K+ test failures/month."
+    a: "At Amadeus: cut CI/CD from 81→12 hours with Docker/K8s/Jenkins, reduced MTTR by 40% with Splunk monitoring + anomaly detection, built NLP RCA system that auto-triages 15K+ test failures/month (60% reduction in manual debugging), improved query response times by 45% with caching optimizations."
   },
   {
     q: "How do you approach reliability and testing?",
@@ -80,7 +80,7 @@ export const faqData: FAQItem[] = [
   },
     {
     q: "What are your achievements?",
-    a: "Won 'Best Use of AI' at DevHacks Hackathon 2025 for AdaptED AI. Published Sim2Real RL research at NeurIPS 2023. Dean's List at ASU (2024). Participated in over 4 Hackathons, recieving positive feedback in each of them. Was awarded employee of the year for my division at Amadeus for the year 2023."
+    a: "🏆 Best Use of AI at ASU DevHacks 2025 (AdaptED AI with 40% higher engagement). Published Sim2Real RL survey (100+ sources, 48+ benchmarks) on arXiv. Published DeepShade & ShadeBench papers (IEEE RA-L, UrbanAI). Dean's List at ASU 2024 (GPA 3.96). Employee of the Year at Amadeus Labs (2023). 3.96/4.0 GPA (MS CS) and 8.7/10 (BTech)."
   },
 
 
