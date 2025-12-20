@@ -23,8 +23,8 @@ const Home: React.FC = () => {
         </p>
       </div>
 
-      {/* Chatbox - Larger and independent */}
-      <div className="w-full max-w-5xl card shadow-lg min-h-[500px] sm:min-h-[600px]">
+      {/* Chatbox - Fixed size and scrollable */}
+      <div className="w-full max-w-5xl card shadow-lg h-[500px] sm:h-[600px]">
          <HomePageChat />
       </div>
       <div className="mt-6 sm:mt-8 flex flex-wrap gap-3 sm:gap-4 justify-center">

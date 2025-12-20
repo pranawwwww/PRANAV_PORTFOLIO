@@ -64,8 +64,8 @@ const HomePageChat: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col h-full min-h-[600px] w-full mono">
-        <div className="flex-grow p-4 sm:p-6 overflow-y-auto min-h-0" aria-live="polite" style={{
+    <div className="flex flex-col h-full w-full mono">
+        <div className="flex-grow p-4 sm:p-6 overflow-y-auto" aria-live="polite" style={{
           background: "var(--bg)"
         }}>
           <div className="space-y-4 sm:space-y-6 max-w-none">
