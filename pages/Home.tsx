@@ -2,11 +2,29 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import HomePageChat from '../components/chat/HomePageChat';
 import { siteData } from '../data/siteData.ts';
+import profilePixel from '../data/profile-pixel.png';
 
 const Home: React.FC = () => {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center min-h-[calc(100vh-120px)] py-6 sm:py-10">
-      <div className="w-full max-w-5xl card shadow-lg">
+      {/* Header Section - Picture & Description */}
+      <div className="w-full max-w-5xl mb-6 sm:mb-8 text-center">
+        <img
+          src={profilePixel}
+          alt="A pixelated black and white portrait"
+          className="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-4 sm:mb-6 rounded-lg"
+          style={{ border: "1px solid var(--border)" }}
+        />
+        <h1 className="font-bold text-2xl sm:text-3xl mb-2" style={{ color: "var(--text)" }}>
+          Hi, I'm {siteData.name}.
+        </h1>
+        <p className="text-sm sm:text-base max-w-2xl mx-auto" style={{ color: "var(--text-muted)" }}>
+          {siteData.tagline}
+        </p>
+      </div>
+
+      {/* Chatbox - Larger and independent */}
+      <div className="w-full max-w-5xl card shadow-lg min-h-[500px] sm:min-h-[600px]">
          <HomePageChat />
       </div>
       <div className="mt-6 sm:mt-8 flex flex-wrap gap-3 sm:gap-4 justify-center">

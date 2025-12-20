@@ -64,23 +64,7 @@ const HomePageChat: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col h-[78vh] sm:h-[75vh] max-h-[85vh] min-h-0 w-full mono">
-        <header className="p-4 sm:p-6 text-center" style={{
-          borderBottom: "1px solid var(--border)",
-          background: "var(--surface)"
-        }}>
-            <img
-              src={profilePixel}
-              alt="A pixelated black and white portrait"
-              className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-3 sm:mb-4 rounded-lg"
-              style={{ border: "1px solid var(--border)" }}
-            />
-            <h1 id="chat-title" className="font-bold text-lg sm:text-xl" style={{ color: "var(--text)" }}>
-            Hi, I'm {siteData.name}.
-            </h1>
-            <p className="text-xs sm:text-sm mt-2 max-w-md mx-auto" style={{ color: "var(--text-muted)" }}>{siteData.tagline}</p>
-        </header>
-
+    <div className="flex flex-col h-full min-h-[600px] w-full mono">
         <div className="flex-grow p-4 sm:p-6 overflow-y-auto min-h-0" aria-live="polite" style={{
           background: "var(--bg)"
         }}>
