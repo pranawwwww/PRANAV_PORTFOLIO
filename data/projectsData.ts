@@ -41,7 +41,7 @@ export const projectsData: Project[] = [
     summary:
       'AI-powered healthcare platform addressing 80% error rate in medical bills; analyzes insurance policies and medical bills to extract coverage details, flag billing errors, detect duplicate charges, and generate dispute recommendations; RAG-powered chatbot for contextual insurance Q&A; includes admin dashboard with database management and demo reset tools.',
     links: {
-      demo: 'https://healai-production.up.railway.app/dashboard',
+      demo: 'https://heal-ai-production.up.railway.app/',
       repo: 'https://github.com/kspswati/heal-ai',
     },
   },
