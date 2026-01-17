@@ -11,9 +11,24 @@ dotenv.config();
 
 const app = express();
 
-// CORS - allow your frontend domain
+// CORS - allow your frontend domain(s)
+const allowedOrigins = [
+  'https://pranawwwww.github.io',
+  'http://localhost:5173',
+  'http://localhost:3000',
+  process.env.FRONTEND_URL
+].filter(Boolean);
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL || '*'
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin) || process.env.FRONTEND_URL === '*') {
+      return callback(null, true);
+    }
+    return callback(new Error('Not allowed by CORS'));
+  },
+  credentials: true
 }));
 
 app.use(express.json());
