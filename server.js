@@ -13,6 +13,8 @@ const app = express();
 
 // CORS - allow your frontend domain(s)
 const allowedOrigins = [
+  'https://pranavkutralingam.com',
+  'https://www.pranavkutralingam.com',
   'https://pranawwwww.github.io',
   'http://localhost:5173',
   'http://localhost:3000',
