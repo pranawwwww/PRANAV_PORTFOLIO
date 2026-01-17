@@ -22,28 +22,19 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>(() => {
-    // Check for saved theme preference or default to dark
-    const savedTheme = localStorage.getItem('theme') as Theme;
-    return savedTheme || 'dark';
-  });
+  // Always use light mode
+  const [theme] = useState<Theme>('light');
 
   useEffect(() => {
-    // Apply theme to document
+    // Apply light theme to document
     const root = document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-    
-    // Save theme preference
-    localStorage.setItem('theme', theme);
-  }, [theme]);
+    root.classList.remove('dark');
+    root.setAttribute('data-theme', 'light');
+    localStorage.setItem('theme', 'light');
+  }, []);
 
-  const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
-  };
+  // Toggle is now a no-op since we only support light mode
+  const toggleTheme = () => {};
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>

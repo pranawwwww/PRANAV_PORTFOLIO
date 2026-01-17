@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
   { id: 'about', label: 'About' },
@@ -47,9 +46,29 @@ const Header: React.FC = () => {
           </ul>
         </div>
 
-        {/* Theme toggle - absolute right */}
+        {/* Right side - Open to Work badge + Mobile hamburger */}
         <div className="absolute right-0 flex items-center gap-3">
-          <ThemeToggle />
+          {/* Open to Work badge */}
+          <a
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all duration-200 hover:opacity-80 cursor-pointer"
+            style={{
+              background: 'var(--surface-2)',
+              color: 'var(--text)',
+              border: '1px solid var(--border)',
+            }}
+          >
+            <span
+              className="w-1.5 h-1.5 rounded-full"
+              style={{ background: '#22c55e', boxShadow: '0 0 6px #22c55e' }}
+            />
+            <span className="hidden sm:inline">Open to Work</span>
+            <span className="sm:hidden">Available</span>
+          </a>
           {/* Mobile hamburger */}
           <button
             className="sm:hidden inline-flex items-center justify-center w-10 h-10 rounded-md border"

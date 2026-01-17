@@ -846,12 +846,12 @@ const Home: React.FC = () => {
       {/* Contact Section */}
       <section id="contact" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 mb-12">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-8 sm:mb-12 heading-blue gradient-blue">
-          Contact
+          Get in touch !
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
             <h3 className="text-2xl font-bold mb-6 subheading">
-              Send me a message
+              
             </h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
