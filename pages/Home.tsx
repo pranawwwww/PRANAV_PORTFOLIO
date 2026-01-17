@@ -8,6 +8,7 @@ import emailjs from '@emailjs/browser';
 import { useChat } from '../contexts/ChatContext';
 import Message from '../components/chat/Message';
 import neuroIcon from '../data/connection.png';
+import neuroIconInverted from '../data/connection_inverted.png';
 
 // Import section components
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
@@ -410,8 +411,14 @@ const EmbeddedChatBox: React.FC = () => {
             onClick={() => setShowOverlay(false)}
           >
             <div className="text-center px-6">
-              <p className="text-lg font-semibold text-white mb-2">Ask about my work</p>
-              <p className="text-sm text-gray-300">AI assistant trained on my projects, skills, and experience</p>
+              <img
+                src={neuroIconInverted}
+                alt="Neuro"
+                className="w-16 h-16 mx-auto mb-4"
+                style={{ borderRadius: '8px' }}
+              />
+              <p className="text-xl font-semibold text-white mb-2">Chat with Neuro !</p>
+              <p className="text-sm text-gray-300">An AI assistant which knows about me and my skills</p>
             </div>
           </div>
         )}
