@@ -4,6 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "homepage": "https://pranawwwww.github.io/PRANAV_PORTFOLIO",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "dev": "vite",
     "dev:backend": "node server.js",
