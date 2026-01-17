@@ -1,48 +1,25 @@
 import React from 'react';
-import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import Projects from './pages/Projects';
-import Experience from './pages/Experience';
-import Skills from './pages/Skills';
-import Contact from './pages/Contact';
 import { ChatProvider } from './contexts/ChatContext';
-import ChatWidget from './components/chat/ChatWidget';
-
-const AppContent: React.FC = () => {
-  const location = useLocation();
-  return (
-    <>
-      <div className="flex flex-col min-h-screen" style={{
-        // Let the body's patterned background show through
-        background: 'transparent',
-        color: 'var(--text)',
-        transition: 'background-color 0.3s, color 0.3s'
-      }}>
-        <Header />
-        <main id="main-content" className="flex-grow w-full">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/experience" element={<Experience />} />
-            <Route path="/skills" element={<Skills />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-        <Footer />
-        {location.pathname !== '/' && <ChatWidget />}
-      </div>
-    </>
-  );
-};
-
 
 const App: React.FC = () => {
   return (
     <ChatProvider>
       <HashRouter>
-        <AppContent />
+        <div className="flex flex-col min-h-screen" style={{
+          background: 'transparent',
+          color: 'var(--text)',
+          transition: 'background-color 0.3s, color 0.3s'
+        }}>
+          <Header />
+          <main id="main-content" className="flex-grow w-full">
+            <Home />
+          </main>
+          <Footer />
+        </div>
       </HashRouter>
     </ChatProvider>
   );

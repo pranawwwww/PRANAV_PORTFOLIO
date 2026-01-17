@@ -1,7 +1,7 @@
 import { SiteData } from '../types';
 
 export const siteData: SiteData = {
-  name: "Pranav Kutralingam",
+  name: "",
   tagline: "Grad CS @ ASU | SWE who speaks ML | My models lift & backends don’t skip leg day | Now accepting quests.",
   location: "Tempe, AZ",
   links: {

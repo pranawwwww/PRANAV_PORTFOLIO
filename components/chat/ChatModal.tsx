@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useChat } from '../../contexts/ChatContext';
 import { useFocusTrap } from '../../hooks/useFocusTrap';
 import Message from './Message';
-import groguIcon from '../../data/icons8-baby-yoda-48 (1).png';
+import neuroIcon from '../../data/connection.png';
 
 const ChatModal: React.FC = () => {
   const { isOpen, toggleChat, messages, sendMessage, isLoading, quickActions, executeAction } = useChat();
@@ -63,14 +63,14 @@ const ChatModal: React.FC = () => {
         <header className="flex items-center justify-between p-4" style={{ borderBottom: '1px solid var(--border)' }}>
           <div className="flex items-center gap-2">
             <img
-              src={groguIcon}
+              src={neuroIcon}
               alt=""
               aria-hidden="true"
               className="w-5 h-5"
               style={{ borderRadius: '4px' }}
             />
             <h2 id="chat-modal-title" className="font-bold font-mono" style={{ color: 'var(--text)' }}>
-              GROGU - AI ASSISTANT
+              NEURO - AI ASSISTANT
             </h2>
           </div>
           <button
@@ -130,7 +130,7 @@ const ChatModal: React.FC = () => {
               type="text"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              placeholder="Ask Grogu anything..."
+              placeholder="Ask Neuro anything..."
               aria-label="Chat message"
               className="flex-grow w-full px-3 py-2 focus:outline-none focus:ring-2 transition-shadow font-mono rounded"
               style={{

@@ -1,27 +1,23 @@
 import React, { createContext, useState, useEffect, useContext, ReactNode } from 'react';
-import { GoogleGenAI, Chat } from '@google/genai';
 import type { Message } from '../types';
 
-import { siteData } from '../data/siteData.ts';
-import { projectsData } from '../data/projectsData.ts';
-import { experienceData } from '../data/experienceData.ts';
-import { skillsData } from '../data/skillsData.ts';
-import { faqData } from '../data/faqData.ts';
+// API endpoint - will use /api/chat in production (Vercel) or http://localhost:3000/api/chat in local dev
+const API_ENDPOINT = import.meta.env.VITE_API_URL || '/api/chat';
 
-// Request limits
+// Request limits (enforced on backend, but tracked here for UX)
 const SESSION_LIMIT = 30; // per browser session
-const DAILY_LIMIT = 1000; // per device/day (frontend guard; enforce on backend too when deployed)
+const DAILY_LIMIT = 1000; // per device/day
 
 type DailyCounter = { date: string; count: number };
 
 function todayKey(): string {
-  // YYYY-MM-DD (UTC) is sufficient for a simple daily rollover
   return new Date().toISOString().slice(0, 10);
 }
 
 function getSessionCount(): number {
   try { return parseInt(sessionStorage.getItem('chatSessionCount') || '0', 10) || 0; } catch { return 0; }
 }
+
 function incrementSessionCount(): number {
   const next = getSessionCount() + 1;
   try { sessionStorage.setItem('chatSessionCount', String(next)); } catch {}
@@ -33,7 +29,11 @@ function getDailyCounter(): DailyCounter {
   const today = todayKey();
   try {
     const raw = localStorage.getItem(key);
-    if (!raw) { const dc = { date: today, count: 0 }; localStorage.setItem(key, JSON.stringify(dc)); return dc; }
+    if (!raw) {
+      const dc = { date: today, count: 0 };
+      localStorage.setItem(key, JSON.stringify(dc));
+      return dc;
+    }
     const parsed = JSON.parse(raw) as DailyCounter;
     if (!parsed.date || parsed.date !== today) {
       const dc = { date: today, count: 0 };
@@ -47,6 +47,7 @@ function getDailyCounter(): DailyCounter {
     return dc;
   }
 }
+
 function incrementDailyCounter(): DailyCounter {
   const key = 'chatDailyCounter';
   const current = getDailyCounter();
@@ -76,53 +77,15 @@ interface ChatContextType {
 
 const ChatContext = createContext<ChatContextType | undefined>(undefined);
 
-// Transform skills data into a simple object for the AI context
-const skillsForContext = skillsData.reduce((acc, category) => {
-  acc[category.category] = category.skills;
-  return acc;
-}, {} as Record<string, string[]>);
-
-const portfolioContext = `
-You are a friendly, enthusiastic, and professional chatbot for Pranav's personal portfolio website (senior frontend engineer).
-
-Style guidelines:
-- Be warm, encouraging, and concise. Sound excited to help but stay professional.
-- Use short paragraphs and bullet points where helpful.
-- Optional: At most one appropriate emoji to add warmth (e.g., ✨, 😊), only when it feels natural.
-- Never invent facts. Answer ONLY from the provided context below. If unknown, say so briefly and offer what you can do instead.
-- Be technically accurate. When sharing links, use those from the context.
-
-Here is all the information about Pranav:
-
----
-SITE & CONTACT INFO:
-${JSON.stringify(siteData, null, 2)}
-
----
-PROJECTS:
-${JSON.stringify(projectsData, null, 2)}
-
----
-PROFESSIONAL EXPERIENCE:
-${JSON.stringify(experienceData, null, 2)}
-
----
-TECHNICAL SKILLS:
-${JSON.stringify(skillsForContext, null, 2)}
-
----
-FREQUENTLY ASKED QUESTIONS:
-${JSON.stringify(faqData, null, 2)}
-`;
-
 const initialMessage: Message = {
-    id: 'init-message',
-    author: 'bot',
-    text: `Hey there! I’m Grogu, your friendly AI assistant. Ask me anything about Pranav’s projects, experience, or skills — happy to help! ✨`,
+  id: 'init-message',
+  author: 'bot',
+  text: `Hey there! I'm Neuro, your friendly AI assistant. Ask me anything about Pranav's projects, experience, or skills — happy to help! ✨`,
 };
 
 // Simple preset actions for convenience
 const defaultQuickActions: QuickAction[] = [
+  { label: "Know Pranav", command: "Who is Pranav?" },
   { label: "Show featured projects" },
   { label: "List technical skills" },
   { label: "How can I contact you?" },
@@ -133,8 +96,8 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [chatInstance, setChatInstance] = useState<Chat | null>(null);
 
+  // Load messages from sessionStorage on mount
   useEffect(() => {
     try {
       const storedMessages = sessionStorage.getItem('chatMessages');
@@ -149,45 +112,16 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     }
   }, []);
 
+  // Save messages to sessionStorage whenever they change
   useEffect(() => {
     try {
-        if(messages.length > 0) {
-            sessionStorage.setItem('chatMessages', JSON.stringify(messages));
-        }
+      if (messages.length > 0) {
+        sessionStorage.setItem('chatMessages', JSON.stringify(messages));
+      }
     } catch (error) {
-        console.error("Could not save chat history to sessionStorage", error);
+      console.error("Could not save chat history to sessionStorage", error);
     }
   }, [messages]);
-
-  useEffect(() => {
-    const apiKey = import.meta.env.VITE_GEMINI_API_KEY as string | undefined;
-    if (!apiKey) {
-      console.warn('AI chat initialization skipped: Missing VITE_GEMINI_API_KEY');
-      return;
-    }
-    try {
-      const ai = new GoogleGenAI({ apiKey });
-      const history = messages
-          .filter(msg => msg.id !== 'init-message')
-          .map(msg => ({
-              role: msg.author === 'user' ? 'user' : 'model',
-              parts: [{ text: msg.text }]
-          }));
-
-        const chat = ai.chats.create({
-          model: 'gemini-2.5-flash',
-          config: {
-              systemInstruction: portfolioContext,
-          },
-          history: history.length > 0 ? history: undefined,
-        });
-        setChatInstance(chat);
-    } catch (e) {
-      console.warn('AI chat initialization skipped:', e);
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
 
   const toggleChat = (open?: boolean) => {
     setIsOpen(prev => typeof open === 'boolean' ? open : !prev);
@@ -196,6 +130,7 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const sendMessage = async (messageText: string) => {
     if (!messageText.trim() || isLoading) return;
 
+    // Check rate limits (frontend enforcement for UX)
     const sessionCount = getSessionCount();
     const dailyCount = getDailyCounter().count;
 
@@ -211,40 +146,72 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       return;
     }
 
+    // Add user message to UI
     const userMessage: Message = {
       id: Date.now().toString(),
       author: 'user',
       text: messageText,
     };
-    
+
     setMessages(prev => {
-        if (prev.length === 1 && prev[0].id === 'init-message') {
-            return [userMessage];
-        }
-        return [...prev, userMessage]
+      // Replace initial message with first user message
+      if (prev.length === 1 && prev[0].id === 'init-message') {
+        return [userMessage];
+      }
+      return [...prev, userMessage];
     });
+
     setIsLoading(true);
     incrementSessionCount();
     incrementDailyCounter();
 
     try {
-        if (!chatInstance) {
-            throw new Error("Chat not initialized");
-        }
-      const result = await chatInstance.sendMessage({ message: messageText });
+      // Build conversation history for context
+      const conversationHistory = messages
+        .filter(msg => msg.id !== 'init-message')
+        .map(msg => ({
+          role: msg.author === 'user' ? 'user' : 'assistant',
+          content: msg.text
+        }));
+
+      // Call backend API
+      const response = await fetch(API_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: messageText,
+          conversationHistory
+        })
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || `API error: ${response.status}`);
+      }
+
+      const data = await response.json();
+
       const botMessage: Message = {
         id: Date.now().toString() + 'b',
         author: 'bot',
-        text: result.text,
+        text: data.response,
       };
+
       setMessages(prev => [...prev, botMessage]);
+
     } catch (error) {
-      console.error('Error sending message to Gemini API:', error);
+      console.error('Error sending message to chat API:', error);
+
       const errorMessage: Message = {
         id: Date.now().toString() + 'e',
         author: 'bot',
-        text: "Sorry, I'm having trouble connecting right now. Please try again later.",
+        text: error instanceof Error && error.message.includes('API error')
+          ? "Sorry, I'm having trouble connecting to the server. Please try again later."
+          : "Sorry, I'm having trouble connecting right now. Please try again later.",
       };
+
       setMessages(prev => [...prev, errorMessage]);
     } finally {
       setIsLoading(false);
@@ -257,7 +224,17 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   return (
-    <ChatContext.Provider value={{ isOpen, toggleChat, messages, sendMessage, isLoading, quickActions: defaultQuickActions, executeAction }}>
+    <ChatContext.Provider
+      value={{
+        isOpen,
+        toggleChat,
+        messages,
+        sendMessage,
+        isLoading,
+        quickActions: defaultQuickActions,
+        executeAction
+      }}
+    >
       {children}
     </ChatContext.Provider>
   );

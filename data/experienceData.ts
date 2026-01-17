@@ -7,10 +7,10 @@ export const experienceData: ExperienceItem[] = [
     start: 'Aug 2024',
     end: 'Dec 2025',
     bullets: [
-      'Engineered scalable Sim2Real RL benchmarks using Python, PyTorch, Hydra, and Git; optimized multi-process data ingestion, feature extraction, and evaluation pipelines on ASU HPC cluster.',
-      'Built and tuned distributed training and domain-adaptation workflows for foundation policies, improving cross-environment generalization and reducing training variance.',
-      'Automated model evaluation, logging, and monitoring pipelines, reducing experiment turnaround from days to hours with robust offline + streaming experiment tracking.',
-      'Developed large-scale Blender-based simulation pipelines for multi-GB dataset generation, optimizing media I/O, batching, and preprocessing for downstream ML systems.'
+      'Designed and engineered scalable Sim2Real reinforcement learning benchmarks using Python, PyTorch, Hydra, and Git, supporting reproducible experimentation across multiple simulated environments.',
+      'Built distributed training and domain-adaptation workflows for foundation policies, improving cross-environment generalization and reducing training variance across simulation domains.',
+      'Developed automated evaluation, logging, and experiment-tracking pipelines on ASU’s HPC cluster, reducing experiment turnaround time from days to hours.',
+      'Implemented large-scale Blender-based simulation pipelines for multi-GB dataset generation, optimizing data ingestion, preprocessing, and I/O throughput for downstream ML systems.'
     ],
   },
   {
@@ -19,9 +19,9 @@ export const experienceData: ExperienceItem[] = [
     start: 'May 2021',
     end: 'Dec 2023',
     bullets: [
-      'Spearheaded CI/CD optimization using Docker, Kubernetes, and Jenkins; designed high-throughput microservice pipelines cutting build time from 81→12 hours.',
-      'Developed an NLP-powered root-cause analysis system using Python, SQL, and clustering for 15K+ monthly test failures; improved model accuracy and reduced manual debugging by 60%.',
-      'Improved production observability using Splunk and real-time monitoring dashboards; reduced MTTR by 40% with automated anomaly detection and alerting workflows.'
+      'Led CI/CD pipeline optimization using Docker, Kubernetes, and Jenkins, redesigning microservice build and deployment workflows and reducing end-to-end build times from 81 hours to 12 hours.',
+      'Developed an NLP-driven root-cause analysis system using Python, SQL, and clustering techniques to analyze 15K+ monthly test failures, reducing manual debugging effort by over 60%.',
+      'Improved production observability by building Splunk-based monitoring dashboards and alerting workflows, reducing mean time to resolution (MTTR) by approximately 40%.'
     ],
   },
   {
@@ -30,9 +30,9 @@ export const experienceData: ExperienceItem[] = [
     start: 'Jan 2021',
     end: 'May 2021',
     bullets: [
-      'Modernized legacy Java services into Spring Boot microservices, improving scalability, resilience, and deployment safety with containerized rollouts.',
-      'Accelerated backend parsers and schedulers through regex automation and async processing, improving runtime by 30%.',
-      'Implemented query tuning and caching optimizations, improving peak-load response times by 45% across billing workflows.'
+      'Refactored legacy Java services into Spring Boot–based microservices, improving scalability, fault tolerance, and deployment reliability.',
+      'Optimized backend parsers and scheduling services through regex automation and asynchronous processing, improving runtime performance by approximately 30%.',
+      'Implemented database query tuning and caching strategies, improving peak-load response times by up to 45% across billing and transaction workflows.'
     ],
   },
 ];

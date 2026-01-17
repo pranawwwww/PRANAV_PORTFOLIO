@@ -5,25 +5,32 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:backend": "node server.js",
     "build": "vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "git subtree push --prefix dist origin gh-pages"
+    "deploy": "git subtree push --prefix dist origin gh-pages",
+    "start": "node server.js"
   },
   "dependencies": {
-    "react-dom": "^19.1.1",
-    "react": "^19.1.1",
-    "react-router-dom": "^7.8.1",
+    "@emailjs/browser": "^4.4.1",
     "@google/genai": "latest",
-    "@emailjs/browser": "^4.4.1"
+    "@google/generative-ai": "^0.24.1",
+    "@vercel/node": "^5.5.19",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^7.8.1"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
-    "typescript": "~5.8.2",
-    "vite": "^6.2.0",
-    "tailwindcss": "^3.4.10",
+    "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
-    "autoprefixer": "^10.4.20"
+    "tailwindcss": "^3.4.10",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
   },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "^4.24.0"

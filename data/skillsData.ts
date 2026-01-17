@@ -3,13 +3,14 @@ import { SkillCategory } from '../types';
 export const skillsData: SkillCategory[] = [
   {
     category: 'Languages',
-    skills: ['Python', 'Java', 'C++', 'JavaScript', 'TypeScript', 'SQL'],
+    skills: ['Python', 'Java', 'C++', 'JavaScript', 'TypeScript', 'SQL', 'Bash', 'C#', ".NET", 'rust'],
   },
   {
     category: 'Frameworks & Libraries',
     skills: [
       'React',
-      'Node.js',
+      'Node',
+      'FastAPI',
       'Spring Boot',
       'Flask',
       'TensorFlow',
@@ -20,18 +21,43 @@ export const skillsData: SkillCategory[] = [
   },
   {
     category: 'Tools & Platforms',
-    skills: ['Git', 'Docker', 'GitHub Actions', 'Jenkins', 'Kubernetes', 'AWS', 'Azure'],
+    skills: [
+      'Git',
+      'Docker',
+      'Kubernetes',
+      'GitHub Actions',
+      'Jenkins',
+      'AWS',
+      'Azure',
+      'Splunk',
+      'HPC Clusters',
+      'Linux'
+    ],
   },
   {
     category: 'Databases',
     skills: ['PostgreSQL', 'MySQL', 'MongoDB', 'Hibernate'],
   },
   {
-    category: 'Testing',
-    skills: ['JUnit', 'Playwright', 'Google Lighthouse', 'CI/CD testing pipelines'],
+    category: 'Testing & Quality',
+    skills: ['JUnit', 'Playwright', 'Google Lighthouse', 'CI/CD Testing Pipelines'],
   },
   {
-    category: 'Concepts',
-    skills: ['REST APIs', 'Microservices', 'MLOps', 'Sim2Real RL', 'Reinforcement Learning'],
+    category: 'ML & AI',
+    skills: [
+      'Large Language Models (LLMs)',
+      'Retrieval-Augmented Generation (RAG)',
+      'MLOps',
+      'Model Evaluation & Experiment Tracking',
+    ],
+  },
+  {
+    category: 'Systems & Concepts',
+    skills: [
+      'REST APIs',
+      'Microservices',
+      'Distributed Systems',
+      'Reinforcement Learning',
+    ],
   },
 ];

@@ -1,53 +1,54 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import { siteData } from '../data/siteData.ts';
 import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
-  { path: '/', label: 'Home' },
-  { path: '/projects', label: 'Projects' },
-  { path: '/experience', label: 'Experience' },
-  { path: '/skills', label: 'Skills' },
-  { path: '/contact', label: 'Contact' },
+  { id: 'about', label: 'About' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'contact', label: 'Contact' },
 ];
 
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleNavClick = (id: string) => {
+    setMenuOpen(false);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <header className="py-4 px-4 sm:px-6 lg:px-8 sticky top-0 z-20" style={{
       borderBottom: "1px solid var(--border)",
       background: "var(--surface)",
       backdropFilter: "blur(8px)"
     }}>
-      <nav className="max-w-6xl mx-auto flex justify-between items-center">
-        <Link 
-          to="/" 
-          className="px-2 py-1 rounded-md text-2xl sm:text-3xl brand-title gradient-blue"
-          onClick={() => setMenuOpen(false)}
-        >
-          {siteData.name}
-        </Link>
-        <div className="flex items-center gap-3">
-          {/* Desktop nav */}
+      <nav className="max-w-6xl mx-auto flex items-center relative">
+        {/* Centered nav links */}
+        <div className="flex-1 flex justify-center">
           <ul className="hidden sm:flex items-center space-x-2 sm:space-x-4 text-sm sm:text-base">
-            {navLinks.map(({ path, label }) => (
-              <li key={path}>
-                <NavLink
-                  to={path}
-                  className={({ isActive }) =>
-                    `px-3 py-2 rounded-md transition-colors duration-200 focus:outline-none ${
-                      isActive && path !== '/' 
-                        ? 'text-[var(--accent)] border-b-2 border-[var(--accent)]' 
-                        : 'text-[var(--text)] hover:text-[var(--accent)]'
-                    }`
-                  }
-                  onClick={() => setMenuOpen(false)}
+            {navLinks.map(({ id, label }) => (
+              <li key={id}>
+                <a
+                  href={`#${id}`}
+                  className="px-3 py-2 rounded-md transition-colors duration-200 focus:outline-none text-[var(--text)] hover:text-[var(--accent)] cursor-pointer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(id);
+                  }}
                 >
                   {label}
-                </NavLink>
+                </a>
               </li>
             ))}
           </ul>
+        </div>
+
+        {/* Theme toggle - absolute right */}
+        <div className="absolute right-0 flex items-center gap-3">
           <ThemeToggle />
           {/* Mobile hamburger */}
           <button
@@ -69,19 +70,18 @@ const Header: React.FC = () => {
       {menuOpen && (
         <div className="sm:hidden mt-3 p-3 rounded-lg" style={{ background: 'var(--surface)', border: '1px solid var(--border)' }}>
           <ul className="flex flex-col gap-1">
-            {navLinks.map(({ path, label }) => (
-              <li key={path}>
-                <NavLink
-                  to={path}
-                  className={({ isActive }) =>
-                    `block px-3 py-2 rounded-md transition-colors ${
-                      isActive && path !== '/' ? 'text-[var(--accent)]' : 'text-[var(--text)] hover:text-[var(--accent)]'
-                    }`
-                  }
-                  onClick={() => setMenuOpen(false)}
+            {navLinks.map(({ id, label }) => (
+              <li key={id}>
+                <a
+                  href={`#${id}`}
+                  className="block px-3 py-2 rounded-md transition-colors text-[var(--text)] hover:text-[var(--accent)] cursor-pointer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(id);
+                  }}
                 >
                   {label}
-                </NavLink>
+                </a>
               </li>
             ))}
           </ul>
