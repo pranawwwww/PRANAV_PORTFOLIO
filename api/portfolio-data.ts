@@ -10,7 +10,7 @@ export const portfolioData = {
     github: "https://github.com/pranawwwww",
     linkedin: "https://linkedin.com/in/pranavkutralingam",
     googleScholar: "https://scholar.google.com/citations?user=7wl6PBUAAAAJ",
-    resume: "https://drive.google.com/file/d/1m0AP1yK9iZXsGB2Max_PsD2OEWk5zXf9/view?usp=sharing"
+    resume: "https://drive.google.com/file/d/1ROBttOv_1Rk-Lkdu4OaLVuWTn7O2mfJh/view?usp=sharing"
   },
 
   projects: [
