@@ -1,6 +1,7 @@
 import React from 'react';
 import PageLayout from '../components/PageLayout';
 import { skillsData } from '../data/skillsData.ts';
+import SkillsVennDiagram from '../components/SkillsVennDiagram';
 
 const formatCategoryTitle = (category: string) => {
   return category
@@ -131,9 +132,7 @@ const SkillGroup: React.FC<{ category: string; skills: string[] }> = ({ category
 const Skills: React.FC = () => {
   return (
     <PageLayout title="Skills">
-      {skillsData.map(({ category, skills }) => (
-        <SkillGroup key={category} category={category} skills={skills} />
-      ))}
+      <SkillsVennDiagram />
     </PageLayout>
   );
 };

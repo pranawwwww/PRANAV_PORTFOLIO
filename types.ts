@@ -27,6 +27,7 @@ export interface Project {
     repo?: string;
     arXiv?: string;
   };
+  isPublication?: boolean;
 }
 
 // from src/data/experience.json
@@ -38,6 +39,22 @@ export interface ExperienceItem {
   // optional location for nicer formatting
   location?: string;
   bullets: string[];
+}
+
+// Grouped experience for timeline display
+export interface ExperienceRole {
+  role: string;
+  start: string;
+  end: string;
+  bullets: string[];
+}
+
+export interface GroupedExperience {
+  company: string;
+  location?: string;
+  totalStart: string;
+  totalEnd: string;
+  roles: ExperienceRole[];
 }
 
 // from src/data/skills.json

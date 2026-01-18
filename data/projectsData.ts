@@ -44,6 +44,7 @@ export const projectsData: Project[] = [
       arXiv: 'https://arxiv.org/abs/2502.13187',
       repo: 'https://github.com/LongchaoDa/AwesomeSim2Real',
     },
+    isPublication: true,
   },
   {
     title: 'ShadeBench — Benchmark Dataset for Urban Shade Simulation',
@@ -54,15 +55,29 @@ export const projectsData: Project[] = [
     links: {
       arXiv: 'https://openreview.net/forum?id=brBCPRgCz3',
     },
+    isPublication: true,
   },
   {
     title: 'DeepShade — Generative Shade Prediction from Satellite Imagery',
     year: 2025,
     stack: ['Diffusion Models', 'Computer Vision', 'Text Conditioning'],
     summary:
-      'Developed a diffusion-based model conditioned on time/solar angles to generate realistic shade maps from satellite imagery, bridging noisy real data with high-quality simulated supervision.',
+      'Helped develop a diffusion-based model conditioned on time/solar angles to generate realistic shade maps from satellite imagery, bridging noisy real data with high-quality simulated supervision.',
     links: {
       arXiv: 'https://arxiv.org/abs/2507.12103',
     },
+    isPublication: true,
   },
+  {
+  title: 'Lost in Execution: On the Multilingual Robustness of Tool Calling in Large Language Models',
+  year: 2026,
+  stack: ['Python', 'Rust', 'Evaluation', 'BFCL', 'Multilingual LLMs', 'Tool Calling'],
+  summary:
+    'Contributed to building a Rust-based test environment and batch-job runner to evaluate multilingual tool-calling performance across models on the BFCL dataset; supported result aggregation and analysis.',
+  links: {
+    arXiv: 'https://arxiv.org/abs/2601.05366',
+  },
+  isPublication: true,
+},
+
 ];

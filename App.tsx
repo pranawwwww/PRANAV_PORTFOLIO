@@ -1,26 +1,26 @@
 import React from 'react';
 import { HashRouter } from 'react-router-dom';
 import Header from './components/Header';
-import Footer from './components/Footer';
 import Home from './pages/Home';
 import { ChatProvider } from './contexts/ChatContext';
+import { ScrollProvider } from './contexts/ScrollContext';
 
 const App: React.FC = () => {
   return (
     <ChatProvider>
-      <HashRouter>
-        <div className="flex flex-col min-h-screen" style={{
-          background: 'transparent',
-          color: 'var(--text)',
-          transition: 'background-color 0.3s, color 0.3s'
-        }}>
-          <Header />
-          <main id="main-content" className="flex-grow w-full">
-            <Home />
-          </main>
-          <Footer />
-        </div>
-      </HashRouter>
+      <ScrollProvider>
+        <HashRouter>
+          <div className="snap-container" style={{
+            background: 'var(--bg)',
+            color: 'var(--text)',
+          }}>
+            <Header />
+            <main id="main-content">
+              <Home />
+            </main>
+          </div>
+        </HashRouter>
+      </ScrollProvider>
     </ChatProvider>
   );
 };

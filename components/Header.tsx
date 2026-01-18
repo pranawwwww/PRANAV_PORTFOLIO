@@ -1,26 +1,25 @@
 import React, { useState } from 'react';
+import { useScroll } from '../contexts/ScrollContext';
 
 const navLinks = [
   { id: 'about', label: 'About' },
-  { id: 'projects', label: 'Projects' },
   { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'Skills' },
   { id: 'contact', label: 'Contact' },
 ];
 
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { activeSection, scrollToSection } = useScroll();
 
   const handleNavClick = (id: string) => {
     setMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    scrollToSection(id);
   };
 
   return (
-    <header className="py-4 px-4 sm:px-6 lg:px-8 sticky top-0 z-20" style={{
+    <header className="py-4 px-4 sm:px-6 lg:px-8 fixed top-0 left-0 right-0 z-20" style={{
       borderBottom: "1px solid var(--border)",
       background: "var(--surface)",
       backdropFilter: "blur(8px)"
@@ -33,7 +32,11 @@ const Header: React.FC = () => {
               <li key={id}>
                 <a
                   href={`#${id}`}
-                  className="px-3 py-2 rounded-md transition-colors duration-200 focus:outline-none text-[var(--text)] hover:text-[var(--accent)] cursor-pointer"
+                  className={`px-3 py-2 rounded-md transition-all duration-200 focus:outline-none cursor-pointer ${
+                    activeSection === id
+                      ? 'text-[var(--text)] font-semibold bg-[var(--surface-2)]'
+                      : 'text-[var(--text-muted)] hover:text-[var(--text)]'
+                  }`}
                   onClick={(e) => {
                     e.preventDefault();
                     handleNavClick(id);
@@ -53,12 +56,12 @@ const Header: React.FC = () => {
             href="#contact"
             onClick={(e) => {
               e.preventDefault();
-              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              scrollToSection('contact');
             }}
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all duration-200 hover:opacity-80 cursor-pointer"
             style={{
-              background: 'var(--surface-2)',
-              color: 'var(--text)',
+              background: 'transparent',
+              color: 'var(--text-muted)',
               border: '1px solid var(--border)',
             }}
           >
@@ -93,7 +96,11 @@ const Header: React.FC = () => {
               <li key={id}>
                 <a
                   href={`#${id}`}
-                  className="block px-3 py-2 rounded-md transition-colors text-[var(--text)] hover:text-[var(--accent)] cursor-pointer"
+                  className={`block px-3 py-2 rounded-md transition-colors cursor-pointer ${
+                    activeSection === id
+                      ? 'text-[var(--text)] font-semibold bg-[var(--surface-2)]'
+                      : 'text-[var(--text-muted)] hover:text-[var(--text)]'
+                  }`}
                   onClick={(e) => {
                     e.preventDefault();
                     handleNavClick(id);

@@ -154,3 +154,55 @@ button.primary:hover {
   letter-spacing: -0.03em;
   line-height: 1;
 }
+
+/* ========================================
+   SMOOTH SCROLL STYLES
+   ======================================== */
+
+/* Main scroll container - smooth continuous scrolling */
+.snap-container {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+/* Base section styles */
+.snap-section {
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  padding-top: 4rem; /* Account for fixed header */
+  box-sizing: border-box;
+}
+
+/* Full viewport sections (About) - content centered */
+.snap-section--full {
+  min-height: 100vh;
+  justify-content: center;
+}
+
+/* Content sections - natural height */
+.snap-section--scrollable {
+  min-height: auto;
+  padding-bottom: 2rem;
+}
+
+
+/* Disable body scroll when chatbot is expanded */
+.chatbot-expanded .snap-container {
+  overflow: hidden;
+}
+
+/* ========================================
+   MOBILE RESPONSIVE ADJUSTMENTS
+   ======================================== */
+
+@media (max-width: 768px) {
+  .snap-section {
+    padding-top: 3.5rem; /* Slightly smaller header on mobile */
+  }
+
+  .snap-section--full {
+    min-height: 100svh;
+  }
+}
