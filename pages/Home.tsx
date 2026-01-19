@@ -905,7 +905,7 @@ const Home: React.FC = () => {
                 I’m a Software Engineer with 3+ years of experience building backend systems and applied machine learning solutions. I hold a Master’s degree in Computer Science from Arizona State University and have worked across industry teams and academic research labs. <br /> <br />Outside of work, I enjoy participating in hackathons, staying consistent at the gym, and exploring new places.
               </p>
               <p className="text-sm sm:text-base" style={{ color: "var(--text-muted)" }}>
-                Curious about my work? Ask <strong>Neuro</strong>, my AI assistant!)
+                Curious about my work? Ask <strong>Neuro</strong>, my AI assistant!
               </p>
             </div>
 
