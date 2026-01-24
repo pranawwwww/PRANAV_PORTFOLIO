@@ -1,6 +1,14 @@
 // Shared portfolio data for backend API
 // This file is imported by server.js to build AI context
 
+// Get resume URL from environment variable with hardcoded fallback
+const getResumeUrl = () => {
+  return (
+    process.env.VITE_RESUME_URL ||
+    "https://drive.google.com/file/d/1ROBttOv_1Rk-Lkdu4OaLVuWTn7O2mfJh/view?usp=sharing"
+  );
+};
+
 export const portfolioData = {
   siteData: {
     name: "Pranav Kutralingam",
@@ -10,7 +18,7 @@ export const portfolioData = {
     github: "https://github.com/pranawwwww",
     linkedin: "https://linkedin.com/in/pranavkutralingam",
     googleScholar: "https://scholar.google.com/citations?user=7wl6PBUAAAAJ",
-    resume: "https://drive.google.com/file/d/1m0AP1yK9iZXsGB2Max_PsD2OEWk5zXf9/view?usp=sharing"
+    resume: getResumeUrl()
   },
 
   projects: [
