@@ -4,8 +4,8 @@ export const experienceData: GroupedExperience[] = [
   {
     company: 'Data Mining & Reinforcement Learning Lab, Arizona State University',
     location: 'Tempe, AZ',
-    totalStart: 'Aug 2024',
-    totalEnd: 'Dec 2025',
+    totalStart: 'August 2024',
+    totalEnd: 'December 2025',
     roles: [
       {
         role: 'Graduate Research Assistant',
@@ -23,13 +23,13 @@ export const experienceData: GroupedExperience[] = [
   {
     company: 'Amadeus Labs',
     location: 'Bangalore, India',
-    totalStart: 'Jan 2021',
-    totalEnd: 'Dec 2023',
+    totalStart: 'January 2021',
+    totalEnd: 'December 2023',
     roles: [
       {
         role: 'Software Engineer',
-        start: 'May 2021',
-        end: 'Dec 2023',
+        start: 'August 2021',
+        end: 'December 2023',
         bullets: [
           'Led CI/CD pipeline optimization using Docker, Kubernetes, and Jenkins, redesigning microservice build and deployment workflows and reducing end-to-end build times from 81 hours to 12 hours.',
           'Developed an NLP-driven root-cause analysis system using Python, SQL, and clustering techniques to analyze 15K+ monthly test failures, reducing manual debugging effort by over 60%.',
@@ -38,8 +38,8 @@ export const experienceData: GroupedExperience[] = [
       },
       {
         role: 'Software Engineer Intern',
-        start: 'Jan 2021',
-        end: 'May 2021',
+        start: 'January 2021',
+        end: 'June 2021',
         bullets: [
           'Refactored legacy Java services into Spring Boot–based microservices, improving scalability, fault tolerance, and deployment reliability.',
           'Optimized backend parsers and scheduling services through regex automation and asynchronous processing, improving runtime performance by approximately 30%.',
