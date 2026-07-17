@@ -2,20 +2,38 @@ import { GroupedExperience } from '../types';
 
 export const experienceData: GroupedExperience[] = [
   {
+    company: 'Pretorin Inc. (AI Compliance Automation Platform)',
+    location: 'Remote',
+    totalStart: 'March 2026',
+    totalEnd: 'Present',
+    roles: [
+      {
+        role: 'Product Engineer Intern',
+        start: 'Mar 2026',
+        end: 'Present',
+        bullets: [
+          'Owned a Python data-freshness pipeline keeping 26 compliance frameworks (NIST, FedRAMP, SOC 2) synced to upstream sources for a custom GPT-5.5 based hybrid RAG architecture.',
+          'Designed an LLM evaluation gate in CI: deterministic schema checks plus a calibrated LLM-as-judge benchmarked against a hand-labeled golden set, failing closed to block bad AI enrichments before release.',
+          'Built a production attestation service that cryptographically signs AI- and human-produced compliance evidence, making every record independently verifiable and hash-bound to its source.',
+          "Built the platform's first Kubernetes load/stress framework (Locust, Helm, 5 scenarios, 100 concurrent users) with Grafana dashboards and an OpenAI token-budget kill-switch, catching latency and AI-cost regressions before release."
+        ],
+      },
+    ],
+  },
+  {
     company: 'Data Mining & Reinforcement Learning Lab, Arizona State University',
     location: 'Tempe, AZ',
-    totalStart: 'August 2024',
+    totalStart: 'May 2024',
     totalEnd: 'December 2025',
     roles: [
       {
         role: 'Graduate Research Assistant',
-        start: 'Aug 2024',
+        start: 'May 2024',
         end: 'Dec 2025',
         bullets: [
-          'Designed and engineered scalable Sim2Real reinforcement learning benchmarks using Python, PyTorch, Hydra, and Git, supporting reproducible experimentation across multiple simulated environments.',
-          'Built distributed training and domain-adaptation workflows for foundation policies, improving cross-environment generalization and reducing training variance across simulation domains.',
-          'Developed automated evaluation, logging, and experiment-tracking pipelines on ASU\'s HPC cluster, reducing experiment turnaround time from days to hours.',
-          'Implemented large-scale Blender-based simulation pipelines for multi-GB dataset generation, optimizing data ingestion, preprocessing, and I/O throughput for downstream ML systems.'
+          'Designed fault-tolerant batch execution pipelines in Python (checkpointing, retries, idempotency) that ran 2,000+ PyTorch experiments across a 10-GPU Slurm cluster with zero manual restarts.',
+          'Cut experiment turnaround from 4-5 days to overnight by designing a batch execution pipeline on Slurm that automated result collection and inference.',
+          'Built the Python data and integration layer for MLCL, a multilingual LLM tool-calling benchmark, turning manual prep and ad hoc runs into one-command batched evaluation with automated scoring.'
         ],
       },
     ],
@@ -31,19 +49,20 @@ export const experienceData: GroupedExperience[] = [
         start: 'August 2021',
         end: 'December 2023',
         bullets: [
-          'Led CI/CD pipeline optimization using Docker, Kubernetes, and Jenkins, redesigning microservice build and deployment workflows and reducing end-to-end build times from 81 hours to 12 hours.',
-          'Developed an NLP-driven root-cause analysis system using Python, SQL, and clustering techniques to analyze 15K+ monthly test failures, reducing manual debugging effort by over 60%.',
-          'Improved production observability by building Splunk-based monitoring dashboards and alerting workflows, reducing mean time to resolution (MTTR) by approximately 40%.'
+          'Redesigned a distributed E2E test execution pipeline on Kubernetes and Jenkins with parallel execution and focused jobs, cutting total runtime from 12 hours to 4 hours.',
+          'Cut manual triage effort by 60% across 15K+ events/month by building an NLP-based error-log monitoring system in Python that tagged genuine failures and routed them to owning teams.',
+          'Designed observability pipelines and Splunk dashboards to detect anomalies and surface production issues, alerting the relevant code owners before customer impact.',
+          'Owned backend production services in Java and Python powering high-volume, customer-facing travel workflows with strict uptime, latency, and reliability requirements.'
         ],
       },
       {
         role: 'Software Engineer Intern',
         start: 'January 2021',
-        end: 'June 2021',
+        end: 'May 2021',
         bullets: [
-          'Refactored legacy Java services into Spring Boot–based microservices, improving scalability, fault tolerance, and deployment reliability.',
-          'Optimized backend parsers and scheduling services through regex automation and asynchronous processing, improving runtime performance by approximately 30%.',
-          'Implemented database query tuning and caching strategies, improving peak-load response times by up to 45% across billing and transaction workflows.'
+          'Modernized a legacy monolithic JSP application into a Spring Boot microservices platform, improving fault isolation, deployment safety, and scalability.',
+          'Cut backend scheduler and parser runtime by 30% through async execution and targeted refactors in Java.',
+          'Improved API response times by 45% under peak production load through SQL query tuning and caching.'
         ],
       },
     ],

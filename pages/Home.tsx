@@ -262,7 +262,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 };
 
 // Year markers for the main timeline
-const timelineYears = [2025, 2023, 2021];
+const timelineYears = [2026, 2025, 2023, 2021];
 
 const ExperienceTimeline: React.FC = () => {
   // Track which companies have been rendered to avoid duplicates
@@ -281,15 +281,17 @@ const ExperienceTimeline: React.FC = () => {
         {timelineYears.map((year) => {
           // Find companies that START at or contain this year marker (but haven't been rendered yet)
           const companiesForYear = experienceData.filter(exp => {
-            // Get the end year of the company tenure
+            // Get the end year of the company tenure ("Present" = ongoing, treat as current year)
             const endYearMatch = exp.totalEnd.match(/\d{4}/);
-            const endYear = endYearMatch ? parseInt(endYearMatch[0]) : 0;
+            const endYear = endYearMatch ? parseInt(endYearMatch[0]) : new Date().getFullYear();
 
             // Show company at the year marker closest to their end date
+            // 2026 -> companies still ongoing (Present)
             // 2025 -> companies ending in 2024-2025
             // 2023 -> companies ending in 2023
             // 2021 -> companies ending in 2021 or starting in 2021
-            if (year === 2025 && endYear >= 2024) return true;
+            if (year === 2026 && exp.totalEnd === 'Present') return true;
+            if (year === 2025 && endYear >= 2024 && endYear <= 2025) return true;
             if (year === 2023 && endYear === 2023) return true;
             if (year === 2021 && endYear <= 2021) return true;
             return false;
@@ -418,7 +420,7 @@ const RotatingTagline: React.FC = () => {
   const taglines = [
     "Production-grade systems built",
     "3+ years of system ownership",
-    "LLM and Machine Learning Researcher",
+    "Published at ICLR 2026 & ACL 2026",
     "Deploying LLM and ML Systems in Production",
     "Multiple Hackathon Winner with Shipped Projects",
     "Shipping Reliable Backend Systems",
@@ -902,7 +904,7 @@ const Home: React.FC = () => {
             <RotatingTagline />
             <div className="space-y-4 text-base sm:text-lg leading-relaxed" style={{ color: "var(--text)" }}>
               <p>
-                I’m a Software Engineer with 3+ years of experience building backend systems and applied machine learning solutions. I hold a Master’s degree in Computer Science from Arizona State University and have worked across industry teams and academic research labs. <br /> <br />Outside of work, I enjoy participating in hackathons, staying consistent at the gym, and exploring new places.
+                I’m a Software Engineer with 3+ years of production backend experience and hands-on work building LLM systems end to end. I hold a Master’s degree in Computer Science from Arizona State University, currently work as a Product Engineer Intern at Pretorin building AI compliance infrastructure, and I'm published at ICLR 2026 and ACL 2026. <br /> <br />Outside of work, I enjoy participating in hackathons, staying consistent at the gym, and exploring new places.
               </p>
               <p className="text-sm sm:text-base" style={{ color: "var(--text-muted)" }}>
                 Curious about my work? Ask <strong>Neuro</strong>, my AI assistant!

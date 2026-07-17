@@ -3,61 +3,46 @@ import { SkillCategory } from '../types';
 export const skillsData: SkillCategory[] = [
   {
     category: 'Languages',
-    skills: ['Python', 'Java', 'C++', 'JavaScript', 'TypeScript', 'SQL', 'Bash', 'C#', ".NET", 'rust'],
+    skills: ['Python', 'Java', 'C++', 'C#', 'C', 'SQL', 'TypeScript', 'JavaScript', 'Rust'],
   },
   {
-    category: 'Frameworks & Libraries',
+    category: 'AI & ML',
+    skills: ['PyTorch', 'Scikit-learn', 'NumPy', 'Pandas', 'Reinforcement Learning', 'Model Evaluation', 'Benchmarking'],
+  },
+  {
+    category: 'LLMs & GenAI',
     skills: [
-      'React',
-      'Node',
-      'FastAPI',
-      'Spring Boot',
-      'Flask',
-      'TensorFlow',
-      'PyTorch',
-      'Scikit-learn',
-      'Hugging Face Transformers',
+      'OpenAI Agent SDK',
+      'OpenAI API',
+      'Hugging Face',
+      'Retrieval-Augmented Generation (RAG)',
+      'pgvector',
+      'LLM-as-a-Judge Evaluation',
+      'Prompt Engineering',
+      'Fine-Tuning',
     ],
   },
   {
-    category: 'Tools & Platforms',
+    category: 'Backend & Web',
+    skills: ['FastAPI', 'Flask', 'Spring Boot', 'Microservices', 'REST APIs', 'React'],
+  },
+  {
+    category: 'Infrastructure & DevOps',
     skills: [
-      'Git',
       'Docker',
       'Kubernetes',
-      'GitHub Actions',
+      'Helm',
       'Jenkins',
+      'GitHub Actions',
+      'CI/CD',
+      'Slurm',
       'AWS',
       'Azure',
+      'PostgreSQL',
       'Splunk',
-      'HPC Clusters',
-      'Linux'
-    ],
-  },
-  {
-    category: 'Databases',
-    skills: ['PostgreSQL', 'MySQL', 'MongoDB', 'Hibernate'],
-  },
-  {
-    category: 'Testing & Quality',
-    skills: ['JUnit', 'Playwright', 'Google Lighthouse', 'CI/CD Testing Pipelines'],
-  },
-  {
-    category: 'ML & AI',
-    skills: [
-      'Large Language Models (LLMs)',
-      'Retrieval-Augmented Generation (RAG)',
-      'MLOps',
-      'Model Evaluation & Experiment Tracking',
-    ],
-  },
-  {
-    category: 'Systems & Concepts',
-    skills: [
-      'REST APIs',
-      'Microservices',
-      'Distributed Systems',
-      'Reinforcement Learning',
+      'Grafana',
+      'Locust',
+      'Linux',
     ],
   },
 ];

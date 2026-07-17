@@ -90,13 +90,13 @@ const AboutMeCard: React.FC = () => {
         {/* Professional Journey */}
         <div className="mb-4">
           <p className="text-sm leading-relaxed" style={{ color: 'var(--text)' }}>
-            Pranav is a Computer Science graduate from ASU (Dec 2025, GPA 3.97) with experience across industry and applied research.
+            Pranav is a Computer Science graduate from ASU (Dec 2025, GPA 3.97/4.0) with experience across industry, a startup, and applied research.
             <br /><br />
-            He spent 2.5 years at Amadeus Labs building and maintaining production systems, then transitioned into hands-on work with reinforcement learning and large language models.
+            He spent 2.5 years at Amadeus Labs building and maintaining production systems, then did a research assistantship at ASU's DaRL Lab building reinforcement learning and multilingual LLM benchmarks — work published at ICLR 2026 and ACL 2026.
             <br /><br />
-            He enjoys working at the intersection of systems and machine learning—turning complex ideas into reliable, production-ready software.
+            He's currently a Product Engineer Intern at Pretorin, building AI compliance automation infrastructure (RAG pipelines, LLM eval gates, attestation services).
             <br /><br />
-            He is currently seeking full-time Software Engineering or Applied ML roles.
+            He is open to full-time Software Engineering or Applied ML roles.
           </p>
 
 

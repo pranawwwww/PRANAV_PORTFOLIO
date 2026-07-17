@@ -35,6 +35,36 @@ export const projectsData: Project[] = [
     },
   },
   {
+    title: 'Scalable Cloud-Based Video & Image Analysis Platform',
+    year: 2025,
+    stack: ['AWS', 'Docker', 'PyTorch'],
+    summary:
+      'Built a cloud-native ML inference pipeline on AWS reaching sub-2s latency at 80%+ lower infrastructure cost.',
+    links: {},
+  },
+  {
+    title: 'Latent Adaptation of Foundation Policies for Sim-to-Real Transfer',
+    year: 2026,
+    stack: ['Reinforcement Learning', 'Sim-to-Real Transfer', 'Foundation Policies', 'PyTorch'],
+    summary:
+      'Published at ICLR 2026. Adapts pretrained foundation policies to real-world dynamics at deployment via latent-space adaptation, without retraining.',
+    links: {
+      arXiv: 'https://openreview.net/forum?id=yn9dzttHvT',
+    },
+    isPublication: true,
+  },
+  {
+    title: 'Lost in Execution: On the Multilingual Robustness of Tool Calling in Large Language Models',
+    year: 2026,
+    stack: ['Python', 'Rust', 'Evaluation', 'MLCL', 'Multilingual LLMs', 'Tool Calling'],
+    summary:
+      'Published at ACL 2026 (2nd author). Built the Python/Rust data and evaluation layer for MLCL, a new multilingual tool-calling benchmark spanning Chinese, Hindi, and Igbo; found parameter-value language mismatch to be the dominant execution failure mode.',
+    links: {
+      arXiv: 'https://arxiv.org/abs/2601.05366',
+    },
+    isPublication: true,
+  },
+  {
     title: 'A Survey of Sim-to-Real Methods in Reinforcement Learning',
     year: 2025,
     stack: ['Research', 'Reinforcement Learning', 'Sim2Real'],
@@ -48,7 +78,7 @@ export const projectsData: Project[] = [
   },
   {
     title: 'ShadeBench — Benchmark Dataset for Urban Shade Simulation',
-    year: 2025,
+    year: 2026,
     stack: ['Blender', '3D Simulation', 'Computer Vision', 'Dataset'],
     summary:
       'Built a benchmark dataset using Blender-based 3D simulations and satellite imagery to support shade estimation under varying time-of-day and solar geometry.',
@@ -68,16 +98,4 @@ export const projectsData: Project[] = [
     },
     isPublication: true,
   },
-  {
-  title: 'Lost in Execution: On the Multilingual Robustness of Tool Calling in Large Language Models',
-  year: 2026,
-  stack: ['Python', 'Rust', 'Evaluation', 'BFCL', 'Multilingual LLMs', 'Tool Calling'],
-  summary:
-    'Contributed to building a Rust-based test environment and batch-job runner to evaluate multilingual tool-calling performance across models on the BFCL dataset; supported result aggregation and analysis.',
-  links: {
-    arXiv: 'https://arxiv.org/abs/2601.05366',
-  },
-  isPublication: true,
-},
-
 ];

@@ -4,15 +4,15 @@ export const faqData: FAQItem[] = [
   // Recruiter-focused
   {
     q: "What roles are you targeting?",
-    a: "Software Engineer (backend/platform) and ML Engineer, I am open to SRE roles as well, as I had somewhat of that experience in both DaRL labs and Amadeus Labs, deploying ML pipelines as well as test pipelines. I like shipping production AI and scalable systems end-to-end."
+    a: "Software Engineer (backend/platform) and Applied AI/LLM Engineer, I'm also open to MLOps/ML Platform roles given my DaRL Labs and Amadeus Labs experience deploying ML pipelines and test infrastructure. I like shipping production AI and scalable systems end-to-end."
   },
   {
     q: "When are you available?",
-    a: "I'm pursuing an M.S. in CS at ASU through Dec 2025. Open to Full Time roles from December 2025 onwards."
+    a: "I completed my M.S. in CS at ASU in December 2025. I'm currently a Product Engineer Intern at Pretorin (through the internship), and open to full-time SWE/AI roles."
   },
   {
     q: "What languages and stacks do you use most?",
-    a: "Languages: Python, C++, Java, JavaScript/TypeScript, Go. Backends: Spring Boot, FastAPI, Flask. ML/Data: PyTorch, TensorFlow, feature stores, RAG systems. DevOps: Docker, Kubernetes, GitHub Actions, Jenkins, AWS, Azure. Databases: PostgreSQL, MongoDB, SQLite. APIs: REST, gRPC."
+    a: "Languages: Python, Java, C++, C, C#, Rust, SQL, TypeScript/JavaScript. Backends: FastAPI, Flask, Spring Boot, Microservices, REST APIs. LLMs/GenAI: OpenAI Agent SDK, OpenAI API, Hugging Face, RAG, pgvector, LLM-as-a-Judge Evaluation, Prompt Engineering. ML: PyTorch, scikit-learn, NumPy, Pandas. DevOps: Docker, Kubernetes, Helm, Jenkins, GitHub Actions, Slurm, AWS, Azure, Splunk, Grafana, Locust."
   },
   {
     q: "Give me one project you're proud of.",
@@ -20,15 +20,15 @@ export const faqData: FAQItem[] = [
   },
   {
     q: "How have you applied ML beyond coursework?",
-    a: "Sim2Real RL research at ASU: engineered scalable benchmarks in PyTorch with Hydra, built distributed training workflows for domain-adaptation on foundation policies, and published a survey mapping 48+ RL benchmarks to MDP components. Currently working on improving Foundational Policies with Hilbert Representations."
+    a: "As a Graduate Research Assistant at ASU's DaRL Lab (May 2024 - Dec 2025), I built fault-tolerant batch pipelines that ran 2,000+ PyTorch experiments across a 10-GPU Slurm cluster, and built the data/integration layer for MLCL, a multilingual LLM tool-calling benchmark. That work led to two published papers: 'Latent Adaptation of Foundation Policies for Sim-to-Real Transfer' (ICLR 2026) and 'Lost in Execution: On the Multilingual Robustness of Tool Calling in LLMs' (ACL 2026, 2nd author)."
   },
   {
     q: "Any performance or scale wins?",
-    a: "At Amadeus: cut CI/CD from 81→12 hours with Docker/K8s/Jenkins, reduced MTTR by 40% with Splunk monitoring + anomaly detection, built NLP RCA system that auto-triages 15K+ test failures/month (60% reduction in manual debugging), improved query response times by 45% with caching optimizations."
+    a: "At Amadeus: redesigned a distributed E2E test pipeline on Kubernetes/Jenkins, cutting runtime from 12 hours to 4 hours; built an NLP-based error-log monitoring system that cut manual triage effort by 60% across 15K+ events/month; improved API response times by 45% under peak load through SQL tuning and caching. At Pretorin: built the platform's first Kubernetes load/stress framework (Locust, Helm, 100 concurrent users) with an OpenAI token-budget kill-switch."
   },
   {
     q: "How do you approach reliability and testing?",
-    a: "Automated pipelines, fast feedback, and pragmatic tests (JUnit/Playwright). I track the metrics that matter and design for safe rollouts."
+    a: "Automated pipelines, fast feedback, and pragmatic tests. At Pretorin I designed an LLM evaluation gate in CI (deterministic schema checks + calibrated LLM-as-judge vs. a hand-labeled golden set) that fails closed to block bad AI outputs before release. I track the metrics that matter and design for safe rollouts."
   },
   {
     q: "SDE vs ML—what's your preference?",
@@ -40,7 +40,7 @@ export const faqData: FAQItem[] = [
   },
     {
     q: "Why you for SDE or ML at FAANG?",
-    a: "I’ve shipped tangible wins (72→12 hr CI/CD, fewer rollbacks, automated failure triage), plus research discipline from Sim2Real RL. I bridge models, services, and product outcomes."
+    a: "I've shipped tangible wins (12hr→4hr CI/CD pipeline redesign, 60% less manual triage, automated failure routing), plus research discipline that produced two published papers (ICLR 2026, ACL 2026). I bridge models, services, and product outcomes."
   },
     {
     q: "How can I quickly see your work?",
@@ -56,31 +56,31 @@ export const faqData: FAQItem[] = [
   },
     {
     q: "How do you approach system design?",
-    a: "Pragmatic first: clear SLAs, simple APIs, and strong observability. I design for idempotency, backpressure, and failure domains; prefer REST/gRPC, queues for async, and caching where it truly moves p95."
+    a: "Pragmatic first: clear SLAs, simple APIs, and strong observability. I design for idempotency, backpressure, and failure domains; prefer REST APIs, queues for async, and caching where it truly moves p95."
   },
   {
     q: "How do you ensure reliability and quality?",
-    a: "Lean CI/CD, fast feedback loops, and tests that matter (JUnit/Playwright). I favor rollout safety (canary/feature flags), and I track latency/error budgets so we can ship often without surprises."
+    a: "Lean CI/CD, fast feedback loops, and tests that matter. I favor rollout safety (fail-closed gates, canary rollouts), and I track latency/error budgets so we can ship often without surprises."
   },
   {
-    q: "What’s an ML project you’re proud of?",
+    q: "What's an ML project you're proud of?",
     a: "AdaptED AI—an adaptive tutor using React/TypeScript + Gemini. It won “Best Use of AI” at DevHacks for boosting demo engagement and showcases my habit of tying models to real UX."
   },
   {
     q: "How does your research translate to product work?",
-    a: "My Sim2Real RL research (ASU) focused on reproducible benchmarks and domain adaptation. That rigor shows up in my engineering via automation, metrics, and clean experiment→prod handoffs."
+    a: "My research at ASU's DaRL Lab focused on reproducible batch experimentation and multilingual LLM evaluation — building fault-tolerant pipelines and benchmark tooling. That rigor shows up in my engineering via automation, eval-driven development (like the LLM-as-judge gate I built at Pretorin), and clean experiment→prod handoffs."
   },
   {
     q: "What scale or volume have you handled?",
-    a: "Enterprise CI/CD and service migrations at Amadeus (multi-team pipelines, thousands of tests/day). On the research side, automated RL evaluations that took days now complete in hours through HPC pipelines."
+    a: "Enterprise CI/CD and service migrations at Amadeus (multi-team pipelines, 15K+ test events/month). On the research side, I ran 2,000+ PyTorch experiments across a 10-GPU Slurm cluster with automated batch execution and zero manual restarts."
   },
     {
     q: "What is your GPA",
-    a: "3.96/4 at ASU for my M.S. in Computer Science. 8.7/10 at SRM for my B.Tech in Computer Science and Engineering."
+    a: "3.97/4.0 at ASU for my M.S. in Computer Science. 3.7/4.0 at SRM for my B.Tech in Computer Science and Engineering."
   },
     {
     q: "What are your achievements?",
-    a: "🏆 Best Use of AI at ASU DevHacks 2025 (AdaptED AI with 40% higher engagement). Published Sim2Real RL survey (100+ sources, 48+ benchmarks) on arXiv. Published DeepShade & ShadeBench papers (IEEE RA-L, UrbanAI). Dean's List at ASU 2024 (GPA 3.96). Employee of the Year at Amadeus Labs (2023). 3.96/4.0 GPA (MS CS) and 8.7/10 (BTech)."
+    a: "📄 Published at ICLR 2026 (Latent Adaptation of Foundation Policies for Sim-to-Real Transfer) and ACL 2026 (Lost in Execution: Multilingual Robustness of Tool Calling in LLMs, 2nd author). 🏆 Best Use of AI at ASU DevHacks 2025 (AdaptED AI). Two more papers on arXiv: A Survey of Sim-to-Real Methods in RL, and DeepShade. 3.97/4.0 GPA (MS CS, ASU) and 3.7/4.0 (BTech, SRM)."
   },
 
 
@@ -95,7 +95,7 @@ export const faqData: FAQItem[] = [
   },
   {
     q: "Can you summarize your background in 3 lines?",
-    a: "Software Developer & ML Engineer. Sim2Real RL research @ ASU. I ship reliable AI—from Python backends to cloud pipelines."
+    a: "Software Engineer with 3+ years of production backend experience, currently building AI compliance infrastructure at Pretorin. Published at ICLR 2026 and ACL 2026 from my research assistantship at ASU. I ship reliable AI—from Python backends to LLM systems in production."
   },
   {
     q: "How do I contact you?",
@@ -107,7 +107,7 @@ export const faqData: FAQItem[] = [
   },
       {
     q: "What are your leadership experiences?",
-    a: "I’ve led cross-functional teams at Amadeus, driving initiatives that improved CI/CD efficiency and fostered a culture of collaboration. I also mentor junior engineers, helping them navigate challenges and grow their skills. I was the Student Representative of the Computer Science department in my Undergraduate days at SRM University."
+    a: "I've led cross-functional initiatives at Amadeus that improved CI/CD efficiency, and I mentor junior engineers, helping them navigate challenges and grow their skills. I was the Student Representative of the Computer Science department in my Undergraduate days at SRM University."
   },
 
 ];

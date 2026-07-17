@@ -4,7 +4,7 @@ import { SiteData } from '../types';
 const getResumeUrl = (): string => {
   return (
     import.meta.env.VITE_RESUME_URL ||
-    "https://drive.google.com/file/d/1ROBttOv_1Rk-Lkdu4OaLVuWTn7O2mfJh/view?usp=sharing"
+    "https://drive.google.com/file/d/1z7ALPuCB2XYOsm3FExiL1HTzUM-t3BFp/view?usp=drive_link"
   );
 };
 
