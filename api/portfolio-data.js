@@ -5,7 +5,7 @@
 const getResumeUrl = () => {
   return (
     process.env.VITE_RESUME_URL ||
-    "https://drive.google.com/file/d/1z7ALPuCB2XYOsm3FExiL1HTzUM-t3BFp/view?usp=drive_link"
+    "https://drive.google.com/file/d/1xm0IuwerV8FN83byOtQ_B2WoqzAZqfKQ/view?usp=sharing"
   );
 };
 
