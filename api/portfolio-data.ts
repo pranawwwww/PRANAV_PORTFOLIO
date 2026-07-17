@@ -14,7 +14,7 @@ export const portfolioData = {
     name: "Pranav Kutralingam",
     tagline: "Grad CS @ ASU | SWE who speaks ML | My models lift & backends don't skip leg day | Now accepting quests.",
     location: "Tempe, AZ",
-    email: "thirupranav99@gmail.com",
+    email: "tpranavkutralingam@gmail.com",
     github: "https://github.com/pranawwwww",
     linkedin: "https://linkedin.com/in/pranavkutralingam",
     googleScholar: "https://scholar.google.com/citations?user=7wl6PBUAAAAJ",
@@ -200,7 +200,7 @@ export const portfolioData = {
     },
     {
       question: "How can I contact you?",
-      answer: "Email me at thirupranav99@gmail.com or connect on LinkedIn: linkedin.com/in/pranavkutralingam"
+      answer: "Email me at tpranavkutralingam@gmail.com or connect on LinkedIn: linkedin.com/in/pranavkutralingam"
     }
   ]
 };

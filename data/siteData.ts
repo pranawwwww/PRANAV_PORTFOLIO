@@ -13,8 +13,8 @@ export const siteData: SiteData = {
   tagline: "Grad CS @ ASU | SWE who speaks ML | My models lift & backends don't skip leg day | Now accepting quests.",
   location: "Tempe, AZ",
   links: {
-    email: "mailto:thirupranav99@gmail.com",
-    emailDisplay: "thirupranav99@gmail.com",
+    email: "mailto:tpranavkutralingam@gmail.com",
+    emailDisplay: "tpranavkutralingam@gmail.com",
     github: "https://github.com/pranawwwww",
     githubDisplay: "github.com/pranawwwww",
     linkedin: "https://linkedin.com/in/pranavkutralingam",

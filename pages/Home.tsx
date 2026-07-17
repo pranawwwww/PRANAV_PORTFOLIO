@@ -861,7 +861,7 @@ const Home: React.FC = () => {
         from_name: formData.name,
         from_email: formData.email,
         message: formData.message,
-        to_email: 'thirupranav99@gmail.com'
+        to_email: 'tpranavkutralingam@gmail.com'
       });
       setSubmitStatus('success');
       setFormData({ name: '', email: '', message: '' });

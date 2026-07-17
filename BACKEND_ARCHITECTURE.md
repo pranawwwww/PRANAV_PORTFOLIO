@@ -141,7 +141,7 @@ Guidelines:
 **Implementation:**
 - Use Nodemailer or Resend API
 - Server-side spam protection (honeypot + rate limiting)
-- Send notification to `thirupranav99@gmail.com`
+- Send notification to `tpranavkutralingam@gmail.com`
 
 ---
 
