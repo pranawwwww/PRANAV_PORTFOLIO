@@ -5,8 +5,9 @@ import { siteData } from '../../data/siteData';
 import profilePixel from '../../data/profile-pixel.png';
 
 const suggestionChips = [
-  "What impact have you made in your work experience?",
-  "What tech stack do you use most?",
+  "How do you approach test automation?",
+  "How have you tested AI and LLM systems?",
+  "What testing tools do you use most?",
   "What do you do for fun?",
   "What are your achievements?",
   "what are your featured projects?"

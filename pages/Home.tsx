@@ -286,11 +286,11 @@ const ExperienceTimeline: React.FC = () => {
             const endYear = endYearMatch ? parseInt(endYearMatch[0]) : new Date().getFullYear();
 
             // Show company at the year marker closest to their end date
-            // 2026 -> companies still ongoing (Present)
+            // 2026 -> companies still ongoing (Present) or ending in 2026
             // 2025 -> companies ending in 2024-2025
             // 2023 -> companies ending in 2023
             // 2021 -> companies ending in 2021 or starting in 2021
-            if (year === 2026 && exp.totalEnd === 'Present') return true;
+            if (year === 2026 && endYear >= 2026) return true;
             if (year === 2025 && endYear >= 2024 && endYear <= 2025) return true;
             if (year === 2023 && endYear === 2023) return true;
             if (year === 2021 && endYear <= 2021) return true;
@@ -359,19 +359,19 @@ const ExperienceTimeline: React.FC = () => {
 
                       {/* Roles with secondary branch */}
                       <div className="relative pl-6">
-                        {/* Secondary vertical line for roles */}
-                        {company.roles.length > 1 && (
-                          <div
-                            className="absolute left-2 top-3 bottom-3 w-[2px]"
-                            style={{ background: 'var(--border)' }}
-                          />
-                        )}
-
                         {company.roles.map((role: ExperienceRole, roleIdx: number) => (
                           <div key={roleIdx} className="relative mb-6 last:mb-0">
-                            {/* Role node */}
+                            {/* Secondary line segment joining this role's node to the next */}
+                            {roleIdx < company.roles.length - 1 && (
+                              <div
+                                className="absolute -left-[13px] top-3 -bottom-9 w-[2px]"
+                                style={{ background: 'var(--border)' }}
+                              />
+                            )}
+
+                            {/* Role node, centered on the secondary line */}
                             <div
-                              className="absolute -left-4 top-1.5 w-3 h-3 rounded-full"
+                              className="absolute -left-[18px] top-1.5 w-3 h-3 rounded-full"
                               style={{ background: 'var(--accent)' }}
                             />
 
@@ -393,8 +393,12 @@ const ExperienceTimeline: React.FC = () => {
                               {role.bullets && role.bullets.length > 0 && (
                                 <ul className="mt-2 space-y-1.5">
                                   {role.bullets.map((point: string, idx: number) => (
-                                    <li key={idx} className="flex gap-2 text-sm leading-relaxed" style={{ color: 'var(--text)' }}>
-                                      <span style={{ color: 'var(--text-muted)' }}>•</span>
+                                    <li key={idx} className="flex items-start gap-2.5 text-sm leading-relaxed" style={{ color: 'var(--text)' }}>
+                                      <span
+                                        aria-hidden="true"
+                                        className="flex-shrink-0 mt-[8px] w-[5px] h-[5px] rounded-full"
+                                        style={{ background: 'var(--text-muted)' }}
+                                      />
                                       <span>{point}</span>
                                     </li>
                                   ))}
@@ -418,13 +422,13 @@ const ExperienceTimeline: React.FC = () => {
 
 const RotatingTagline: React.FC = () => {
   const taglines = [
-    "Production-grade systems built",
-    "3+ years of system ownership",
+    "3 Years of Test Automation at Amadeus",
+    "Selenium · Appium · Postman · Pytest",
+    "LLM Evals That Gate Releases in CI",
+    "Failure Review Cut from 6 Hours to 1",
+    "RAG Retrieval Precision 71% → 93%",
     "Published at ICLR 2026 & ACL 2026",
-    "Deploying LLM and ML Systems in Production",
-    "Multiple Hackathon Winner with Shipped Projects",
-    "Shipping Reliable Backend Systems",
-    "Gym Rat with Engineering Discipline"
+    "Gym Rat with Testing Discipline"
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -899,12 +903,12 @@ const Home: React.FC = () => {
               PRANAV KUTRALINGAM
             </h1>
             <h2 className="font-bold text-2xl sm:text-3xl mb-6" style={{ color: "var(--text)" }}>
-              SOFTWARE ENGINEER
+              SDET · AI TEST AUTOMATION
             </h2>
             <RotatingTagline />
             <div className="space-y-4 text-base sm:text-lg leading-relaxed" style={{ color: "var(--text)" }}>
               <p>
-                I’m a Software Engineer with 3+ years of production backend experience and hands-on work building LLM systems end to end. I hold a Master’s degree in Computer Science from Arizona State University, currently work as a Product Engineer Intern at Pretorin building AI compliance infrastructure, and I'm published at ICLR 2026 and ACL 2026. <br /> <br />Outside of work, I enjoy participating in hackathons, staying consistent at the gym, and exploring new places.
+                I’m an SDET who builds the tests and infrastructure that keep software honest, from Selenium, Appium and Postman suites to LLM evals that gate releases in CI. I spent 3 years automating E2E, regression and smoke testing for airline booking apps at Amadeus, then built Selenium, API, load and LLM regression tests for Pretorin’s AI compliance platform. I hold an M.S. in Computer Science from Arizona State University (GPA 3.97), where I built the test harness behind an ACL 2026 paper that validates tool calls from 13 LLMs across 4 languages. <br /> <br />Outside of work, I enjoy participating in hackathons, staying consistent at the gym, and exploring new places.
               </p>
               <p className="text-sm sm:text-base" style={{ color: "var(--text-muted)" }}>
                 Curious about my work? Ask <strong>Neuro</strong>, my AI assistant!

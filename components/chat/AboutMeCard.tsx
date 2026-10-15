@@ -82,7 +82,7 @@ const AboutMeCard: React.FC = () => {
               Pranav Kutralingam
             </h3>
             <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
-              Software Engineer • ML Enthusiast
+              SDET • AI Test Automation
             </p>
           </div>
         </div>
@@ -90,13 +90,13 @@ const AboutMeCard: React.FC = () => {
         {/* Professional Journey */}
         <div className="mb-4">
           <p className="text-sm leading-relaxed" style={{ color: 'var(--text)' }}>
-            Pranav is a Computer Science graduate from ASU (Dec 2025, GPA 3.97/4.0) with experience across industry, a startup, and applied research.
+            Pranav is an SDET with 3 years of test automation at Amadeus and an M.S. in Computer Science from ASU (Dec 2025, GPA 3.97/4.0).
             <br /><br />
-            He spent 2.5 years at Amadeus Labs building and maintaining production systems, then did a research assistantship at ASU's DaRL Lab building reinforcement learning and multilingual LLM benchmarks — work published at ICLR 2026 and ACL 2026.
+            At Amadeus he automated Selenium/Java E2E, regression and smoke suites for airline booking apps, and replaced manual triage of 15K+ monthly failures with an ML classifier so releases moved to daily.
             <br /><br />
-            He's currently a Product Engineer Intern at Pretorin, building AI compliance automation infrastructure (RAG pipelines, LLM eval gates, attestation services).
+            At Pretorin he built Selenium, Postman, Locust and LLM regression tests for an AI compliance platform. At ASU's DaRL Lab he built the test harness behind an ACL 2026 paper, and is now an AI Researcher there.
             <br /><br />
-            He is open to full-time Software Engineering or Applied ML roles.
+            He is open to QA Automation, SDET, and AI Software Engineer roles.
           </p>
 
 

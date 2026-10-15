@@ -69,7 +69,7 @@ const Header: React.FC = () => {
               className="w-1.5 h-1.5 rounded-full"
               style={{ background: '#22c55e', boxShadow: '0 0 6px #22c55e' }}
             />
-            <span className="hidden sm:inline">Open to Work</span>
+            <span className="hidden sm:inline">Open to SDET / QA Roles</span>
             <span className="sm:hidden">Available</span>
           </a>
           {/* Mobile hamburger */}

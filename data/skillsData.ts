@@ -2,47 +2,27 @@ import { SkillCategory } from '../types';
 
 export const skillsData: SkillCategory[] = [
   {
-    category: 'Languages',
-    skills: ['Python', 'Java', 'C++', 'C#', 'C', 'SQL', 'TypeScript', 'JavaScript', 'Rust'],
+    category: 'Test Automation',
+    skills: ['Selenium WebDriver', 'Playwright', 'Appium', 'TestNG', 'JUnit', 'Pytest', 'Postman', 'REST API Testing', 'Locust'],
   },
   {
-    category: 'AI & ML',
-    skills: ['PyTorch', 'Scikit-learn', 'NumPy', 'Pandas', 'Reinforcement Learning', 'Model Evaluation', 'Benchmarking'],
+    category: 'Testing',
+    skills: ['Functional', 'System Integration', 'Regression', 'Smoke', 'E2E', 'Cross-Browser', 'Database', 'Mobile', 'Load'],
   },
   {
-    category: 'LLMs & GenAI',
-    skills: [
-      'OpenAI Agent SDK',
-      'OpenAI API',
-      'Hugging Face',
-      'Retrieval-Augmented Generation (RAG)',
-      'pgvector',
-      'LLM-as-a-Judge Evaluation',
-      'Prompt Engineering',
-      'Fine-Tuning',
-    ],
+    category: 'QA Process',
+    skills: ['Jira', 'Confluence', 'Zephyr', 'TestLink', 'Test Strategy', 'Test Cases', 'Test Data', 'Defect Tracking', 'Agile'],
   },
   {
-    category: 'Backend & Web',
-    skills: ['FastAPI', 'Flask', 'Spring Boot', 'Microservices', 'REST APIs', 'React'],
+    category: 'AI & LLM Testing',
+    skills: ['LLM Evals', 'LLM-as-a-Judge', 'RAG Evaluation', 'vLLM', 'ML Failure Triage', 'Scikit-learn', 'PyTorch'],
   },
   {
-    category: 'Infrastructure & DevOps',
-    skills: [
-      'Docker',
-      'Kubernetes',
-      'Helm',
-      'Jenkins',
-      'GitHub Actions',
-      'CI/CD',
-      'Slurm',
-      'AWS',
-      'Azure',
-      'PostgreSQL',
-      'Splunk',
-      'Grafana',
-      'Locust',
-      'Linux',
-    ],
+    category: 'Languages & Dev',
+    skills: ['Python', 'Java', 'SQL', 'MySQL', 'PostgreSQL', 'TypeScript', 'React', 'FastAPI', 'Spring Boot'],
+  },
+  {
+    category: 'Tools & CI/CD',
+    skills: ['Jenkins', 'Git', 'GitHub Actions', 'Docker', 'Kubernetes', 'Linux', 'AWS', 'Splunk', 'Slurm'],
   },
 ];
