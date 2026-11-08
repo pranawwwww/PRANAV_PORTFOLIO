@@ -24,16 +24,20 @@ const allowedOrigins = [
   process.env.FRONTEND_URL
 ].filter(Boolean);
 
-app.use(cors({
-  origin: (origin, callback) => {
-    // Allow requests with no origin (like mobile apps or curl)
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin) || process.env.FRONTEND_URL === '*') {
-      return callback(null, true);
+// CORS only matters for the API. The site itself is served from this same
+// server, so same-origin requests (the page's own host) are always allowed.
+// Unknown origins get no CORS headers (the browser blocks them) instead of a 500.
+app.use('/api', cors((req, callback) => {
+  const origin = req.header('Origin');
+  let allowed = !origin || allowedOrigins.includes(origin) || process.env.FRONTEND_URL === '*';
+  if (!allowed) {
+    try {
+      allowed = new URL(origin).host === req.get('host');
+    } catch {
+      allowed = false;
     }
-    return callback(new Error('Not allowed by CORS'));
-  },
-  credentials: true
+  }
+  callback(null, { origin: allowed, credentials: true });
 }));
 
 app.use(express.json());
