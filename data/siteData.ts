@@ -4,14 +4,14 @@ import { SiteData } from '../types';
 const getResumeUrl = (): string => {
   return (
     import.meta.env.VITE_RESUME_URL ||
-    `${import.meta.env.BASE_URL}Pranav_Kutralingam_Resume_SDET.pdf`
+    "https://drive.google.com/file/d/1xm0IuwerV8FN83byOtQ_B2WoqzAZqfKQ/view?usp=sharing"
   );
 };
 
 export const siteData: SiteData = {
   name: "",
-  tagline: "SDET who speaks AI | Selenium, Appium & Postman by day, LLM evals that gate releases by night | Bugs fear me.",
-  location: "Fremont, CA",
+  tagline: "Grad CS @ ASU | SWE who speaks ML | My models lift & backends don't skip leg day | Now accepting quests.",
+  location: "Tempe, AZ",
   links: {
     email: "mailto:tpranavkutralingam@gmail.com",
     emailDisplay: "tpranavkutralingam@gmail.com",
