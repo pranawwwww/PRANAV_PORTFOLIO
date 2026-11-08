@@ -146,10 +146,19 @@ app.post('/api/chat', async (req, res) => {
 // Serve the built frontend (dist/) from the same server
 const distDir = path.join(path.dirname(fileURLToPath(import.meta.url)), 'dist');
 if (fs.existsSync(distDir)) {
-  app.use(express.static(distDir, { index: 'index.html', maxAge: '1h' }));
+  // Hashed build files never change, so cache them long; never cache index.html
+  // so a new deploy is picked up right away.
+  app.use('/assets', express.static(path.join(distDir, 'assets'), { maxAge: '1y', immutable: true, fallthrough: false }));
+  app.use(express.static(distDir, {
+    index: 'index.html',
+    setHeaders: (res, filePath) => {
+      if (filePath.endsWith('.html')) res.setHeader('Cache-Control', 'no-cache');
+    },
+  }));
   // SPA fallback: any other GET that isn't an API route gets index.html
   app.use((req, res, next) => {
     if (req.method !== 'GET' || req.path.startsWith('/api/')) return next();
+    res.setHeader('Cache-Control', 'no-cache');
     res.sendFile(path.join(distDir, 'index.html'));
   });
 } else {
