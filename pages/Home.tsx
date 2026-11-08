@@ -290,7 +290,7 @@ const ExperienceTimeline: React.FC = () => {
             // 2025 -> companies ending in 2024-2025
             // 2023 -> companies ending in 2023
             // 2021 -> companies ending in 2021 or starting in 2021
-            if (year === 2026 && exp.totalEnd === 'Present') return true;
+            if (year === 2026 && (exp.totalEnd === 'Present' || endYear >= 2026)) return true;
             if (year === 2025 && endYear >= 2024 && endYear <= 2025) return true;
             if (year === 2023 && endYear === 2023) return true;
             if (year === 2021 && endYear <= 2021) return true;
@@ -419,7 +419,8 @@ const ExperienceTimeline: React.FC = () => {
 const RotatingTagline: React.FC = () => {
   const taglines = [
     "Production-grade systems built",
-    "3+ years of system ownership",
+    "Building LLM agents and cloud services in Java & Python",
+    "RAG precision 71% → 93% in production",
     "Published at ICLR 2026 & ACL 2026",
     "Deploying LLM and ML Systems in Production",
     "Multiple Hackathon Winner with Shipped Projects",
@@ -899,12 +900,12 @@ const Home: React.FC = () => {
               PRANAV KUTRALINGAM
             </h1>
             <h2 className="font-bold text-2xl sm:text-3xl mb-6" style={{ color: "var(--text)" }}>
-              SOFTWARE ENGINEER
+              SOFTWARE ENGINEER, AI
             </h2>
             <RotatingTagline />
             <div className="space-y-4 text-base sm:text-lg leading-relaxed" style={{ color: "var(--text)" }}>
               <p>
-                I’m a Software Engineer with 3+ years of production backend experience and hands-on work building LLM systems end to end. I hold a Master’s degree in Computer Science from Arizona State University, currently work as a Product Engineer Intern at Pretorin building AI compliance infrastructure, and I'm published at ICLR 2026 and ACL 2026. <br /> <br />Outside of work, I enjoy participating in hackathons, staying consistent at the gym, and exploring new places.
+                Most of my code has run in production. Some of it also made it into ACL and ICLR. I build services and the AI that runs on them, in Java and Python, and I design, test, deploy and operate both. At Pretorin, an AI compliance startup, I took an LLM agent from zero to one and raised its retrieval precision from 71% to 93%. Before that I spent 3 years at Amadeus on Java and Spring Boot booking services, growing from intern to leading a team of 5. I did my M.S. in CS at ASU (3.97 GPA), and I'm now an AI Researcher at ASU's DaRL Lab. I'm looking for teams building AI-powered developer tools, agents, or the cloud services underneath them. Based in the SF Bay Area, open to relocating anywhere in the US.
               </p>
               <p className="text-sm sm:text-base" style={{ color: "var(--text-muted)" }}>
                 Curious about my work? Ask <strong>Neuro</strong>, my AI assistant!

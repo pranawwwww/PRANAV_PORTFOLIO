@@ -82,7 +82,7 @@ const AboutMeCard: React.FC = () => {
               Pranav Kutralingam
             </h3>
             <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
-              Software Engineer • ML Enthusiast
+              Software Engineer, AI
             </p>
           </div>
         </div>
@@ -92,11 +92,11 @@ const AboutMeCard: React.FC = () => {
           <p className="text-sm leading-relaxed" style={{ color: 'var(--text)' }}>
             Pranav is a Computer Science graduate from ASU (Dec 2025, GPA 3.97/4.0) with experience across industry, a startup, and applied research.
             <br /><br />
-            He spent 2.5 years at Amadeus Labs building and maintaining production systems, then did a research assistantship at ASU's DaRL Lab building reinforcement learning and multilingual LLM benchmarks — work published at ICLR 2026 and ACL 2026.
+            He joined Amadeus as an intern in 2021 and grew into leading a team of 5, building Java and Spring Boot booking services. He then did his M.S. at ASU's DaRL Lab, building the eval and training infrastructure behind two 2026 papers (ACL, ICLR).
             <br /><br />
-            He's currently a Product Engineer Intern at Pretorin, building AI compliance automation infrastructure (RAG pipelines, LLM eval gates, attestation services).
+            At Pretorin, a seed-stage AI compliance startup, he took an agentic RAG chatbot from zero to one, raised retrieval precision from 71% to 93%, and built guardrails and an LLM eval suite in CI/CD. He's now an AI Researcher at ASU's DaRL Lab.
             <br /><br />
-            He is open to full-time Software Engineering or Applied ML roles.
+            He's looking for Software Engineer roles on AI teams: AI developer tools, agents, or the cloud services underneath them. Based in the SF Bay Area, open to relocating anywhere in the US, no sponsorship needed.
           </p>
 
 

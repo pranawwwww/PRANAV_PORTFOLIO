@@ -4,15 +4,15 @@ export const faqData: FAQItem[] = [
   // Recruiter-focused
   {
     q: "What roles are you targeting?",
-    a: "Software Engineer (backend/platform) and Applied AI/LLM Engineer, I'm also open to MLOps/ML Platform roles given my DaRL Labs and Amadeus Labs experience deploying ML pipelines and test infrastructure. I like shipping production AI and scalable systems end-to-end."
+    a: "Software Engineer roles on AI teams: AI-powered developer tools, LLM agents, or the cloud services underneath them. I build services and the AI that runs on them, in Java and Python. Based in the SF Bay Area, open to relocating anywhere in the US, no sponsorship needed. Hiring? Email the req number to tpranavkutralingam@gmail.com."
   },
   {
     q: "When are you available?",
-    a: "I completed my M.S. in CS at ASU in December 2025. I'm currently a Product Engineer Intern at Pretorin (through the internship), and open to full-time SWE/AI roles."
+    a: "Now. I finished my M.S. in CS at ASU in December 2025 (GPA 3.97), was a Software Engineer (Product) at Pretorin from March to September 2026, and I'm currently an AI Researcher at ASU's DaRL Lab while looking for full-time roles."
   },
   {
     q: "What languages and stacks do you use most?",
-    a: "Languages: Python, Java, C++, C, C#, Rust, SQL, TypeScript/JavaScript. Backends: FastAPI, Flask, Spring Boot, Microservices, REST APIs. LLMs/GenAI: OpenAI Agent SDK, OpenAI API, Hugging Face, RAG, pgvector, LLM-as-a-Judge Evaluation, Prompt Engineering. ML: PyTorch, scikit-learn, NumPy, Pandas. DevOps: Docker, Kubernetes, Helm, Jenkins, GitHub Actions, Slurm, AWS, Azure, Splunk, Grafana, Locust."
+    a: "Java, Python and TypeScript. Backend: Spring Boot, FastAPI, REST. Frontend: React, Next.js. AI: LLM agents, RAG (hybrid search, reranking, pgvector), LLM evals, guardrails, vLLM, PyTorch, scikit-learn, Claude Code. Cloud and infra: Kubernetes, Azure, AWS, Docker, CI/CD (GitHub Actions, Jenkins), PostgreSQL."
   },
   {
     q: "Give me one project you're proud of.",
@@ -20,15 +20,15 @@ export const faqData: FAQItem[] = [
   },
   {
     q: "How have you applied ML beyond coursework?",
-    a: "As a Graduate Research Assistant at ASU's DaRL Lab (May 2024 - Dec 2025), I built fault-tolerant batch pipelines that ran 2,000+ PyTorch experiments across a 10-GPU Slurm cluster, and built the data/integration layer for MLCL, a multilingual LLM tool-calling benchmark. That work led to two published papers: 'Latent Adaptation of Foundation Policies for Sim-to-Real Transfer' (ICLR 2026) and 'Lost in Execution: On the Multilingual Robustness of Tool Calling in LLMs' (ACL 2026, 2nd author)."
+    a: "In production: at Pretorin I took an agentic RAG chatbot from zero to one over 1,000+ documents per customer and raised retrieval precision from 71% to 93%; at Amadeus I built a gradient-boosting pipeline that saves $500K a year by flagging false Agency Debit Memo claims, and a scikit-learn classifier that triages 15K+ monthly test failures at 97% precision. In research at ASU's DaRL Lab, I built the eval and training infrastructure for two 2026 papers (ACL, ICLR)."
   },
   {
     q: "Any performance or scale wins?",
-    a: "At Amadeus: redesigned a distributed E2E test pipeline on Kubernetes/Jenkins, cutting runtime from 12 hours to 4 hours; built an NLP-based error-log monitoring system that cut manual triage effort by 60% across 15K+ events/month; improved API response times by 45% under peak load through SQL tuning and caching. At Pretorin: built the platform's first Kubernetes load/stress framework (Locust, Helm, 100 concurrent users) with an OpenAI token-budget kill-switch."
+    a: "Pretorin: retrieval precision 71% → 93%; upload failures at 10 concurrent users cut from 89% to 0%. Amadeus: an itinerary service at 5 ms p99 on 100K+ request peak days; releases moved from every 2-3 days to daily; the IndiGo integration grew India market share 18%. ASU: eval sweeps cut from 12 hours to under 1 hour, and 4-5 day experiments turned into overnight runs."
   },
   {
     q: "How do you approach reliability and testing?",
-    a: "Automated pipelines, fast feedback, and pragmatic tests. At Pretorin I designed an LLM evaluation gate in CI (deterministic schema checks + calibrated LLM-as-judge vs. a hand-labeled golden set) that fails closed to block bad AI outputs before release. I track the metrics that matter and design for safe rollouts."
+    a: "AI gets measured before it ships. At Pretorin I built guardrails as code (an allowlisted writer so the LLM never writes compliance control text, checked against a 40-pair hand-labeled golden set) and an LLM-judged eval suite in CI/CD with 85% agreement with human labels that blocked accuracy regressions. I also found an 89% upload failure rate with a Locust load test I wrote, fixed it to 0%, and added a lint rule that blocks the bug class."
   },
   {
     q: "SDE vs ML—what's your preference?",
@@ -40,7 +40,7 @@ export const faqData: FAQItem[] = [
   },
     {
     q: "Why you for SDE or ML at FAANG?",
-    a: "I've shipped tangible wins (12hr→4hr CI/CD pipeline redesign, 60% less manual triage, automated failure routing), plus research discipline that produced two published papers (ICLR 2026, ACL 2026). I bridge models, services, and product outcomes."
+    a: "I build services and the AI that runs on them, and I've shipped both: an agentic RAG chatbot from zero (71% → 93% retrieval precision), a 5 ms p99 Java service, an ML pipeline saving $500K a year, and release tooling that moved releases to daily. Plus research discipline from two 2026 papers (ACL, ICLR)."
   },
     {
     q: "How can I quickly see your work?",
@@ -64,15 +64,15 @@ export const faqData: FAQItem[] = [
   },
   {
     q: "What's an ML project you're proud of?",
-    a: "AdaptED AI—an adaptive tutor using React/TypeScript + Gemini. It won “Best Use of AI” at DevHacks for boosting demo engagement and showcases my habit of tying models to real UX."
+    a: "The Pretorin compliance chatbot: an agentic RAG system I designed, built and deployed from zero, serving 1,000+ documents per customer with chained tool calls. I raised retrieval precision from 71% to 93% with hybrid search and reranking, and kept it honest with guardrails and an LLM eval suite in CI/CD. On the hackathon side, AdaptED AI won “Best Use of AI” at ASU DevHacks."
   },
   {
     q: "How does your research translate to product work?",
-    a: "My research at ASU's DaRL Lab focused on reproducible batch experimentation and multilingual LLM evaluation — building fault-tolerant pipelines and benchmark tooling. That rigor shows up in my engineering via automation, eval-driven development (like the LLM-as-judge gate I built at Pretorin), and clean experiment→prod handoffs."
+    a: "At the DaRL Lab I built eval and training infrastructure: a concurrent scheduler across 8 model backends for a 13-LLM tool-calling benchmark, and fault-tolerant Slurm sweeps. Pretorin is where the two met: production engineering, with AI that's measured before it ships, using an LLM-judged eval suite in CI/CD."
   },
   {
     q: "What scale or volume have you handled?",
-    a: "Enterprise CI/CD and service migrations at Amadeus (multi-team pipelines, 15K+ test events/month). On the research side, I ran 2,000+ PyTorch experiments across a 10-GPU Slurm cluster with automated batch execution and zero manual restarts."
+    a: "Amadeus: an itinerary service handling 100K+ requests on peak days at 5 ms p99, 15K+ test failures a month, and tooling used by 12 teams. Pretorin: 1,000+ documents per customer. ASU: 2,000-job distributed sweeps on a 10-GPU Slurm cluster."
   },
     {
     q: "What is your GPA",
@@ -80,7 +80,7 @@ export const faqData: FAQItem[] = [
   },
     {
     q: "What are your achievements?",
-    a: "📄 Published at ICLR 2026 (Latent Adaptation of Foundation Policies for Sim-to-Real Transfer) and ACL 2026 (Lost in Execution: Multilingual Robustness of Tool Calling in LLMs, 2nd author). 🏆 Best Use of AI at ASU DevHacks 2025 (AdaptED AI). Two more papers on arXiv: A Survey of Sim-to-Real Methods in RL, and DeepShade. 3.97/4.0 GPA (MS CS, ASU) and 3.7/4.0 (BTech, SRM)."
+    a: "📄 Published at ICLR 2026 (Latent Adaptation of Foundation Policies for Sim-to-Real Transfer) and ACL 2026 (Lost in Execution: Multilingual Robustness of Tool Calling in LLMs, 2nd author). 💼 Took an agentic RAG chatbot from zero to one at Pretorin (71% → 93% retrieval precision) and built an ML pipeline at Amadeus saving $500K a year. 🏆 Best Use of AI at ASU DevHacks 2025 (AdaptED AI). 🎓 3.97/4.0 GPA (MS CS, ASU)."
   },
 
 
@@ -95,7 +95,7 @@ export const faqData: FAQItem[] = [
   },
   {
     q: "Can you summarize your background in 3 lines?",
-    a: "Software Engineer with 3+ years of production backend experience, currently building AI compliance infrastructure at Pretorin. Published at ICLR 2026 and ACL 2026 from my research assistantship at ASU. I ship reliable AI—from Python backends to LLM systems in production."
+    a: "Software Engineer on AI: I build services and the AI that runs on them, in Java and Python. Took an LLM agent from zero to one at Pretorin (71% → 93% retrieval precision) after 3 years at Amadeus, where I went from intern to leading 5 engineers. M.S. CS from ASU, published at ACL and ICLR 2026, now an AI Researcher at ASU's DaRL Lab."
   },
   {
     q: "How do I contact you?",
@@ -107,7 +107,7 @@ export const faqData: FAQItem[] = [
   },
       {
     q: "What are your leadership experiences?",
-    a: "I've led cross-functional initiatives at Amadeus that improved CI/CD efficiency, and I mentor junior engineers, helping them navigate challenges and grow their skills. I was the Student Representative of the Computer Science department in my Undergraduate days at SRM University."
+    a: "I joined Amadeus as an intern in 2021 and grew into leading 5 engineers on internal tooling used by 12 teams: planning the projects, reviewing code and mentoring. At Pretorin I worked directly with clients on requirements, integrations and demos. I was also the Student Representative of the Computer Science department at SRM University."
   },
 
 ];

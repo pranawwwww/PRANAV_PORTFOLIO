@@ -10,8 +10,8 @@ const getResumeUrl = (): string => {
 
 export const siteData: SiteData = {
   name: "",
-  tagline: "Grad CS @ ASU | SWE who speaks ML | My models lift & backends don't skip leg day | Now accepting quests.",
-  location: "Tempe, AZ",
+  tagline: "MS CS @ ASU | SWE who speaks ML | My models lift & backends don't skip leg day | Now accepting quests.",
+  location: "San Francisco Bay Area",
   links: {
     email: "mailto:tpranavkutralingam@gmail.com",
     emailDisplay: "tpranavkutralingam@gmail.com",

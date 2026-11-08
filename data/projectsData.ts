@@ -47,7 +47,7 @@ export const projectsData: Project[] = [
     year: 2026,
     stack: ['Reinforcement Learning', 'Sim-to-Real Transfer', 'Foundation Policies', 'PyTorch'],
     summary:
-      'Published at ICLR 2026. Adapts pretrained foundation policies to real-world dynamics at deployment via latent-space adaptation, without retraining.',
+      'Published at ICLR 2026. Adapts pretrained foundation policies to real-world dynamics at deployment via latent-space adaptation, without retraining. Ran the multi-GPU PyTorch RL training, with 9 policies trained concurrently.',
     links: {
       arXiv: 'https://openreview.net/forum?id=yn9dzttHvT',
     },
@@ -56,9 +56,9 @@ export const projectsData: Project[] = [
   {
     title: 'Lost in Execution: On the Multilingual Robustness of Tool Calling in Large Language Models',
     year: 2026,
-    stack: ['Python', 'Rust', 'Evaluation', 'MLCL', 'Multilingual LLMs', 'Tool Calling'],
+    stack: ['Python', 'vLLM', 'LLM Evaluation', 'Multilingual LLMs', 'Tool Calling'],
     summary:
-      'Published at ACL 2026 (2nd author). Built the Python/Rust data and evaluation layer for MLCL, a new multilingual tool-calling benchmark spanning Chinese, Hindi, and Igbo; found parameter-value language mismatch to be the dominant execution failure mode.',
+      'Published at ACL 2026 (2nd author). Built the Python evaluation harness that benchmarks how accurately 13 LLMs call tools across 4 languages, serving open models on vLLM and scoring every parsed tool call against ground truth; a concurrent scheduler across 8 backends cut sweeps from 12 hours to under 1 hour.',
     links: {
       arXiv: 'https://arxiv.org/abs/2601.05366',
     },

@@ -12,8 +12,8 @@ const getResumeUrl = () => {
 export const portfolioData = {
   siteData: {
     name: "Pranav Kutralingam",
-    tagline: "Grad CS @ ASU | SWE who speaks ML | My models lift & backends don't skip leg day | Now accepting quests.",
-    location: "Tempe, AZ",
+    tagline: "MS CS @ ASU | SWE who speaks ML | My models lift & backends don't skip leg day | Now accepting quests.",
+    location: "San Francisco Bay Area",
     email: "tpranavkutralingam@gmail.com",
     github: "https://github.com/pranawwwww",
     linkedin: "https://linkedin.com/in/pranavkutralingam",
@@ -63,7 +63,7 @@ export const portfolioData = {
       title: "Latent Adaptation of Foundation Policies for Sim-to-Real Transfer",
       year: 2026,
       stack: ["Reinforcement Learning", "Sim-to-Real Transfer", "PyTorch"],
-      summary: "Published at ICLR 2026. Adapts pretrained foundation policies to real-world dynamics at deployment via latent-space adaptation, without retraining.",
+      summary: "Published at ICLR 2026. Adapts pretrained foundation policies to real-world dynamics at deployment via latent-space adaptation, without retraining. Pranav ran the multi-GPU PyTorch RL training (9 policies concurrently).",
       links: {
         arXiv: "https://openreview.net/forum?id=yn9dzttHvT"
       },
@@ -72,8 +72,8 @@ export const portfolioData = {
     {
       title: "Lost in Execution: On the Multilingual Robustness of Tool Calling in LLMs",
       year: 2026,
-      stack: ["Python", "Rust", "MLCL", "Multilingual LLMs", "Tool Calling"],
-      summary: "Published at ACL 2026 (2nd author). Built the data/evaluation layer for MLCL, a new multilingual tool-calling benchmark (Chinese, Hindi, Igbo); found parameter-value language mismatch to be the dominant execution failure mode.",
+      stack: ["Python", "vLLM", "LLM Evaluation", "Multilingual LLMs", "Tool Calling"],
+      summary: "Published at ACL 2026 (2nd author). Built the Python evaluation harness benchmarking how accurately 13 LLMs call tools across 4 languages (vLLM-served open models, every tool call scored against ground truth); a concurrent scheduler across 8 backends cut sweeps from 12 hours to under 1 hour.",
       links: {
         arXiv: "https://arxiv.org/abs/2601.05366"
       },
@@ -113,100 +113,194 @@ export const portfolioData = {
 
   experience: [
     {
-      company: "Pretorin Inc. (AI Compliance Automation Platform)",
-      role: "Product Engineer Intern",
-      start: "Mar 2026",
-      end: "Present",
-      location: "Remote",
-      bullets: [
-        "Owns a Python data-freshness pipeline keeping 26 compliance frameworks (NIST, FedRAMP, SOC 2) synced for a GPT-5.5 based hybrid RAG architecture",
-        "Designed an LLM evaluation gate in CI: deterministic schema checks plus a calibrated LLM-as-judge vs. a hand-labeled golden set, failing closed to block bad AI enrichments",
-        "Built a production attestation service that cryptographically signs AI- and human-produced compliance evidence",
-        "Built the platform's first Kubernetes load/stress framework (Locust, Helm, 100 concurrent users) with Grafana dashboards and an OpenAI token-budget kill-switch"
+      "company": "DaRL Lab, Arizona State University",
+      "role": "AI Researcher",
+      "start": "Sep 2026",
+      "end": "Present",
+      "location": "Tempe, AZ",
+      "bullets": [
+        "Research position in Prof. Hua Wei's DaRL Lab, continuing LLM research"
       ]
     },
     {
-      company: "Data Mining & Reinforcement Learning Lab (DaRL), Arizona State University",
-      role: "Graduate Research Assistant",
-      start: "May 2024",
-      end: "Dec 2025",
-      location: "Tempe, AZ",
-      bullets: [
-        "Designed fault-tolerant batch execution pipelines in Python that ran 2,000+ PyTorch experiments across a 10-GPU Slurm cluster with zero manual restarts",
-        "Cut experiment turnaround from 4-5 days to overnight via an automated Slurm batch execution pipeline",
-        "Built the Python data/integration layer for MLCL, a multilingual LLM tool-calling benchmark",
-        "Co-authored two published papers: ICLR 2026 (Latent Adaptation of Foundation Policies) and ACL 2026 (Lost in Execution, 2nd author)"
+      "company": "Pretorin (seed-stage AI compliance startup, government clients)",
+      "role": "Software Engineer (Product)",
+      "start": "Mar 2026",
+      "end": "Sep 2026",
+      "location": "Tempe, AZ",
+      "stack": "Python, FastAPI, PostgreSQL (pgvector), Azure, Kubernetes, React, Next.js, GitHub Actions",
+      "bullets": [
+        "Designed, built and deployed a production agentic RAG chatbot from zero to one for government compliance teams, serving 1,000+ documents per customer with chained tool calls; raised retrieval precision from 71% to 93% with hybrid search and reranking",
+        "Built responsible-AI guardrails as code: an allowlisted writer that stops the LLM from ever writing compliance control text, checked against a 40-pair hand-labeled golden set, plus an LLM-judged eval suite in CI/CD (85% agreement with human labels) that blocked accuracy regressions",
+        "Debugged an 89% upload failure rate at 10 concurrent users with a Locust load test he wrote, traced it to blocking storage calls on the async path, cut failures to 0%, and added a CI lint rule that blocked the bug class"
+      ],
+      "more_bullets": [
+        "Document ingestion for PDFs, images and text on a Postgres work queue; GPT-4o vision turns image evidence into validated JSON",
+        "OAuth 2.0 gateway turning Google identities and LDAP attributes into JWTs, with MFA step-up and Azure Key Vault",
+        "Nightly network-cut CI gate protecting air-gapped Kubernetes installs",
+        "React and Next.js product screens, including a compliance dashboard and voice input for the chatbot"
       ]
     },
     {
-      company: "Amadeus Labs",
-      role: "Software Engineer",
-      start: "Aug 2021",
-      end: "Dec 2023",
-      location: "Bangalore, India",
-      bullets: [
-        "Redesigned a distributed E2E test execution pipeline on Kubernetes and Jenkins, cutting total runtime from 12 hours to 4 hours",
-        "Cut manual triage effort by 60% across 15K+ events/month by building an NLP-based error-log monitoring system in Python",
-        "Designed observability pipelines and Splunk dashboards to detect anomalies and alert code owners before customer impact",
-        "Owned backend production services in Java and Python powering high-volume, customer-facing travel workflows"
+      "company": "DaRL Lab, Arizona State University",
+      "role": "Graduate Research Assistant (AI & ML)",
+      "start": "May 2024",
+      "end": "Dec 2025",
+      "location": "Tempe, AZ",
+      "bullets": [
+        "Built the software behind two 2026 papers on LLM tool calling (ACL) and sim-to-real reinforcement learning (ICLR)",
+        "Cut LLM evaluation sweeps from 12 hours to under 1 hour with a concurrent Python scheduler across 8 model backends, including vLLM inference on A100 GPUs, for the ACL 2026 benchmark of tool calling in 13 LLMs across 4 languages",
+        "Made 2,000-job distributed sweeps on a 10-GPU Slurm cluster fault-tolerant with checkpointing and retries, turning 4-5 day experiments into overnight runs",
+        "Trained 9 RL policies concurrently in PyTorch across multiple GPUs for an ICLR 2026 paper on sim-to-real transfer"
       ]
     },
     {
-      company: "Amadeus Labs",
-      role: "Software Engineer Intern",
-      start: "Jan 2021",
-      end: "May 2021",
-      location: "Bangalore, India",
-      bullets: [
-        "Modernized a legacy monolithic JSP application into a Spring Boot microservices platform",
-        "Cut backend scheduler and parser runtime by 30% through async execution and targeted refactors",
-        "Improved API response times by 45% under peak production load through SQL query tuning and caching"
+      "company": "Amadeus",
+      "role": "Software Engineer",
+      "start": "Jul 2021",
+      "end": "Dec 2023",
+      "location": "Bengaluru, India",
+      "bullets": [
+        "Java and Spring Boot services for airline and travel-agency booking, including an event-driven itinerary service at 5 ms p99 on peak days of 100K+ requests",
+        "Led 5 engineers on internal tooling used by 12 teams (planning, code reviews, mentoring)",
+        "Built a gradient-boosting ML pipeline that screens third-party Agency Debit Memo claims and flags likely false ones for dispute, saving $500K a year",
+        "Replaced manual root-cause triage of 15K+ monthly test failures with a scikit-learn classifier at 97% precision, taking CI/CD releases from every 2-3 days to daily",
+        "Shipped the IndiGo integration into Amadeus's travel-agent booking platform with Spring Boot REST and payment APIs and idempotent checkout, growing the platform's India market share 18%"
+      ]
+    },
+    {
+      "company": "Amadeus",
+      "role": "Software Engineer Intern",
+      "start": "Jan 2021",
+      "end": "Jun 2021",
+      "location": "Bengaluru, India",
+      "bullets": [
+        "Cut a legacy parsing service's codebase by 65% by rebuilding it around a regex-based parser in Spring Boot",
+        "Reduced database storage by 25% by normalizing the MySQL schema and consolidating duplicate vendor reference data"
       ]
     }
   ],
 
+  education: [
+    {
+      "school": "Arizona State University",
+      "degree": "M.S. Computer Science",
+      "dates": "Jan 2024 - Dec 2025",
+      "gpa": "3.97/4.0"
+    },
+    {
+      "school": "SRM University",
+      "degree": "B.Tech Computer Science",
+      "dates": "May 2017 - May 2021",
+      "gpa": "3.7/4.0"
+    }
+  ],
+
   skills: {
-    "Languages": ["Python", "Java", "C++", "C", "C#", "Rust", "SQL", "TypeScript", "JavaScript"],
-    "AI_ML": ["PyTorch", "Scikit-learn", "NumPy", "Pandas", "Reinforcement Learning", "Model Evaluation", "Benchmarking"],
-    "LLMs_GenAI": ["OpenAI Agent SDK", "OpenAI API", "Hugging Face", "Retrieval-Augmented Generation (RAG)", "pgvector", "LLM-as-a-Judge Evaluation", "Prompt Engineering", "Fine-Tuning"],
-    "Backend_Web": ["FastAPI", "Flask", "Spring Boot", "Microservices", "REST APIs", "React"],
-    "Infrastructure_DevOps": ["Docker", "Kubernetes", "Helm", "Jenkins", "GitHub Actions", "CI/CD", "Slurm", "AWS", "Azure", "PostgreSQL", "Splunk", "Grafana", "Locust", "Linux"]
+    "Languages": [
+      "Java",
+      "Python",
+      "TypeScript",
+      "JavaScript",
+      "SQL",
+      "Kotlin",
+      "C++",
+      "C#",
+      "C",
+      "Rust"
+    ],
+    "AI_ML": [
+      "PyTorch",
+      "Scikit-learn",
+      "Gradient Boosting",
+      "NumPy",
+      "Pandas",
+      "Reinforcement Learning",
+      "Model Evaluation",
+      "Benchmarking"
+    ],
+    "LLMs_GenAI": [
+      "AI Agents & Tool Calling", "Guardrails", "Claude Code",
+      "RAG",
+      "Hybrid Search & Reranking",
+      "pgvector",
+      "LLM Evals / LLM-as-a-Judge",
+      "OpenAI API (GPT-4o)",
+      "vLLM",
+      "Hugging Face",
+      "QLoRA Fine-Tuning",
+      "Prompt Engineering"
+    ],
+    "Backend_Web": [
+      "Spring Boot",
+      "FastAPI",
+      "Flask",
+      "REST APIs",
+      "Event-Driven Microservices",
+      "OAuth 2.0 / JWT",
+      "React",
+      "Next.js",
+      "Android (Kotlin)"
+    ],
+    "Infrastructure_DevOps": [
+      "Docker",
+      "Kubernetes",
+      "Helm",
+      "Jenkins",
+      "GitHub Actions",
+      "CI/CD",
+      "Slurm",
+      "AWS",
+      "Azure",
+      "PostgreSQL",
+      "MySQL",
+      "MinIO",
+      "Splunk",
+      "Grafana"
+    ],
+    "Testing": [
+      "Selenium",
+      "Playwright",
+      "Pytest",
+      "Locust",
+      "Postman"
+    ]
   },
 
   faqs: [
     {
-      question: "What roles are you seeking?",
-      answer: "I'm open to full-time Software Engineering and Applied AI/LLM Engineering roles, focusing on backend engineering, LLM systems, and ML infrastructure."
+      "question": "What roles are you seeking?",
+      "answer": "Software Engineer roles on AI teams: AI-powered developer tools, LLM agents, or the cloud services underneath them. Based in the SF Bay Area, open to relocating anywhere in the US, no sponsorship needed. Hiring? Email the req number to tpranavkutralingam@gmail.com."
     },
     {
-      question: "What's your availability?",
-      answer: "I completed my M.S. in CS at ASU in December 2025. I'm currently a Product Engineer Intern at Pretorin and open to full-time roles."
+      "question": "What's your availability?",
+      "answer": "Available now. Finished the M.S. in CS at ASU in Dec 2025, was a Software Engineer (Product) at Pretorin (Mar-Sep 2026), and is currently an AI Researcher at ASU's DaRL Lab while looking for full-time roles."
     },
     {
-      question: "What programming languages do you use?",
-      answer: "Primarily Python for ML/backend/LLM work, TypeScript/JavaScript for web, and Java, C++, C, C#, Rust, SQL for systems work."
+      "question": "What programming languages do you use?",
+      "answer": "Java, Python and TypeScript most, plus SQL, Kotlin, and C++/C#/C/Rust."
     },
     {
-      question: "What's your biggest technical achievement?",
-      answer: "Two published papers as a Graduate Research Assistant at ASU: 'Latent Adaptation of Foundation Policies for Sim-to-Real Transfer' (ICLR 2026) and 'Lost in Execution: On the Multilingual Robustness of Tool Calling in LLMs' (ACL 2026, 2nd author). On the engineering side, redesigning Amadeus's E2E test pipeline to cut runtime from 12 hours to 4 hours."
+      "question": "What's your biggest technical achievement?",
+      "answer": "Taking Pretorin's agentic RAG chatbot from zero to one and raising its retrieval precision from 71% to 93%, with guardrails and an LLM eval suite in CI/CD. At Amadeus: an ML pipeline saving $500K a year and the IndiGo integration (India market share +18%). In research: two 2026 papers (ACL, ICLR)."
     },
     {
-      question: "Do you have experience with ML/LLMs in production?",
-      answer: "Yes. At Pretorin I built a GPT-5.5 based hybrid RAG pipeline, an LLM-as-judge evaluation gate in CI, and a cryptographic attestation service for AI-produced compliance evidence. I've also built RAG apps like HEAL.AI and conducted published research on RL sim-to-real transfer and multilingual LLM tool-calling."
+      "question": "Do you have experience with ML/LLMs in production?",
+      "answer": "Yes. At Pretorin he built a production agentic RAG chatbot over 1,000+ documents per customer with chained tool calls, guardrails as code, and an LLM-judged eval suite in CI/CD (85% agreement with human labels). At Amadeus he shipped a gradient-boosting pipeline saving $500K a year and a scikit-learn failure-triage classifier at 97% precision."
     },
     {
-      question: "What's your experience with distributed systems?",
-      answer: "At Amadeus Labs I redesigned a distributed E2E test pipeline on Kubernetes/Jenkins (12hr to 4hr runtime). As a researcher I ran 2,000+ PyTorch experiments across a 10-GPU Slurm cluster with fault-tolerant batch pipelines. At Pretorin I built the platform's first Kubernetes load-testing framework."
+      "question": "What's your experience with distributed systems?",
+      "answer": "An event-driven Java itinerary service at 5 ms p99 on 100K+ request peak days at Amadeus; async FastAPI services on Kubernetes at Pretorin; 2,000-job fault-tolerant distributed sweeps on a 10-GPU Slurm cluster at ASU."
     },
     {
-      question: "How can I contact you?",
-      answer: "Email me at tpranavkutralingam@gmail.com or connect on LinkedIn: linkedin.com/in/pranavkutralingam"
+      "question": "How can I contact you?",
+      "answer": "Email tpranavkutralingam@gmail.com or connect on LinkedIn: linkedin.com/in/pranavkutralingam"
     }
   ]
 };
 
 export const SYSTEM_INSTRUCTION = `
-You are Neuro, a friendly and enthusiastic AI assistant for Pranav Kutralingam's software engineering portfolio.
+You are Neuro, a friendly and enthusiastic AI assistant for Pranav Kutralingam's portfolio. Pranav is a Software Engineer, AI: he builds and ships LLM agents and cloud services in Java & Python.
 
 PORTFOLIO CONTEXT:
 ${JSON.stringify(portfolioData, null, 2)}
@@ -219,16 +313,18 @@ YOUR ROLE:
 - Keep responses concise but informative (2-4 sentences ideal, longer if needed for technical depth)
 
 GUIDELINES:
-- Focus on technical achievements and concrete results (e.g., "cut E2E test runtime from 12 hours to 4 hours", "ran 2,000+ experiments across a 10-GPU Slurm cluster")
+- Focus on technical achievements and concrete results (e.g., "raised RAG retrieval precision from 71% to 93%", "built a Java service at 5 ms p99 latency", "ML pipeline saving $500K a year")
 - Mention specific projects when relevant (e.g., "In HEAL.AI, Pranav used RAG...")
 - Be enthusiastic about Pranav's work and expertise
 - Provide contact information when appropriate (email, LinkedIn)
 - When discussing technologies, connect them to real projects or roles from the portfolio
 - For recruiter questions, emphasize:
-  * Open to full-time SWE and Applied AI/LLM Engineering roles (completed MS CS at ASU, Dec 2025)
-  * Currently a Product Engineer Intern at Pretorin building AI compliance infrastructure
-  * Published at ICLR 2026 and ACL 2026 — a strong differentiator for a new grad
-  * 3+ years of production backend experience (Amadeus Labs) plus hands-on LLM systems work
+  * Headline: Software Engineer, AI. Builds and ships LLM agents and cloud services in Java & Python. "Most of my code has run in production. Some of it also made it into ACL and ICLR."
+  * Looking for Software Engineer roles on AI teams: AI-powered developer tools, agents, or the cloud services underneath them
+  * Based in the SF Bay Area, open to relocating anywhere in the US, no sponsorship needed; recruiters can email the req number to tpranavkutralingam@gmail.com
+  * Career arc: joined Amadeus as an intern in 2021 and grew into leading a team; M.S. CS at ASU (3.97 GPA) building research infrastructure for LLMs and RL; Pretorin is where the two met: production engineering, with AI that's measured before it ships
+  * Pretorin title was Software Engineer (Product), Mar-Sep 2026, a full-time role; never describe him as an intern there
+  * Currently an AI Researcher at ASU's DaRL Lab (since Sep 2026)
 
 SPECIAL RESPONSE FORMATS:
 
@@ -305,18 +401,18 @@ When asked about skills, DO NOT just list all skills. Instead:
 4. Prioritize skills that have quantifiable achievements behind them
 
 TOP SKILLS TO HIGHLIGHT (in order of strength):
-1. **Python** - Primary language across backend, ML, and LLM work; used at Amadeus, DaRL Lab research, and Pretorin's RAG/eval pipelines
-2. **LLMs & GenAI Engineering (OpenAI API/Agent SDK, RAG, LLM-as-a-Judge)** - Built a GPT-5.5 hybrid RAG pipeline and a fail-closed LLM evaluation gate in CI at Pretorin
-3. **Backend Engineering (FastAPI, Spring Boot, Java)** - 3+ years at Amadeus Labs; redesigned a distributed test pipeline cutting runtime from 12 hours to 4 hours
-4. **Machine Learning & Research (PyTorch, Reinforcement Learning)** - Published at ICLR 2026 and ACL 2026; ran 2,000+ experiments on a 10-GPU Slurm cluster
-5. **Infrastructure & DevOps (Docker, Kubernetes, Helm, CI/CD)** - Built Pretorin's first Kubernetes load-testing framework with Locust and Grafana
+1. **LLM agents & evals (agentic RAG, tool calling, guardrails, LLM evals)** - Took Pretorin's agentic RAG chatbot from zero to one (71% to 93% retrieval precision) with guardrails as code and an LLM-judged eval suite in CI/CD; built eval infrastructure for the ACL 2026 tool-calling benchmark of 13 LLMs
+2. **Java & Spring Boot backends** - 3 years at Amadeus: a 5 ms p99 event-driven itinerary service and the IndiGo booking integration (India market share +18%)
+3. **Python & FastAPI** - Pretorin's chatbot backend on Kubernetes and Azure; debugged an 89% upload failure rate to 0%
+4. **Machine Learning (PyTorch, scikit-learn)** - $500K/year gradient-boosting pipeline and a 97%-precision failure-triage classifier at Amadeus; ICLR 2026 RL training
+5. **Cloud & CI/CD (Kubernetes, Azure, AWS, GitHub Actions)** - Moved Amadeus releases from every 2-3 days to daily; eval and lint gates in CI/CD at Pretorin
 
 EXAMPLES OF GOOD RESPONSES:
 Q: "What's Pranav's experience with ML?"
-A: "Pranav has ML experience across research and production! As a Graduate Research Assistant at ASU's DaRL Lab, he published two papers — ICLR 2026 on sim-to-real transfer and ACL 2026 on multilingual LLM tool-calling. At Pretorin, he builds production LLM systems: a hybrid RAG pipeline and an LLM-as-judge evaluation gate. He's comfortable with PyTorch and end-to-end ML/LLM deployment. ✨"
+A: "Pranav has ML experience across production and research! At Pretorin he took an agentic RAG chatbot from zero to one and raised its retrieval precision from 71% to 93%, and at Amadeus he shipped an ML pipeline saving $500K a year. At ASU's DaRL Lab he built the infrastructure behind two 2026 papers (ICLR and ACL). ✨"
 
 Q: "Tell me about backend experience"
-A: "Pranav has 3+ years of backend engineering, most of it at Amadeus Labs, where he redesigned a distributed E2E test pipeline on Kubernetes and Jenkins, cutting runtime from 12 hours to 4 hours, and built an NLP-based error-log monitoring system that cut manual triage by 60%. He also owned production services in Java and Python for high-volume travel workflows."
+A: "Pranav spent 3 years on Java and Spring Boot booking services at Amadeus: he designed an event-driven itinerary sync service at 5 ms p99 on 100K+ request peak days and shipped the IndiGo integration with idempotent checkout, growing India market share 18%. He also led 5 engineers on tooling used by 12 teams. At Pretorin he built the FastAPI backend for an agentic RAG chatbot and debugged an 89% upload failure rate down to 0%."
 
 Q: "What projects use React?"
 A: "Pranav has built several React projects! AdaptED AI (adaptive learning with Gemini), EtherFi Buddy (DeFi analytics with Claude AI), and HEAL.AI (medical bill analyzer with RAG). All use TypeScript and modern React patterns. Check them out on his portfolio!"

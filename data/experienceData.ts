@@ -2,67 +2,78 @@ import { GroupedExperience } from '../types';
 
 export const experienceData: GroupedExperience[] = [
   {
-    company: 'Pretorin Inc. (AI Compliance Automation Platform)',
-    location: 'Remote',
-    totalStart: 'March 2026',
+    company: 'DaRL Lab, Arizona State University',
+    location: 'Tempe, AZ',
+    totalStart: 'May 2024',
     totalEnd: 'Present',
     roles: [
       {
-        role: 'Product Engineer Intern',
-        start: 'Mar 2026',
+        role: 'AI Researcher',
+        start: 'Sep 2026',
         end: 'Present',
         bullets: [
-          'Owned a Python data-freshness pipeline keeping 26 compliance frameworks (NIST, FedRAMP, SOC 2) synced to upstream sources for a custom GPT-5.5 based hybrid RAG architecture.',
-          'Designed an LLM evaluation gate in CI: deterministic schema checks plus a calibrated LLM-as-judge benchmarked against a hand-labeled golden set, failing closed to block bad AI enrichments before release.',
-          'Built a production attestation service that cryptographically signs AI- and human-produced compliance evidence, making every record independently verifiable and hash-bound to its source.',
-          "Built the platform's first Kubernetes load/stress framework (Locust, Helm, 5 scenarios, 100 concurrent users) with Grafana dashboards and an OpenAI token-budget kill-switch, catching latency and AI-cost regressions before release."
+          "Research position in Prof. Hua Wei's DaRL Lab, continuing LLM research.",
         ],
       },
-    ],
-  },
-  {
-    company: 'Data Mining & Reinforcement Learning Lab, Arizona State University',
-    location: 'Tempe, AZ',
-    totalStart: 'May 2024',
-    totalEnd: 'December 2025',
-    roles: [
       {
-        role: 'Graduate Research Assistant',
+        role: 'Graduate Research Assistant (AI & ML)',
         start: 'May 2024',
         end: 'Dec 2025',
         bullets: [
-          'Designed fault-tolerant batch execution pipelines in Python (checkpointing, retries, idempotency) that ran 2,000+ PyTorch experiments across a 10-GPU Slurm cluster with zero manual restarts.',
-          'Cut experiment turnaround from 4-5 days to overnight by designing a batch execution pipeline on Slurm that automated result collection and inference.',
-          'Built the Python data and integration layer for MLCL, a multilingual LLM tool-calling benchmark, turning manual prep and ad hoc runs into one-command batched evaluation with automated scoring.'
+          'Cut LLM evaluation sweeps from 12 hours to under 1 hour with a concurrent Python scheduler across 8 model backends, including vLLM inference on A100 GPUs, for the ACL 2026 benchmark of tool calling in 13 LLMs across 4 languages.',
+          'Made 2,000-job distributed sweeps on a 10-GPU Slurm cluster fault-tolerant with checkpointing and retries, turning 4-5 day experiments into overnight runs.',
+          'Trained 9 RL policies concurrently in PyTorch across multiple GPUs for an ICLR 2026 paper on sim-to-real transfer.',
         ],
       },
     ],
   },
   {
-    company: 'Amadeus Labs',
-    location: 'Bangalore, India',
+    company: 'Pretorin (Seed-stage AI Compliance Startup)',
+    location: 'Tempe, AZ',
+    totalStart: 'March 2026',
+    totalEnd: 'September 2026',
+    roles: [
+      {
+        role: 'Software Engineer (Product)',
+        start: 'Mar 2026',
+        end: 'Sep 2026',
+        bullets: [
+          'Designed, built and deployed a production agentic RAG chatbot from zero to one for government compliance teams, serving 1,000+ documents per customer with chained tool calls, and raised retrieval precision from 71% to 93% with hybrid search and reranking.',
+          'Built responsible-AI guardrails as code: an allowlisted writer that stops the LLM from ever writing compliance control text, checked against a 40-pair hand-labeled golden set, plus an LLM-judged eval suite in CI/CD (85% agreement with human labels) that blocked accuracy regressions.',
+          'Debugged an 89% upload failure rate at 10 concurrent users with a Locust load test I wrote, traced it to blocking storage calls on the async path, cut failures to 0%, and added a CI lint rule that blocked the bug class.',
+          'Built ingestion for PDFs, images and text on a Postgres work queue, handling up to 28 upstream document updates a day. GPT-4o vision turns image evidence into validated JSON with a confidence score.',
+          'Built an OAuth 2.0 gateway that turns Google identities and LDAP attributes into JWTs, with MFA step-up and secrets in Azure Key Vault.',
+          'Built a nightly network-cut CI gate that fails any release pulling an external image, protecting air-gapped production installs on Kubernetes.',
+          'Built React and Next.js product screens, including a compliance dashboard and voice input for the chatbot.',
+        ],
+      },
+    ],
+  },
+  {
+    company: 'Amadeus',
+    location: 'Bengaluru, India',
     totalStart: 'January 2021',
     totalEnd: 'December 2023',
     roles: [
       {
         role: 'Software Engineer',
-        start: 'August 2021',
-        end: 'December 2023',
+        start: 'Jul 2021',
+        end: 'Dec 2023',
         bullets: [
-          'Redesigned a distributed E2E test execution pipeline on Kubernetes and Jenkins with parallel execution and focused jobs, cutting total runtime from 12 hours to 4 hours.',
-          'Cut manual triage effort by 60% across 15K+ events/month by building an NLP-based error-log monitoring system in Python that tagged genuine failures and routed them to owning teams.',
-          'Designed observability pipelines and Splunk dashboards to detect anomalies and surface production issues, alerting the relevant code owners before customer impact.',
-          'Owned backend production services in Java and Python powering high-volume, customer-facing travel workflows with strict uptime, latency, and reliability requirements.'
+          'Built Java and Spring Boot services for airline and travel-agency booking, including an event-driven itinerary service at 5 ms p99 on peak days of 100K+ requests.',
+          'Built a gradient-boosting ML pipeline that screens third-party Agency Debit Memo claims and flags likely false ones for dispute, saving $500K a year.',
+          'Replaced manual root-cause triage of 15K+ monthly test failures with a scikit-learn classifier at 97% precision, taking CI/CD releases from every 2-3 days to daily.',
+          "Shipped the IndiGo integration into Amadeus's travel-agent booking platform with Spring Boot REST and payment APIs and idempotent checkout, growing the platform's India market share 18%.",
+          'Led 5 engineers on internal tooling used by 12 teams (planning, code reviews, mentoring).',
         ],
       },
       {
         role: 'Software Engineer Intern',
-        start: 'January 2021',
-        end: 'May 2021',
+        start: 'Jan 2021',
+        end: 'Jun 2021',
         bullets: [
-          'Modernized a legacy monolithic JSP application into a Spring Boot microservices platform, improving fault isolation, deployment safety, and scalability.',
-          'Cut backend scheduler and parser runtime by 30% through async execution and targeted refactors in Java.',
-          'Improved API response times by 45% under peak production load through SQL query tuning and caching.'
+          "Cut a legacy parsing service's codebase by 65% by rebuilding it around a regex-based parser in Spring Boot.",
+          'Reduced database storage by 25% by normalizing the MySQL schema and consolidating duplicate vendor reference data.',
         ],
       },
     ],

@@ -16,7 +16,7 @@ const createClusters = (): SkillCluster[] => {
     {
       title: 'Backend & Web Development',
       description: 'Full-stack technologies for building scalable applications',
-      skills: ['Python', 'Java', 'TypeScript', 'FastAPI', 'Spring Boot', 'Flask', 'React', 'REST APIs', 'Microservices', 'PostgreSQL'],
+      skills: ['Java', 'Python', 'TypeScript', 'Spring Boot', 'FastAPI', 'React', 'Next.js', 'REST APIs', 'Event-Driven Microservices', 'OAuth 2.0 / JWT', 'PostgreSQL'],
       categories: ['Languages', 'Backend & Web'],
       color: 'from-blue-500/10 to-cyan-500/10',
       borderColor: 'border-blue-300 dark:border-blue-600',
@@ -24,7 +24,7 @@ const createClusters = (): SkillCluster[] => {
     {
       title: 'LLMs & GenAI Engineering',
       description: 'Building and evaluating production LLM systems',
-      skills: ['OpenAI Agent SDK', 'OpenAI API', 'Hugging Face', 'Retrieval-Augmented Generation (RAG)', 'pgvector', 'LLM-as-a-Judge Evaluation', 'Prompt Engineering', 'Fine-Tuning'],
+      skills: ['AI Agents & Tool Calling', 'Guardrails', 'Claude Code', 'Retrieval-Augmented Generation (RAG)', 'Hybrid Search & Reranking', 'pgvector', 'LLM Evals / LLM-as-a-Judge', 'OpenAI API (GPT-4o)', 'vLLM', 'QLoRA Fine-Tuning'],
       categories: ['LLMs & GenAI'],
       color: 'from-purple-500/10 to-pink-500/10',
       borderColor: 'border-purple-300 dark:border-purple-600',
@@ -32,7 +32,7 @@ const createClusters = (): SkillCluster[] => {
     {
       title: 'Machine Learning & AI',
       description: 'Model training, evaluation, and research',
-      skills: ['PyTorch', 'Scikit-learn', 'NumPy', 'Pandas', 'Reinforcement Learning', 'Model Evaluation', 'Benchmarking'],
+      skills: ['PyTorch', 'Scikit-learn', 'Gradient Boosting', 'NumPy', 'Pandas', 'Reinforcement Learning', 'Model Evaluation', 'Benchmarking'],
       categories: ['AI & ML'],
       color: 'from-fuchsia-500/10 to-pink-500/10',
       borderColor: 'border-fuchsia-300 dark:border-fuchsia-600',
@@ -40,7 +40,7 @@ const createClusters = (): SkillCluster[] => {
     {
       title: 'Systems Languages',
       description: 'Statically-typed and systems programming languages',
-      skills: ['C++', 'C', 'C#', 'Rust', 'Java', 'SQL'],
+      skills: ['Java', 'Kotlin', 'C++', 'C', 'C#', 'Rust', 'SQL'],
       categories: ['Languages'],
       color: 'from-red-500/10 to-orange-500/10',
       borderColor: 'border-red-300 dark:border-red-600',
@@ -54,9 +54,9 @@ const createClusters = (): SkillCluster[] => {
       borderColor: 'border-green-300 dark:border-green-600',
     },
     {
-      title: 'Observability & Load Testing',
-      description: 'Production monitoring, alerting, and performance validation',
-      skills: ['Splunk', 'Grafana', 'Locust', 'CI/CD'],
+      title: 'Observability & Testing',
+      description: 'Production monitoring, alerting, load and end-to-end testing',
+      skills: ['Splunk', 'Grafana', 'Locust', 'Selenium', 'Playwright', 'Pytest', 'Postman'],
       categories: ['Infrastructure & DevOps'],
       color: 'from-teal-500/10 to-cyan-500/10',
       borderColor: 'border-teal-300 dark:border-teal-600',
@@ -72,7 +72,7 @@ const createClusters = (): SkillCluster[] => {
     {
       title: 'Databases',
       description: 'Relational and vector data storage',
-      skills: ['PostgreSQL', 'pgvector', 'SQL'],
+      skills: ['PostgreSQL', 'pgvector', 'MySQL', 'MinIO', 'SQL'],
       categories: ['Infrastructure & DevOps', 'LLMs & GenAI'],
       color: 'from-violet-500/10 to-purple-500/10',
       borderColor: 'border-violet-300 dark:border-violet-600',
