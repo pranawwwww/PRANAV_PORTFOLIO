@@ -1,113 +1,157 @@
 // Shared portfolio data for backend API
 // This file is imported by the serverless function to build AI context
 
-// Get resume URL from environment variable with hardcoded fallback
-const getResumeUrl = (): string => {
-  return (
-    process.env.VITE_RESUME_URL ||
-    "https://drive.google.com/file/d/1xm0IuwerV8FN83byOtQ_B2WoqzAZqfKQ/view?usp=sharing"
-  );
-};
+// Current resume (Google Drive). Keep in sync with data/siteData.ts.
+const RESUME_URL = "https://drive.google.com/file/d/1jHTTvQRcG_M7tD3QuY1stw8LET37JvGQ/view?usp=sharing";
 
 export const portfolioData = {
   siteData: {
     name: "Pranav Kutralingam",
-    tagline: "MS CS @ ASU | SWE who speaks ML | My models lift & backends don't skip leg day | Now accepting quests.",
+    tagline: "Software Engineer, AI. Builds and ships LLM agents and cloud services in Java & Python.",
     location: "San Francisco Bay Area",
     email: "tpranavkutralingam@gmail.com",
     github: "https://github.com/pranawwwww",
     linkedin: "https://linkedin.com/in/pranavkutralingam",
     googleScholar: "https://scholar.google.com/citations?user=7wl6PBUAAAAJ",
-    resume: getResumeUrl()
+    resume: RESUME_URL
   },
 
   projects: [
     {
-      title: "AdaptED AI",
-      year: 2025,
-      stack: ["React", "TypeScript", "Gemini API"],
-      summary: "Generative-AI study assistant with adaptive UI and real-time, context-aware feedback. Won 'Best Use of AI' at ASU DevHacks 2025.",
-      links: {
-        demo: "https://pranawwwww.github.io/adaptedge-assignment-helper/",
-        repo: "https://github.com/pranawwwww/adaptedge-assignment-helper"
+      "title": "Computer-Use Automation Agent",
+      "year": 2026,
+      "stack": [
+        "Python",
+        "LLM agents",
+        "Pydantic",
+        "Playwright"
+      ],
+      "summary": "An LLM learns a task in a legacy web app (ParaBank) once, saves it as a typed, versioned skill, then replays it deterministically without the LLM. Self-repairs when the page drifts, with safety gates and 188 offline tests.",
+      "links": {
+        "repo": "https://github.com/pranawwwww/cua-computer-use-automation"
       }
     },
     {
-      title: "EtherFi Buddy",
-      year: 2025,
-      stack: ["React", "TypeScript", "FastAPI", "Claude AI"],
-      summary: "Full-stack DeFi dashboard with an AI explainer layer, portfolio analytics, and strategy simulation using real-time market data.",
-      links: {
-        demo: "https://etherfi-buddy.vercel.app",
-        repo: "https://github.com/pranawwwww/etherfi-buddy"
+      "title": "HEAL AI: Medical Insurance Assistant",
+      "year": 2025,
+      "note": "Team project",
+      "stack": [
+        "Python",
+        "FastAPI",
+        "React",
+        "TypeScript",
+        "Gemini",
+        "RAG"
+      ],
+      "summary": "Answers questions on uploaded medical bills and insurance policies and flags coverage gaps and overcharges. A React client calls a FastAPI RAG backend that grounds Gemini in the user's files.",
+      "links": {
+        "demo": "https://heal-ai-production.up.railway.app/",
+        "repo": "https://github.com/kspswati/heal-ai"
       }
     },
     {
-      title: "HEAL.AI",
-      year: 2025,
-      stack: ["React", "TypeScript", "FastAPI", "Gemini 2.5 Pro", "RAG"],
-      summary: "Healthcare expense analyzer that extracts coverage details from insurance documents, flags suspicious charges, and generates dispute-ready explanations via RAG-powered document Q&A.",
-      links: {
-        demo: "https://heal-ai-production.up.railway.app/",
-        repo: "https://github.com/kspswati/heal-ai"
+      "title": "AdaptED AI: Personalized Digital Tutor",
+      "year": 2025,
+      "stack": [
+        "React",
+        "TypeScript",
+        "Gemini API"
+      ],
+      "summary": "A generative-AI study assistant with an adaptive UI and real-time, context-aware feedback. Won 'Best Use of AI' at ASU DevHacks 2025.",
+      "links": {
+        "demo": "https://pranawwwww.github.io/adaptedge-assignment-helper/",
+        "repo": "https://github.com/pranawwwww/adaptedge-assignment-helper"
       }
     },
     {
-      title: "Scalable Cloud-Based Video & Image Analysis Platform",
-      year: 2025,
-      stack: ["AWS", "Docker", "PyTorch"],
-      summary: "Cloud-native ML inference pipeline on AWS reaching sub-2s latency at 80%+ lower infrastructure cost.",
-      links: {}
+      "title": "Scalable Cloud-Based Video & Image Analysis Platform",
+      "year": 2025,
+      "stack": [
+        "Python",
+        "AWS (EC2, SQS, S3, Lambda)",
+        "Docker"
+      ],
+      "summary": "Runs face recognition on videos and images. Jobs queue in SQS for EC2 workers and Dockerized Lambda, with S3 storage and a custom auto-scaler that sizes EC2 by queue depth.",
+      "links": {}
     },
     {
-      title: "Latent Adaptation of Foundation Policies for Sim-to-Real Transfer",
-      year: 2026,
-      stack: ["Reinforcement Learning", "Sim-to-Real Transfer", "PyTorch"],
-      summary: "Published at ICLR 2026. Adapts pretrained foundation policies to real-world dynamics at deployment via latent-space adaptation, without retraining. Pranav ran the multi-GPU PyTorch RL training (9 policies concurrently).",
-      links: {
-        arXiv: "https://openreview.net/forum?id=yn9dzttHvT"
-      },
-      isPublication: true
+      "title": "Lost in Execution: On the Multilingual Robustness of Tool Calling in Large Language Models",
+      "year": 2026,
+      "venue": "ACL 2026",
+      "authorship": "2nd of 6 authors",
+      "isPublication": true,
+      "stack": [
+        "Python",
+        "vLLM",
+        "LLM Evaluation",
+        "Tool Calling"
+      ],
+      "summary": "Benchmarks how accurately 13 LLMs call tools across 4 languages. Pranav built the Python harness that serves open models on vLLM, parses each tool call and scores it against ground truth.",
+      "links": {
+        "arXiv": "https://arxiv.org/abs/2601.05366"
+      }
     },
     {
-      title: "Lost in Execution: On the Multilingual Robustness of Tool Calling in LLMs",
-      year: 2026,
-      stack: ["Python", "vLLM", "LLM Evaluation", "Multilingual LLMs", "Tool Calling"],
-      summary: "Published at ACL 2026 (2nd author). Built the Python evaluation harness benchmarking how accurately 13 LLMs call tools across 4 languages (vLLM-served open models, every tool call scored against ground truth); a concurrent scheduler across 8 backends cut sweeps from 12 hours to under 1 hour.",
-      links: {
-        arXiv: "https://arxiv.org/abs/2601.05366"
-      },
-      isPublication: true
+      "title": "Latent Adaptation of Foundation Policies for Sim-to-Real Transfer",
+      "year": 2026,
+      "venue": "ICLR 2026",
+      "isPublication": true,
+      "stack": [
+        "Reinforcement Learning",
+        "PyTorch",
+        "Sim-to-Real"
+      ],
+      "summary": "Adapts pretrained RL policies for sim-to-real transfer. Pranav ran the multi-GPU training: 9 policies concurrently with checkpointing and auto-resume.",
+      "links": {
+        "arXiv": "https://openreview.net/forum?id=yn9dzttHvT"
+      }
     },
     {
-      title: "A Survey of Sim-to-Real Methods in Reinforcement Learning",
-      year: 2025,
-      stack: ["Research", "Reinforcement Learning", "Sim2Real"],
-      summary: "Surveyed 100+ sources and curated 48+ benchmarks; proposed a taxonomy mapping adaptation methods to MDP components.",
-      links: {
-        arXiv: "https://arxiv.org/abs/2502.13187"
-      },
-      isPublication: true
+      "title": "A Survey of Sim-to-Real Methods in Reinforcement Learning",
+      "year": 2025,
+      "venue": "arXiv, 2025",
+      "isPublication": true,
+      "stack": [
+        "Reinforcement Learning",
+        "Sim-to-Real",
+        "Survey"
+      ],
+      "summary": "Surveys sim-to-real methods in RL and maps adaptation methods to MDP components, with a curated list of benchmarks.",
+      "links": {
+        "arXiv": "https://arxiv.org/abs/2502.13187"
+      }
     },
     {
-      title: "ShadeBench",
-      year: 2026,
-      stack: ["Blender", "3D Simulation", "Computer Vision", "Dataset"],
-      summary: "Benchmark dataset using Blender-based 3D simulations and satellite imagery to support urban shade estimation under varying time-of-day and solar geometry.",
-      links: {
-        arXiv: "https://openreview.net/forum?id=brBCPRgCz3"
-      },
-      isPublication: true
+      "title": "ShadeBench: Benchmark Dataset for Urban Shade Simulation",
+      "year": 2025,
+      "venue": "NeurIPS 2025 Workshop (UrbanAI)",
+      "authorship": "4th of 6 authors",
+      "isPublication": true,
+      "stack": [
+        "Blender",
+        "3D Simulation",
+        "Computer Vision",
+        "Dataset"
+      ],
+      "summary": "A benchmark dataset built from Blender 3D simulations and satellite imagery for shade estimation across time of day and sun position.",
+      "links": {
+        "arXiv": "https://openreview.net/forum?id=brBCPRgCz3"
+      }
     },
     {
-      title: "DeepShade",
-      year: 2025,
-      stack: ["Diffusion Models", "Computer Vision", "Text Conditioning"],
-      summary: "Diffusion-based model conditioned on time/solar angles to generate realistic shade maps from satellite imagery.",
-      links: {
-        arXiv: "https://arxiv.org/abs/2507.12103"
-      },
-      isPublication: true
+      "title": "DeepShade: Generative Shade Prediction from Satellite Imagery",
+      "year": 2025,
+      "venue": "arXiv preprint, 2025",
+      "authorship": "4th of 6 authors",
+      "isPublication": true,
+      "stack": [
+        "Diffusion Models",
+        "Computer Vision"
+      ],
+      "summary": "A diffusion model conditioned on time and sun angle that generates shade maps from satellite imagery.",
+      "links": {
+        "arXiv": "https://arxiv.org/abs/2507.12103"
+      }
     }
   ],
 
@@ -201,69 +245,50 @@ export const portfolioData = {
       "Java",
       "Python",
       "TypeScript",
-      "JavaScript",
       "SQL",
-      "Kotlin",
-      "C++",
-      "C#",
-      "C",
-      "Rust"
-    ],
-    "AI_ML": [
-      "PyTorch",
-      "Scikit-learn",
-      "Gradient Boosting",
-      "NumPy",
-      "Pandas",
-      "Reinforcement Learning",
-      "Model Evaluation",
-      "Benchmarking"
-    ],
-    "LLMs_GenAI": [
-      "AI Agents & Tool Calling", "Guardrails", "Claude Code",
-      "RAG",
-      "Hybrid Search & Reranking",
-      "pgvector",
-      "LLM Evals / LLM-as-a-Judge",
-      "OpenAI API (GPT-4o)",
-      "vLLM",
-      "Hugging Face",
-      "QLoRA Fine-Tuning",
-      "Prompt Engineering"
+      "Kotlin"
     ],
     "Backend_Web": [
       "Spring Boot",
       "FastAPI",
-      "Flask",
-      "REST APIs",
-      "Event-Driven Microservices",
-      "OAuth 2.0 / JWT",
       "React",
       "Next.js",
-      "Android (Kotlin)"
+      "REST APIs",
+      "OAuth 2.0 / JWT",
+      "PostgreSQL",
+      "MySQL"
     ],
-    "Infrastructure_DevOps": [
+    "AI_LLMs": [
+      "AI agents & tool calling",
+      "MCP",
+      "LangGraph",
+      "RAG (hybrid search, reranking)",
+      "LLM evals / LLM-as-judge",
+      "Guardrails",
+      "vLLM",
+      "QLoRA fine-tuning",
+      "PyTorch",
+      "scikit-learn"
+    ],
+    "Cloud_Infra": [
       "Docker",
       "Kubernetes",
-      "Helm",
-      "Jenkins",
-      "GitHub Actions",
-      "CI/CD",
-      "Slurm",
-      "AWS",
+      "Terraform",
       "Azure",
-      "PostgreSQL",
-      "MySQL",
-      "MinIO",
-      "Splunk",
-      "Grafana"
+      "AWS",
+      "CI/CD (GitHub Actions, Jenkins)",
+      "Slurm",
+      "Linux"
     ],
-    "Testing": [
-      "Selenium",
-      "Playwright",
+    "Testing_Tools": [
       "Pytest",
+      "Playwright",
+      "Selenium",
       "Locust",
-      "Postman"
+      "Splunk",
+      "Claude Code",
+      "GitHub Copilot",
+      "Cursor"
     ]
   },
 
@@ -278,7 +303,7 @@ export const portfolioData = {
     },
     {
       "question": "What programming languages do you use?",
-      "answer": "Java, Python and TypeScript most, plus SQL, Kotlin, and C++/C#/C/Rust."
+      "answer": "Java, Python and TypeScript most, plus SQL and Kotlin."
     },
     {
       "question": "What's your biggest technical achievement?",
@@ -314,7 +339,7 @@ YOUR ROLE:
 
 GUIDELINES:
 - Focus on technical achievements and concrete results (e.g., "raised RAG retrieval precision from 71% to 93%", "built a Java service at 5 ms p99 latency", "ML pipeline saving $500K a year")
-- Mention specific projects when relevant (e.g., "In HEAL.AI, Pranav used RAG...")
+- Mention specific projects when relevant (e.g., "In his computer-use agent, Pranav...")
 - Be enthusiastic about Pranav's work and expertise
 - Provide contact information when appropriate (email, LinkedIn)
 - When discussing technologies, connect them to real projects or roles from the portfolio
@@ -341,10 +366,13 @@ TOP SKILLS TO HIGHLIGHT (in order of strength):
 5. **Cloud & CI/CD (Kubernetes, Azure, AWS, GitHub Actions)** - Moved Amadeus releases from every 2-3 days to daily; eval and lint gates in CI/CD at Pretorin
 
 SECONDARY SKILLS (mention if specifically asked):
-- Kotlin (Android), Rust, C++, C#, C
+- Kotlin (Android)
 - Splunk, Grafana, Slurm, MinIO
 - Testing: Selenium, Playwright, Pytest, Locust, Postman
-- React/TypeScript (used across AdaptED AI, EtherFi Buddy, HEAL.AI)
+- React/TypeScript (used across HEAL AI, AdaptED AI and Pretorin's product screens)
+- Pranav does not list C#, C, C++ or Rust as working skills.
+
+WORK AUTHORIZATION: Pranav does not need visa sponsorship. He is based in the SF Bay Area and open to relocating anywhere in the US.
 
 EXAMPLES OF GOOD RESPONSES:
 Q: "What are Pranav's skills?" or "What skills does Pranav have?"
@@ -357,5 +385,5 @@ Q: "Tell me about backend experience"
 A: "Pranav spent 3 years on Java and Spring Boot booking services at Amadeus: he designed an event-driven itinerary sync service at 5 ms p99 on 100K+ request peak days and shipped the IndiGo integration with idempotent checkout, growing India market share 18%. He also led 5 engineers on tooling used by 12 teams. At Pretorin he built the FastAPI backend for an agentic RAG chatbot and debugged an 89% upload failure rate down to 0%."
 
 Q: "What projects use React?"
-A: "Pranav has built several React projects! AdaptED AI (adaptive learning with Gemini), EtherFi Buddy (DeFi analytics with Claude AI), and HEAL.AI (medical bill analyzer with RAG). All use TypeScript and modern React patterns. Check them out on his portfolio!"
+A: "Pranav has built React front ends for HEAL AI (a team project: medical insurance assistant with RAG) and AdaptED AI (adaptive tutor with Gemini), plus React and Next.js product screens at Pretorin. Check them out on his portfolio!"
 `;

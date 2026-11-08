@@ -8,7 +8,7 @@ interface ScrollContextType {
 
 const ScrollContext = createContext<ScrollContextType | null>(null);
 
-const sections = ['about', 'experience', 'projects', 'skills', 'contact'];
+const sections = ['about', 'experience', 'projects', 'publications', 'skills', 'contact'];
 
 export const ScrollProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [activeSection, setActiveSection] = useState('about');

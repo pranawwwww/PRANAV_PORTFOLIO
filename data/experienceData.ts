@@ -1,10 +1,11 @@
 import { GroupedExperience } from '../types';
 
+// Reverse chronological. Each entry is one card on the site.
 export const experienceData: GroupedExperience[] = [
   {
     company: 'DaRL Lab, Arizona State University',
     location: 'Tempe, AZ',
-    totalStart: 'May 2024',
+    totalStart: 'September 2026',
     totalEnd: 'Present',
     roles: [
       {
@@ -13,16 +14,6 @@ export const experienceData: GroupedExperience[] = [
         end: 'Present',
         bullets: [
           "Research position in Prof. Hua Wei's DaRL Lab, continuing LLM research.",
-        ],
-      },
-      {
-        role: 'Graduate Research Assistant (AI & ML)',
-        start: 'May 2024',
-        end: 'Dec 2025',
-        bullets: [
-          'Cut LLM evaluation sweeps from 12 hours to under 1 hour with a concurrent Python scheduler across 8 model backends, including vLLM inference on A100 GPUs, for the ACL 2026 benchmark of tool calling in 13 LLMs across 4 languages.',
-          'Made 2,000-job distributed sweeps on a 10-GPU Slurm cluster fault-tolerant with checkpointing and retries, turning 4-5 day experiments into overnight runs.',
-          'Trained 9 RL policies concurrently in PyTorch across multiple GPUs for an ICLR 2026 paper on sim-to-real transfer.',
         ],
       },
     ],
@@ -45,6 +36,24 @@ export const experienceData: GroupedExperience[] = [
           'Built an OAuth 2.0 gateway that turns Google identities and LDAP attributes into JWTs, with MFA step-up and secrets in Azure Key Vault.',
           'Built a nightly network-cut CI gate that fails any release pulling an external image, protecting air-gapped production installs on Kubernetes.',
           'Built React and Next.js product screens, including a compliance dashboard and voice input for the chatbot.',
+        ],
+      },
+    ],
+  },
+  {
+    company: 'DaRL Lab, Arizona State University',
+    location: 'Tempe, AZ',
+    totalStart: 'May 2024',
+    totalEnd: 'December 2025',
+    roles: [
+      {
+        role: 'Graduate Research Assistant (AI & ML)',
+        start: 'May 2024',
+        end: 'Dec 2025',
+        bullets: [
+          'Cut LLM evaluation sweeps from 12 hours to under 1 hour with a concurrent Python scheduler across 8 model backends, including vLLM inference on A100 GPUs, for the ACL 2026 benchmark of tool calling in 13 LLMs across 4 languages.',
+          'Made 2,000-job distributed sweeps on a 10-GPU Slurm cluster fault-tolerant with checkpointing and retries, turning 4-5 day experiments into overnight runs.',
+          'Trained 9 RL policies concurrently in PyTorch across multiple GPUs for an ICLR 2026 paper on sim-to-real transfer.',
         ],
       },
     ],

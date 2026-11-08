@@ -28,6 +28,12 @@ export interface Project {
     arXiv?: string;
   };
   isPublication?: boolean;
+  // Publications: where it appeared, e.g. "ACL 2026"
+  venue?: string;
+  // Publications: author position, e.g. "2nd of 6 authors"
+  authorship?: string;
+  // Projects: short qualifier, e.g. "Team project"
+  note?: string;
 }
 
 // from src/data/experience.json

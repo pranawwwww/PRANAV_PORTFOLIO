@@ -85,11 +85,10 @@ const initialMessage: Message = {
 
 // Simple preset actions for convenience
 const defaultQuickActions: QuickAction[] = [
-  { label: "Know Pranav", command: "Who is Pranav?" },
-  { label: "Show featured projects" },
-  { label: "List technical skills" },
-  { label: "How can I contact you?" },
-  { label: "Summarize experience" },
+  { label: "Does he need sponsorship?" },
+  { label: "What did he build at Pretorin?" },
+  { label: "Java experience?", command: "What is Pranav's Java and Spring Boot experience?" },
+  { label: "Show projects", command: "Show all of Pranav's projects" },
 ];
 
 export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) => {

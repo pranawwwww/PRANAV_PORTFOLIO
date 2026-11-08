@@ -1,75 +1,82 @@
 import { Project } from '../types';
 
+// Order matters: this is the order shown on the site.
 export const projectsData: Project[] = [
   {
-    title: 'AdaptED AI — Personalized Digital Tutor',
-    year: 2025,
-    stack: ['React', 'TypeScript', 'Gemini API'],
+    title: 'Computer-Use Automation Agent',
+    year: 2026,
+    stack: ['Python', 'LLM agents', 'Pydantic', 'Playwright'],
     summary:
-      "Built a generative-AI study assistant with adaptive UI and real-time, context-aware feedback; won 'Best Use of AI' at ASU DevHacks.",
+      'An LLM learns a task in a legacy web app (ParaBank) once, saves it as a typed, versioned skill, then replays it deterministically without the LLM. Self-repairs when the page drifts, with safety gates and 188 offline tests.',
     links: {
-      demo: 'https://pranawwwww.github.io/adaptedge-assignment-helper/',
-      repo: 'https://github.com/pranawwwww/adaptedge-assignment-helper',
+      repo: 'https://github.com/pranawwwww/cua-computer-use-automation',
     },
   },
   {
-    title: 'EtherFi Buddy — AI-Powered DeFi Education & Analytics',
+    title: 'HEAL AI: Medical Insurance Assistant',
     year: 2025,
-    stack: ['React', 'TypeScript', 'FastAPI', 'Claude AI'],
+    stack: ['Python', 'FastAPI', 'React', 'TypeScript', 'Gemini', 'RAG'],
     summary:
-      'Built a full-stack DeFi dashboard with an AI explainer layer, portfolio analytics, and strategy simulation using real-time market data aggregated from multiple APIs.',
-    links: {
-      demo: 'https://etherfi-buddy.vercel.app',
-      repo: 'https://github.com/pranawwwww/etherfi-buddy',
-    },
-  },
-  {
-    title: 'HEAL.AI — Medical Bill Analyzer & Insurance Q&A',
-    year: 2025,
-    stack: ['React', 'TypeScript', 'FastAPI', 'Gemini 2.5 Pro', 'RAG'],
-    summary:
-      'Built a healthcare expense analyzer that extracts coverage details from insurance documents, flags suspicious charges, and generates dispute-ready explanations via RAG-powered document Q&A.',
+      "Answers questions on uploaded medical bills and insurance policies and flags coverage gaps and overcharges. A React client calls a FastAPI RAG backend that grounds Gemini in the user's files.",
+    note: 'Team project',
     links: {
       demo: 'https://heal-ai-production.up.railway.app/',
       repo: 'https://github.com/kspswati/heal-ai',
     },
   },
   {
-    title: 'Scalable Cloud-Based Video & Image Analysis Platform',
+    title: 'AdaptED AI: Personalized Digital Tutor',
     year: 2025,
-    stack: ['AWS', 'Docker', 'PyTorch'],
+    stack: ['React', 'TypeScript', 'Gemini API'],
     summary:
-      'Built a cloud-native ML inference pipeline on AWS reaching sub-2s latency at 80%+ lower infrastructure cost.',
-    links: {},
+      "A generative-AI study assistant with an adaptive UI and real-time, context-aware feedback. Won 'Best Use of AI' at ASU DevHacks 2025.",
+    links: {
+      demo: 'https://pranawwwww.github.io/adaptedge-assignment-helper/',
+      repo: 'https://github.com/pranawwwww/adaptedge-assignment-helper',
+    },
   },
   {
-    title: 'Latent Adaptation of Foundation Policies for Sim-to-Real Transfer',
-    year: 2026,
-    stack: ['Reinforcement Learning', 'Sim-to-Real Transfer', 'Foundation Policies', 'PyTorch'],
+    title: 'Scalable Cloud-Based Video & Image Analysis Platform',
+    year: 2025,
+    stack: ['Python', 'AWS (EC2, SQS, S3, Lambda)', 'Docker'],
     summary:
-      'Published at ICLR 2026. Adapts pretrained foundation policies to real-world dynamics at deployment via latent-space adaptation, without retraining. Ran the multi-GPU PyTorch RL training, with 9 policies trained concurrently.',
-    links: {
-      arXiv: 'https://openreview.net/forum?id=yn9dzttHvT',
-    },
-    isPublication: true,
+      'Runs face recognition on videos and images. Jobs queue in SQS for EC2 workers and Dockerized Lambda, with S3 storage and a custom auto-scaler that sizes EC2 by queue depth.',
+    links: {},
   },
+
+  // Publications (ACL first: closest to software/AI engineering work)
   {
     title: 'Lost in Execution: On the Multilingual Robustness of Tool Calling in Large Language Models',
     year: 2026,
-    stack: ['Python', 'vLLM', 'LLM Evaluation', 'Multilingual LLMs', 'Tool Calling'],
+    venue: 'ACL 2026',
+    authorship: '2nd of 6 authors',
+    stack: ['Python', 'vLLM', 'LLM Evaluation', 'Tool Calling'],
     summary:
-      'Published at ACL 2026 (2nd author). Built the Python evaluation harness that benchmarks how accurately 13 LLMs call tools across 4 languages, serving open models on vLLM and scoring every parsed tool call against ground truth; a concurrent scheduler across 8 backends cut sweeps from 12 hours to under 1 hour.',
+      'Benchmarks how accurately 13 LLMs call tools across 4 languages. I built the Python harness that serves open models on vLLM, parses each tool call and scores it against ground truth.',
     links: {
       arXiv: 'https://arxiv.org/abs/2601.05366',
     },
     isPublication: true,
   },
   {
+    title: 'Latent Adaptation of Foundation Policies for Sim-to-Real Transfer',
+    year: 2026,
+    venue: 'ICLR 2026',
+    stack: ['Reinforcement Learning', 'PyTorch', 'Sim-to-Real'],
+    summary:
+      'Adapts pretrained RL policies for sim-to-real transfer. I ran the multi-GPU training: 9 policies concurrently with checkpointing and auto-resume.',
+    links: {
+      arXiv: 'https://openreview.net/forum?id=yn9dzttHvT',
+    },
+    isPublication: true,
+  },
+  {
     title: 'A Survey of Sim-to-Real Methods in Reinforcement Learning',
     year: 2025,
-    stack: ['Research', 'Reinforcement Learning', 'Sim2Real'],
+    venue: 'arXiv, 2025',
+    stack: ['Reinforcement Learning', 'Sim-to-Real', 'Survey'],
     summary:
-      'Surveyed 100+ sources and curated 48+ benchmarks; proposed a taxonomy mapping adaptation methods to MDP components to improve comparative evaluation.',
+      'Surveys sim-to-real methods in RL and maps adaptation methods to MDP components, with a curated list of benchmarks.',
     links: {
       arXiv: 'https://arxiv.org/abs/2502.13187',
       repo: 'https://github.com/LongchaoDa/AwesomeSim2Real',
@@ -77,22 +84,26 @@ export const projectsData: Project[] = [
     isPublication: true,
   },
   {
-    title: 'ShadeBench — Benchmark Dataset for Urban Shade Simulation',
-    year: 2026,
+    title: 'ShadeBench: Benchmark Dataset for Urban Shade Simulation',
+    year: 2025,
+    venue: 'NeurIPS 2025 Workshop (UrbanAI)',
+    authorship: '4th of 6 authors',
     stack: ['Blender', '3D Simulation', 'Computer Vision', 'Dataset'],
     summary:
-      'Built a benchmark dataset using Blender-based 3D simulations and satellite imagery to support shade estimation under varying time-of-day and solar geometry.',
+      'A benchmark dataset built from Blender 3D simulations and satellite imagery for shade estimation across time of day and sun position.',
     links: {
       arXiv: 'https://openreview.net/forum?id=brBCPRgCz3',
     },
     isPublication: true,
   },
   {
-    title: 'DeepShade — Generative Shade Prediction from Satellite Imagery',
+    title: 'DeepShade: Generative Shade Prediction from Satellite Imagery',
     year: 2025,
-    stack: ['Diffusion Models', 'Computer Vision', 'Text Conditioning'],
+    venue: 'arXiv preprint, 2025',
+    authorship: '4th of 6 authors',
+    stack: ['Diffusion Models', 'Computer Vision'],
     summary:
-      'Helped develop a diffusion-based model conditioned on time/solar angles to generate realistic shade maps from satellite imagery, bridging noisy real data with high-quality simulated supervision.',
+      'A diffusion model conditioned on time and sun angle that generates shade maps from satellite imagery.',
     links: {
       arXiv: 'https://arxiv.org/abs/2507.12103',
     },

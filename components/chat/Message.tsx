@@ -70,11 +70,11 @@ const MessageComponent: React.FC<MessageProps> = ({ message, isLastMessage = fal
     if (id === 'react') {
       return projectsData.filter(p => p.stack.some(tech => tech.toLowerCase() === 'react'));
     }
-    if (id === 'defi' || id === 'web3') {
-      return projectsData.filter(p =>
-        p.title.toLowerCase().includes('etherfi') ||
-        p.stack.some(tech => ['web3', 'defi'].includes(tech.toLowerCase()))
-      );
+    if (['cua', 'computer-use', 'computer use', 'agent', 'agents', 'ai agents', 'parabank'].includes(id)) {
+      return projectsData.filter(p => p.title.toLowerCase().includes('computer-use'));
+    }
+    if (id === 'cloud' || id === 'aws') {
+      return projectsData.filter(p => p.title.toLowerCase().includes('cloud-based'));
     }
     if (id === 'healthcare' || id === 'medical') {
       return projectsData.filter(p => p.title.toLowerCase().includes('heal'));
@@ -89,7 +89,7 @@ const MessageComponent: React.FC<MessageProps> = ({ message, isLastMessage = fal
     }
     if (id === 'reinforcement learning' || id === 'rl') {
       return projectsData.filter(p =>
-        p.stack.some(tech => tech.toLowerCase() === 'rl')
+        p.stack.some(tech => ['rl', 'reinforcement learning'].includes(tech.toLowerCase()))
       );
     }
     if (id === 'diffusion models') {
@@ -107,10 +107,7 @@ const MessageComponent: React.FC<MessageProps> = ({ message, isLastMessage = fal
     if (id === 'adapted ai' || id === 'adapted') {
       return projectsData.filter(p => p.title.toLowerCase().includes('adapted'));
     }
-    if (id === 'etherfi buddy' || id === 'etherfi') {
-      return projectsData.filter(p => p.title.toLowerCase().includes('etherfi'));
-    }
-    if (id === 'heal.ai' || id === 'heal') {
+    if (id === 'heal.ai' || id === 'heal' || id === 'heal ai') {
       return projectsData.filter(p => p.title.toLowerCase().includes('heal'));
     }
     if (id === 'sim2real rl survey' || id === 'sim2real' || id === 'sim-to-real') {
