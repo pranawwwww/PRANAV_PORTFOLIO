@@ -34,24 +34,6 @@ const ChatBubble: React.FC = () => {
     };
   }, [isChatOpen]);
 
-  // Show the floating button only after the visitor scrolls past most of the hero,
-  // so it never covers the intro or its buttons.
-  const [showButton, setShowButton] = useState(false);
-  useEffect(() => {
-    const scroller = document.querySelector('.snap-container');
-    const onScroll = () => {
-      const top = scroller ? scroller.scrollTop : window.scrollY;
-      setShowButton(top > window.innerHeight * 0.6);
-    };
-    onScroll();
-    scroller?.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => {
-      scroller?.removeEventListener('scroll', onScroll);
-      window.removeEventListener('scroll', onScroll);
-    };
-  }, []);
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!inputValue.trim()) return;
@@ -65,7 +47,7 @@ const ChatBubble: React.FC = () => {
       <button
         onClick={() => setIsChatOpen(true)}
         className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 z-40 flex items-center gap-2 shadow-2xl ${
-          showButton && !isChatOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+          !isChatOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
         }`}
         style={{
           background: 'white',

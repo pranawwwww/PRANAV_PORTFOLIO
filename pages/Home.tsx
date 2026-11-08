@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import { siteData } from '../data/siteData.ts';
 import { projectsData } from '../data/projectsData.ts';
@@ -122,6 +122,44 @@ const PublicationItem: React.FC<{ pub: Project }> = ({ pub }) => (
   </Card>
 );
 
+const taglines = [
+  'Production-grade systems built',
+  'Building LLM agents and cloud services in Java & Python',
+  'RAG precision 71% → 93% in production',
+  'Published at ICLR 2026 & ACL 2026',
+  'Deploying LLM and ML Systems in Production',
+  'Multiple Hackathon Winner with Shipped Projects',
+  'Shipping Reliable Backend Systems',
+  'Gym Rat with Engineering Discipline',
+];
+
+const RotatingTagline: React.FC = () => {
+  const [index, setIndex] = useState(0);
+  const [fading, setFading] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFading(true);
+      setTimeout(() => {
+        setIndex((i: number) => (i + 1) % taglines.length);
+        setFading(false);
+      }, 300);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <p className="text-base sm:text-lg font-medium mb-6 min-h-[3.5rem] sm:min-h-[1.75rem] overflow-hidden" style={{ color: 'var(--accent)' }} aria-live="off">
+      <span
+        className="inline-block transition-all duration-300"
+        style={{ opacity: fading ? 0 : 1, transform: fading ? 'translateY(-12px)' : 'translateY(0)' }}
+      >
+        {taglines[index]}
+      </span>
+    </p>
+  );
+};
+
 /* ---------- page ---------- */
 
 const Home: React.FC = () => {
@@ -173,7 +211,7 @@ const Home: React.FC = () => {
     <div>
       {/* Hero */}
       <section id="about" className="snap-section">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 w-full py-8 sm:py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 w-full py-8 sm:py-16">
           <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-center">
             <div>
               <h1 className="font-bold text-4xl sm:text-5xl mb-2 heading-blue gradient-blue" style={{ letterSpacing: '0.02em' }}>
@@ -182,9 +220,7 @@ const Home: React.FC = () => {
               <p className="text-xl sm:text-2xl font-semibold mb-1" style={{ color: 'var(--text)' }}>
                 Software Engineer, AI
               </p>
-              <p className="text-base sm:text-lg font-medium mb-6" style={{ color: 'var(--accent)' }}>
-                RAG precision 71% → 93% in production
-              </p>
+              <RotatingTagline />
 
               <div className="space-y-3 text-base leading-relaxed max-w-2xl" style={{ color: 'var(--text)' }}>
                 <p>Most of my code has run in production. Some of it also made it into ACL and ICLR.</p>
@@ -204,13 +240,26 @@ const Home: React.FC = () => {
                 <LinkButton href={siteData.links.github}>GitHub ↗</LinkButton>
                 {siteData.links.googleScholar && <LinkButton href={siteData.links.googleScholar}>Scholar ↗</LinkButton>}
               </div>
+
+              <button
+                type="button"
+                onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })}
+                className="mt-8 inline-flex items-center gap-2 animate-bounce"
+                style={{ color: 'var(--text-muted)' }}
+                aria-label="Scroll down to see more"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+                <span className="text-sm">Scroll to explore</span>
+              </button>
             </div>
 
             <div className="justify-self-center md:justify-self-end order-first md:order-last">
               <img
                 src={profileImage}
                 alt="Pranav Kutralingam"
-                className="w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 rounded-2xl object-cover shadow-lg"
+                className="w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-[26rem] lg:h-[26rem] rounded-2xl object-cover shadow-lg"
                 style={{ border: '1px solid var(--border)' }}
               />
             </div>
@@ -341,7 +390,14 @@ const Home: React.FC = () => {
             </form>
           </Card>
 
-          <p className="mt-10 text-xs text-left sm:text-center" style={{ color: 'var(--text-muted)' }}>
+          <blockquote className="mt-12 pt-8 max-w-2xl mx-auto text-center" style={{ borderTop: '1px solid var(--border)' }}>
+            <p className="text-lg sm:text-xl italic mb-2" style={{ color: 'var(--text-muted)' }}>
+              "We are what we repeatedly do. Excellence, then, is not an act, but a habit."
+            </p>
+            <cite className="text-sm" style={{ color: 'var(--text-muted)', fontStyle: 'normal' }}>— Aristotle</cite>
+          </blockquote>
+
+          <p className="mt-8 text-xs text-left sm:text-center" style={{ color: 'var(--text-muted)' }}>
             © {new Date().getFullYear()} Pranav Kutralingam
           </p>
         </div>
