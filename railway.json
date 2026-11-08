@@ -9,7 +9,8 @@
           "nixPkgs": ["nodejs_20"]
         }
       }
-    }
+    },
+    "buildCommand": "npm run build"
   },
   "deploy": {
     "startCommand": "node server.js",

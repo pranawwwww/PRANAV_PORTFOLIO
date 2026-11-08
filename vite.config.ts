@@ -1,11 +1,11 @@
 import path from 'path';
 import { defineConfig } from 'vite';
 
-export default defineConfig(({ mode }) => {
-  const isProd = mode === 'production';
-  const hasCustomDomain = !!process.env.CUSTOM_DOMAIN;
+export default defineConfig(() => {
   return {
-    base: isProd ? (hasCustomDomain ? '/' : '/PRANAV_PORTFOLIO/') : '/',
+    // Served from the domain root (Railway / custom domain).
+    // Set BASE_PATH=/PRANAV_PORTFOLIO/ only to build for the github.io sub-path.
+    base: process.env.BASE_PATH || '/',
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),

@@ -5,6 +5,9 @@ import express from 'express';
 import cors from 'cors';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import dotenv from 'dotenv';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { SYSTEM_INSTRUCTION } from './api/portfolio-data.js';
 
 dotenv.config();
@@ -139,6 +142,19 @@ app.post('/api/chat', async (req, res) => {
     });
   }
 });
+
+// Serve the built frontend (dist/) from the same server
+const distDir = path.join(path.dirname(fileURLToPath(import.meta.url)), 'dist');
+if (fs.existsSync(distDir)) {
+  app.use(express.static(distDir, { index: 'index.html', maxAge: '1h' }));
+  // SPA fallback: any other GET that isn't an API route gets index.html
+  app.use((req, res, next) => {
+    if (req.method !== 'GET' || req.path.startsWith('/api/')) return next();
+    res.sendFile(path.join(distDir, 'index.html'));
+  });
+} else {
+  console.warn('dist/ not found - run "npm run build" to serve the frontend');
+}
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {

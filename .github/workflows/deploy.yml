@@ -1,8 +1,7 @@
 name: Deploy to GitHub Pages
 
+# Site now deploys on Railway (server.js serves dist/). Kept for manual fallback only.
 on:
-  push:
-    branches: [ main ]
   workflow_dispatch:
 
 permissions:
